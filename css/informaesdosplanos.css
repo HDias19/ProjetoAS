@@ -1,0 +1,935 @@
+.informaesdosplanos-container {
+  width: 100%;
+  display: flex;
+  overflow: auto;
+  min-height: 100vh;
+  align-items: center;
+  flex-direction: column;
+}
+.informaesdosplanos-informaesdosplanos {
+  width: 100%;
+  height: 2417px;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  align-items: flex-start;
+  flex-shrink: 0;
+  background-color: rgba(255, 255, 255, 1);
+}
+.informaesdosplanos-image3 {
+  top: 431px;
+  left: 847px;
+  width: 519px;
+  height: 653px;
+  position: absolute;
+}
+.informaesdosplanos-text {
+  top: 399px;
+  left: 236px;
+  color: rgba(0, 0, 0, 1);
+  width: 968px;
+  height: auto;
+  position: absolute;
+  font-size: 64px;
+  font-style: Bold;
+  text-align: center;
+  font-family: Zilla Slab;
+  font-weight: 700;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.informaesdosplanos-text01 {
+  color: rgba(0, 0, 0, 1);
+}
+.informaesdosplanos-text03 {
+  top: 586px;
+  left: 148px;
+  color: rgba(0, 0, 0, 1);
+  width: 671px;
+  height: auto;
+  position: absolute;
+  font-size: 24px;
+  font-style: Regular;
+  text-align: left;
+  font-family: Inter;
+  font-weight: 400;
+  line-height: 190.02273082733154%;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.informaesdosplanos-component19 {
+  top: 1135px;
+  left: 550px;
+  width: 340px;
+  height: 61px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+.informaesdosplanos-text05 {
+  left: 53px;
+  color: rgba(58, 165, 41, 1);
+  height: auto;
+  position: absolute;
+  font-size: 32px;
+  font-style: Bold;
+  text-align: left;
+  font-family: Inter;
+  font-weight: 700;
+  line-height: 190.02273082733154%;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.informaesdosplanos-component18 {
+  top: 7px;
+  left: 0px;
+  width: 47px;
+  height: 47px;
+  position: absolute;
+}
+.informaesdosplanos-component21 {
+  top: 1246px;
+  left: 798px;
+  width: 529px;
+  height: 658px;
+  display: flex;
+  position: absolute;
+  box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.25) ;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+.informaesdosplanos-rectangle3 {
+  top: 0px;
+  left: 0px;
+  width: 529px;
+  height: 658px;
+  position: absolute;
+  border-radius: 10px;
+}
+.informaesdosplanos-text07 {
+  top: 215px;
+  left: 43px;
+  color: rgb(255, 255, 255);
+  width: 443px;
+  height: auto;
+  position: absolute;
+  font-size: 24px;
+  font-style: Regular;
+  text-align: left;
+  font-family: Inter;
+  font-weight: 400;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.informaesdosplanos-component181 {
+  top: 557px;
+  left: 176px;
+  width: 176px;
+  height: 52.99999237060547px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+  border-radius: 98px;
+}
+.informaesdosplanos-rectangle5 {
+  top: 0px;
+  left: 0px;
+  width: 176px;
+  height: 53px;
+  position: absolute;
+  border-color: rgba(255, 255, 255, 0);
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 5px;
+}
+.informaesdosplanos-text15 {
+  top: 567px;
+  left: 221px;
+  color: rgba(255, 255, 255, 1);
+  height: auto;
+  position: absolute;
+  font-size: 28px;
+  font-style: Bold;
+  text-align: left;
+  font-family: Inter;
+  font-weight: 700;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.informaesdosplanos-line5 {
+  top: 279px;
+  left: 50px;
+  width: 425px;
+  height: 10px;
+  position: absolute;
+}
+.informaesdosplanos-line6 {
+  top: 369px;
+  left: 50px;
+  width: 425px;
+  height: 10px;
+  position: absolute;
+}
+.informaesdosplanos-text17 {
+  top: 37px;
+  left: 125px;
+  color: rgba(255, 255, 255, 1);
+  width: 279px;
+  height: auto;
+  position: absolute;
+  font-size: 32px;
+  font-style: Bold;
+  text-align: center;
+  font-family: Inter;
+  font-weight: 700;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.informaesdosplanos-text19 {
+  top: 90px;
+  left: 70px;
+  color: rgb(255, 255, 255);
+  width: 377px;
+  height: auto;
+  position: absolute;
+  font-size: 90px;
+  font-style: Bold;
+  text-align: center;
+  font-family: Inter;
+  font-weight: 700;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.informaesdosplanos-text20 {
+  color: #ffffff;
+}
+.informaesdosplanos-text21 {
+  font-size: 20px;
+}
+.informaesdosplanos-component22 {
+  top: 1246px;
+  left: 134px;
+  width: 529px;
+  height: 658px;
+  display: flex;
+  position: absolute;
+  box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.25) ;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+.informaesdosplanos-rectangle4 {
+  top: 0px;
+  left: 0px;
+  width: 529px;
+  height: 658px;
+  position: absolute;
+  border-radius: 10px;
+}
+.informaesdosplanos-text22 {
+  top: 215px;
+  left: 43px;
+  color: rgb(0, 0, 0);
+  width: 443px;
+  height: auto;
+  position: absolute;
+  font-size: 24px;
+  font-style: Regular;
+  text-align: left;
+  font-family: Inter;
+  font-weight: 400;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.informaesdosplanos-component20 {
+  top: 557px;
+  left: 176px;
+  width: 176px;
+  height: 52.99999237060547px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+  border-radius: 98px;
+}
+.informaesdosplanos-rectangle51 {
+  top: 0px;
+  left: 0px;
+  width: 176px;
+  height: 53px;
+  position: absolute;
+  border-color: rgba(255, 255, 255, 0);
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 5px;
+}
+.informaesdosplanos-text30 {
+  top: 567px;
+  left: 221px;
+  color: rgba(255, 255, 255, 1);
+  height: auto;
+  position: absolute;
+  font-size: 28px;
+  font-style: Bold;
+  text-align: left;
+  font-family: Inter;
+  font-weight: 700;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.informaesdosplanos-line7 {
+  top: 288px;
+  left: 45px;
+  width: 425px;
+  height: 10px;
+  position: absolute;
+}
+.informaesdosplanos-line8 {
+  top: 371px;
+  left: 47px;
+  width: 425px;
+  height: 10px;
+  position: absolute;
+}
+.informaesdosplanos-text32 {
+  top: 36px;
+  left: 121px;
+  color: rgba(0, 0, 0, 1);
+  width: 279px;
+  height: auto;
+  position: absolute;
+  font-size: 32px;
+  font-style: Bold;
+  text-align: center;
+  font-family: Inter;
+  font-weight: 700;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.informaesdosplanos-text34 {
+  top: 89px;
+  left: 70px;
+  color: rgb(0, 0, 0);
+  width: 377px;
+  height: auto;
+  position: absolute;
+  font-size: 90px;
+  font-style: Bold;
+  text-align: center;
+  font-family: Inter;
+  font-weight: 700;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.informaesdosplanos-text35 {
+  color: #000000;
+}
+.informaesdosplanos-text36 {
+  font-size: 20px;
+}
+.informaesdosplanos-component16 {
+  top: 309px;
+  left: 35px;
+  width: 325px;
+  height: 75px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+.informaesdosplanos-text37 {
+  left: 58px;
+  color: rgba(69, 69, 69, 1);
+  width: 281px;
+  height: auto;
+  position: absolute;
+  font-size: 40px;
+  font-style: Bold;
+  text-align: left;
+  font-family: Inter;
+  font-weight: 700;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.informaesdosplanos-inner-plugin-iframe {
+  top: 0px;
+  left: 2px;
+  width: 48px;
+  height: 48px;
+  position: absolute;
+}
+.informaesdosplanos-component17 {
+  top: 0px;
+  left: 0px;
+  width: 1440px;
+  height: 274px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+.informaesdosplanos-component11 {
+  top: 0px;
+  left: 0px;
+  width: 1440px;
+  height: 274px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+.informaesdosplanos-rectangle11 {
+  top: 0px;
+  left: 0px;
+  width: 1440px;
+  height: 274px;
+  position: absolute;
+}
+.informaesdosplanos-component1 {
+  top: 0px;
+  left: 0px;
+  width: 1440px;
+  height: 44px;
+  display: flex;
+  position: absolute;
+  box-sizing: content-box;
+  align-items: flex-start;
+  flex-shrink: 0;
+  border-color: rgba(9, 9, 9, 0);
+  border-style: solid;
+  border-width: 2px;
+}
+.informaesdosplanos-rectangle1 {
+  top: 0px;
+  left: 0px;
+  width: 1440px;
+  height: 44px;
+  position: absolute;
+}
+.informaesdosplanos-text39 {
+  top: 13px;
+  left: 95px;
+  color: rgba(201, 239, 199, 1);
+  height: auto;
+  position: absolute;
+  font-size: 16px;
+  font-style: Regular;
+  text-align: center;
+  font-family: Zilla Slab;
+  font-weight: 400;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.informaesdosplanos-text41 {
+  top: 13px;
+  left: 305px;
+  color: rgba(201, 239, 199, 1);
+  height: auto;
+  position: absolute;
+  font-size: 16px;
+  font-style: Regular;
+  text-align: center;
+  font-family: Zilla Slab;
+  font-weight: 400;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.informaesdosplanos-text43 {
+  top: 13px;
+  left: 1300px;
+  color: rgba(201, 239, 199, 1);
+  height: auto;
+  position: absolute;
+  font-size: 16px;
+  font-style: Regular;
+  text-align: center;
+  font-family: Zilla Slab;
+  font-weight: 400;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.informaesdosplanos-pin {
+  top: 12px;
+  left: 69px;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+.informaesdosplanos-subtract {
+  top: 4px;
+  left: 5px;
+  width: 14px;
+  height: 16px;
+  position: absolute;
+}
+.informaesdosplanos-usercicrle {
+  top: 101px;
+  left: 1319px;
+  width: 45px;
+  height: 45px;
+  position: absolute;
+}
+.informaesdosplanos-searchalt {
+  top: 101px;
+  left: 88px;
+  width: 43px;
+  height: 43px;
+  position: absolute;
+}
+.informaesdosplanos-line1 {
+  top: 200px;
+  left: 0px;
+  width: 1440px;
+  height: 1px;
+  position: absolute;
+}
+.informaesdosplanos-line3 {
+  top: 274px;
+  left: 0px;
+  width: 1440px;
+  height: 1px;
+  position: absolute;
+}
+.informaesdosplanos-text45 {
+  top: 219px;
+  left: 470px;
+  color: rgba(0, 0, 0, 1);
+  height: auto;
+  position: absolute;
+  font-size: 24px;
+  font-style: Regular;
+  text-align: center;
+  font-family: Zilla Slab;
+  font-weight: 400;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.informaesdosplanos-text47 {
+  top: 219px;
+  left: 595px;
+  color: rgba(0, 0, 0, 1);
+  height: auto;
+  position: absolute;
+  font-size: 24px;
+  font-style: Regular;
+  text-align: center;
+  font-family: Zilla Slab;
+  font-weight: 400;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.informaesdosplanos-text49 {
+  top: 219px;
+  left: 727px;
+  color: rgba(0, 0, 0, 1);
+  height: auto;
+  position: absolute;
+  font-size: 24px;
+  font-style: Regular;
+  text-align: center;
+  font-family: Zilla Slab;
+  font-weight: 400;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.informaesdosplanos-text51 {
+  top: 219px;
+  left: 888px;
+  color: rgba(0, 0, 0, 1);
+  height: auto;
+  position: absolute;
+  font-size: 24px;
+  font-style: Regular;
+  text-align: center;
+  font-family: Zilla Slab;
+  font-weight: 400;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.informaesdosplanos-expanddown {
+  top: 224px;
+  left: 664px;
+  width: 24px;
+  height: 24px;
+  position: absolute;
+}
+.informaesdosplanos-expanddown1 {
+  top: 224px;
+  left: 814px;
+  width: 24px;
+  height: 24px;
+  position: absolute;
+}
+.informaesdosplanos-logonobackground1 {
+  top: 58px;
+  left: 586px;
+  width: 268px;
+  height: 123px;
+  position: absolute;
+}
+.informaesdosplanos-truck {
+  top: 16px;
+  left: 273px;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  overflow: hidden;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+.informaesdosplanos-group {
+  top: 0px;
+  left: 1px;
+  width: 22px;
+  height: 15.304356575012207px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 1;
+}
+.informaesdosplanos-ellipse122 {
+  top: 11.478267669677734px;
+  left: 2.8695669174194336px;
+  width: 4px;
+  height: 4px;
+  position: absolute;
+  border-color: rgba(201, 239, 199, 1);
+  border-style: solid;
+  border-width: 1px;
+}
+.informaesdosplanos-ellipse123 {
+  top: 11.478267669677734px;
+  left: 15.113040924072266px;
+  width: 4px;
+  height: 4px;
+  position: absolute;
+  border-color: rgba(201, 239, 199, 1);
+  border-style: solid;
+  border-width: 1px;
+}
+.informaesdosplanos-vector22 {
+  top: 0px;
+  left: 0px;
+  width: 22px;
+  height: 13px;
+  position: absolute;
+}
+.informaesdosplanos-inner-plugin-iframe1 {
+  top: 16px;
+  left: 1280px;
+  width: 16px;
+  height: 16px;
+  position: absolute;
+}
+.informaesdosplanos-line2 {
+  top: 253px;
+  left: 600px;
+  width: 57px;
+  height: 1px;
+  position: absolute;
+}
+.informaesdosplanos-component37 {
+  top: 2004px;
+  left: 0px;
+  width: 1440px;
+  height: 413px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+.informaesdosplanos-rectangle19 {
+  top: 0px;
+  left: 0px;
+  width: 1440px;
+  height: 413px;
+  position: absolute;
+}
+.informaesdosplanos-line11 {
+  top: 337px;
+  left: 183px;
+  width: 1075px;
+  height: 1px;
+  position: absolute;
+}
+.informaesdosplanos-text53 {
+  top: 67px;
+  left: 183px;
+  color: rgba(0, 0, 0, 1);
+  width: 173px;
+  height: auto;
+  position: absolute;
+  font-size: 32px;
+  font-style: Bold;
+  text-align: center;
+  font-family: Zilla Slab;
+  font-weight: 700;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.informaesdosplanos-text55 {
+  top: 67px;
+  left: 860px;
+  color: rgba(0, 0, 0, 1);
+  width: 382px;
+  height: auto;
+  position: absolute;
+  font-size: 32px;
+  font-style: Bold;
+  text-align: center;
+  font-family: Zilla Slab;
+  font-weight: 700;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.informaesdosplanos-text57 {
+  top: 154px;
+  left: 860px;
+  color: rgba(0, 0, 0, 1);
+  width: 382px;
+  height: auto;
+  position: absolute;
+  font-size: 20px;
+  font-style: Regular;
+  text-align: left;
+  font-family: Zilla Slab;
+  font-weight: 400;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.informaesdosplanos-text64 {
+  top: 137px;
+  left: 236px;
+  color: rgba(0, 0, 0, 1);
+  width: 382px;
+  height: auto;
+  position: absolute;
+  font-size: 20px;
+  font-style: Regular;
+  text-align: left;
+  font-family: Zilla Slab;
+  font-weight: 400;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.informaesdosplanos-text69 {
+  top: 346px;
+  left: 711px;
+  color: rgba(0, 0, 0, 0.47999998927116394);
+  width: 521px;
+  height: auto;
+  position: absolute;
+  font-size: 20px;
+  font-style: Regular;
+  text-align: left;
+  font-family: Zilla Slab;
+  font-weight: 400;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.informaesdosplanos-text71 {
+  top: 202px;
+  left: 236px;
+  color: rgba(0, 0, 0, 1);
+  width: 382px;
+  height: auto;
+  position: absolute;
+  font-size: 20px;
+  font-style: Regular;
+  text-align: left;
+  font-family: Zilla Slab;
+  font-weight: 400;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: underline;
+}
+.informaesdosplanos-text73 {
+  top: 267px;
+  left: 236px;
+  color: rgba(0, 0, 0, 1);
+  width: 382px;
+  height: auto;
+  position: absolute;
+  font-size: 20px;
+  font-style: Regular;
+  text-align: left;
+  font-family: Zilla Slab;
+  font-weight: 400;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.informaesdosplanos-telephone {
+  top: 149px;
+  left: 194px;
+  width: 29px;
+  height: 29px;
+  display: flex;
+  overflow: hidden;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+.informaesdosplanos-group1 {
+  top: -0.000719003495760262px;
+  left: -0.0011478837113827467px;
+  width: 29.00090789794922px;
+  height: 29.00071144104004px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 1;
+}
+.informaesdosplanos-vector {
+  top: 0px;
+  left: 0px;
+  width: 29px;
+  height: 29px;
+  position: absolute;
+}
+.informaesdosplanos-mailoutline {
+  top: 210px;
+  left: 191px;
+  width: 35px;
+  height: 35px;
+  position: absolute;
+}
+.informaesdosplanos-location {
+  top: 276px;
+  left: 191px;
+  width: 35px;
+  height: 35px;
+  position: absolute;
+}
+.informaesdosplanos-facebook {
+  top: 263px;
+  left: 967px;
+  width: 29px;
+  height: 29px;
+  display: flex;
+  overflow: hidden;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+.informaesdosplanos-group2 {
+  top: -0.0018749999580904841px;
+  left: -0.0037499999161809683px;
+  width: 29.00362777709961px;
+  height: 29.003623962402344px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 1;
+}
+.informaesdosplanos-vector1 {
+  top: 0px;
+  left: 0px;
+  width: 29px;
+  height: 29px;
+  position: absolute;
+}
+.informaesdosplanos-ellipse124 {
+  top: 271px;
+  left: 1018px;
+  width: 11px;
+  height: 11px;
+  position: absolute;
+}
+.informaesdosplanos-ellipse125 {
+  top: 271px;
+  left: 1103px;
+  width: 11px;
+  height: 11px;
+  position: absolute;
+}
+.informaesdosplanos-twitter {
+  top: 263px;
+  left: 1051px;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  overflow: hidden;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+.informaesdosplanos-group3 {
+  top: 3.7487006187438965px;
+  left: 4.163336342344337e-16px;
+  width: 30px;
+  height: 24.376298904418945px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 1;
+}
+.informaesdosplanos-vector2 {
+  top: 0px;
+  left: 0px;
+  width: 30px;
+  height: 24px;
+  position: absolute;
+}
+.informaesdosplanos-instagram {
+  top: 264px;
+  left: 1136px;
+  width: 29px;
+  height: 29px;
+  display: flex;
+  overflow: hidden;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+.informaesdosplanos-group4 {
+  top: 0px;
+  left: 0px;
+  width: 29px;
+  height: 29px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 1;
+}
+.informaesdosplanos-vector3 {
+  top: 0px;
+  left: 0px;
+  width: 29px;
+  height: 29px;
+  position: absolute;
+}
+.informaesdosplanos-pngwing1 {
+  top: 91px;
+  left: 1440px;
+  width: 229px;
+  height: 322px;
+  position: absolute;
+}

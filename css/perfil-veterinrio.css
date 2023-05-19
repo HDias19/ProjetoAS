@@ -1,0 +1,1161 @@
+.perfil-veterinrio-container {
+  width: 100%;
+  display: flex;
+  overflow: auto;
+  min-height: 100vh;
+  align-items: center;
+  flex-direction: column;
+}
+.perfil-veterinrio-perfil-veterinrio {
+  width: 100%;
+  height: 1231px;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  align-items: flex-start;
+  flex-shrink: 0;
+  background-color: #ffffff;
+}
+.perfil-veterinrio-line2 {
+  top: 497px;
+  left: 393px;
+  width: 894px;
+  height: 1px;
+  position: absolute;
+}
+.perfil-veterinrio-text {
+  top: 312px;
+  left: 347px;
+  color: rgba(69, 69, 69, 1);
+  width: 217px;
+  height: auto;
+  position: absolute;
+  font-size: 32px;
+  font-style: Bold;
+  text-align: center;
+  font-family: Inter;
+  font-weight: 700;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.perfil-veterinrio-text02 {
+  top: 365px;
+  left: 379px;
+  color: rgba(69, 69, 69, 1);
+  width: 217px;
+  height: auto;
+  position: absolute;
+  font-size: 22px;
+  font-style: Bold;
+  text-align: center;
+  font-family: Inter;
+  font-weight: 700;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.perfil-veterinrio-text04 {
+  top: 508px;
+  left: 393px;
+  color: rgba(69, 69, 69, 1);
+  width: 217px;
+  height: auto;
+  position: absolute;
+  font-size: 22px;
+  font-style: Bold;
+  text-align: center;
+  font-family: Inter;
+  font-weight: 700;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.perfil-veterinrio-text06 {
+  top: 321px;
+  left: 1189px;
+  color: rgba(69, 69, 69, 1);
+  width: 98px;
+  height: auto;
+  position: absolute;
+  font-size: 16px;
+  font-style: Bold;
+  text-align: left;
+  font-family: Inter;
+  font-weight: 700;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: underline;
+}
+.perfil-veterinrio-text08 {
+  top: 512px;
+  color: rgba(69, 69, 69, 1);
+  right: 131px;
+  width: 98px;
+  height: auto;
+  position: absolute;
+  font-size: 16px;
+  font-style: Bold;
+  text-align: left;
+  font-family: Inter;
+  font-weight: 700;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: underline;
+}
+.perfil-veterinrio-component2 {
+  top: 402px;
+  left: 95px;
+  width: 246px;
+  height: 48px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+.perfil-veterinrio-rectangle5 {
+  top: 0px;
+  left: 0px;
+  width: 246px;
+  height: 48px;
+  position: absolute;
+  border-color: rgba(255, 255, 255, 1);
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 5px;
+}
+.perfil-veterinrio-text10 {
+  top: 6px;
+  left: 7.709401607513428px;
+  color: rgba(255, 255, 255, 1);
+  width: 231px;
+  height: auto;
+  position: absolute;
+  font-size: 20px;
+  font-style: Bold;
+  text-align: center;
+  font-family: Inter;
+  font-weight: 700;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.perfil-veterinrio-component12 {
+  top: 471px;
+  left: 95px;
+  width: 246px;
+  height: 48px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+.perfil-veterinrio-rectangle51 {
+  top: 0px;
+  left: 0px;
+  width: 246px;
+  height: 48px;
+  position: absolute;
+  border-color: rgba(255, 255, 255, 1);
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 5px;
+}
+.perfil-veterinrio-text12 {
+  top: 6px;
+  left: 7.709401607513428px;
+  color: rgba(255, 255, 255, 1);
+  width: 231px;
+  height: auto;
+  position: absolute;
+  font-size: 20px;
+  font-style: Bold;
+  text-align: center;
+  font-family: Inter;
+  font-weight: 700;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.perfil-veterinrio-rectangle6 {
+  top: 551px;
+  left: 393px;
+  width: 894px;
+  height: 169px;
+  position: absolute;
+  border-color: rgba(69, 69, 69, 0.5);
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 10px;
+}
+.perfil-veterinrio-text14 {
+  top: 652px;
+  left: 1192px;
+  color: rgba(0, 0, 0, 1);
+  height: auto;
+  position: absolute;
+  font-size: 18px;
+  font-style: Bold;
+  text-align: left;
+  font-family: Inter;
+  font-weight: 700;
+  line-height: 190.02273082733154%;
+  font-stretch: normal;
+  text-decoration: underline;
+}
+.perfil-veterinrio-text16 {
+  top: 686px;
+  left: 1192px;
+  color: rgba(0, 0, 0, 1);
+  height: auto;
+  position: absolute;
+  font-size: 18px;
+  font-style: Bold;
+  text-align: left;
+  font-family: Inter;
+  font-weight: 700;
+  line-height: 190.02273082733154%;
+  font-stretch: normal;
+  text-decoration: underline;
+}
+.perfil-veterinrio-text18 {
+  top: 652px;
+  left: 621px;
+  color: rgba(0, 0, 0, 1);
+  height: auto;
+  position: absolute;
+  font-size: 18px;
+  font-style: Regular;
+  text-align: left;
+  font-family: Inter;
+  font-weight: 400;
+  line-height: 190.02273082733154%;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.perfil-veterinrio-text20 {
+  top: 686px;
+  left: 621px;
+  color: rgba(0, 0, 0, 1);
+  height: auto;
+  position: absolute;
+  font-size: 18px;
+  font-style: Regular;
+  text-align: left;
+  font-family: Inter;
+  font-weight: 400;
+  line-height: 190.02273082733154%;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.perfil-veterinrio-text22 {
+  top: 652px;
+  left: 542px;
+  color: rgba(0, 0, 0, 1);
+  height: auto;
+  position: absolute;
+  font-size: 18px;
+  font-style: Regular;
+  text-align: left;
+  font-family: Inter;
+  font-weight: 400;
+  line-height: 190.02273082733154%;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.perfil-veterinrio-text24 {
+  top: 686px;
+  left: 542px;
+  color: rgba(0, 0, 0, 1);
+  height: auto;
+  position: absolute;
+  font-size: 18px;
+  font-style: Regular;
+  text-align: left;
+  font-family: Inter;
+  font-weight: 400;
+  line-height: 190.02273082733154%;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.perfil-veterinrio-text26 {
+  top: 618px;
+  left: 542px;
+  color: rgba(0, 0, 0, 1);
+  height: auto;
+  position: absolute;
+  font-size: 18px;
+  font-style: Regular;
+  text-align: left;
+  font-family: Inter;
+  font-weight: 400;
+  line-height: 190.02273082733154%;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.perfil-veterinrio-text28 {
+  top: 618px;
+  left: 1191px;
+  color: rgba(0, 0, 0, 1);
+  height: auto;
+  position: absolute;
+  font-size: 18px;
+  font-style: Bold;
+  text-align: left;
+  font-family: Inter;
+  font-weight: 700;
+  line-height: 190.02273082733154%;
+  font-stretch: normal;
+  text-decoration: underline;
+}
+.perfil-veterinrio-text30 {
+  top: 584px;
+  left: 1190px;
+  color: rgba(0, 0, 0, 1);
+  height: auto;
+  position: absolute;
+  font-size: 18px;
+  font-style: Bold;
+  text-align: left;
+  font-family: Inter;
+  font-weight: 700;
+  line-height: 190.02273082733154%;
+  font-stretch: normal;
+  text-decoration: underline;
+}
+.perfil-veterinrio-line7 {
+  top: 686px;
+  left: 393px;
+  width: 894px;
+  height: 1px;
+  position: absolute;
+}
+.perfil-veterinrio-line6 {
+  top: 652px;
+  left: 393px;
+  width: 894px;
+  height: 1px;
+  position: absolute;
+}
+.perfil-veterinrio-line4 {
+  top: 584px;
+  left: 393px;
+  width: 894px;
+  height: 1px;
+  position: absolute;
+}
+.perfil-veterinrio-line5 {
+  top: 618px;
+  left: 393px;
+  width: 894px;
+  height: 1px;
+  position: absolute;
+}
+.perfil-veterinrio-line8 {
+  top: 551px;
+  left: 531px;
+  width: 169px;
+  height: 1px;
+  position: absolute;
+}
+.perfil-veterinrio-line9 {
+  top: 551px;
+  left: 609px;
+  width: 169px;
+  height: 1px;
+  position: absolute;
+}
+.perfil-veterinrio-text32 {
+  top: 556px;
+  left: 395px;
+  color: rgba(69, 69, 69, 1);
+  width: 66px;
+  height: auto;
+  position: absolute;
+  font-size: 18px;
+  font-style: Extra Bold;
+  text-align: center;
+  font-family: Inter;
+  font-weight: 700;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.perfil-veterinrio-text34 {
+  top: 556px;
+  left: 621px;
+  color: rgba(69, 69, 69, 1);
+  width: 91px;
+  height: auto;
+  position: absolute;
+  font-size: 18px;
+  font-style: Extra Bold;
+  text-align: center;
+  font-family: Inter;
+  font-weight: 700;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.perfil-veterinrio-text36 {
+  top: 557px;
+  left: 518px;
+  color: rgba(69, 69, 69, 1);
+  width: 91px;
+  height: auto;
+  position: absolute;
+  font-size: 18px;
+  font-style: Extra Bold;
+  text-align: center;
+  font-family: Inter;
+  font-weight: 700;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.perfil-veterinrio-text38 {
+  top: 584px;
+  left: 408px;
+  color: rgba(0, 0, 0, 1);
+  height: auto;
+  position: absolute;
+  font-size: 18px;
+  font-style: Regular;
+  text-align: left;
+  font-family: Inter;
+  font-weight: 400;
+  line-height: 190.02273082733154%;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.perfil-veterinrio-text40 {
+  top: 584px;
+  left: 542px;
+  color: rgba(0, 0, 0, 1);
+  height: auto;
+  position: absolute;
+  font-size: 18px;
+  font-style: Regular;
+  text-align: left;
+  font-family: Inter;
+  font-weight: 400;
+  line-height: 190.02273082733154%;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.perfil-veterinrio-text42 {
+  top: 618px;
+  left: 408px;
+  color: rgba(0, 0, 0, 1);
+  height: auto;
+  position: absolute;
+  font-size: 18px;
+  font-style: Regular;
+  text-align: left;
+  font-family: Inter;
+  font-weight: 400;
+  line-height: 190.02273082733154%;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.perfil-veterinrio-text44 {
+  top: 652px;
+  left: 408px;
+  color: rgba(0, 0, 0, 1);
+  height: auto;
+  position: absolute;
+  font-size: 18px;
+  font-style: Regular;
+  text-align: left;
+  font-family: Inter;
+  font-weight: 400;
+  line-height: 190.02273082733154%;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.perfil-veterinrio-text46 {
+  top: 686px;
+  left: 408px;
+  color: rgba(0, 0, 0, 1);
+  height: auto;
+  position: absolute;
+  font-size: 18px;
+  font-style: Regular;
+  text-align: left;
+  font-family: Inter;
+  font-weight: 400;
+  line-height: 190.02273082733154%;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.perfil-veterinrio-text48 {
+  top: 584px;
+  left: 621px;
+  color: rgba(0, 0, 0, 1);
+  height: auto;
+  position: absolute;
+  font-size: 18px;
+  font-style: Regular;
+  text-align: left;
+  font-family: Inter;
+  font-weight: 400;
+  line-height: 190.02273082733154%;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.perfil-veterinrio-text50 {
+  top: 618px;
+  left: 621px;
+  color: rgba(0, 0, 0, 1);
+  height: auto;
+  position: absolute;
+  font-size: 18px;
+  font-style: Regular;
+  text-align: left;
+  font-family: Inter;
+  font-weight: 400;
+  line-height: 190.02273082733154%;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.perfil-veterinrio-component16 {
+  top: 309px;
+  left: 35px;
+  width: 325px;
+  height: 75px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+.perfil-veterinrio-text52 {
+  left: 58px;
+  color: rgba(69, 69, 69, 1);
+  width: 281px;
+  height: auto;
+  position: absolute;
+  font-size: 40px;
+  font-style: Bold;
+  text-align: left;
+  font-family: Inter;
+  font-weight: 700;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.perfil-veterinrio-inner-plugin-iframe {
+  top: 13px;
+  left: 0px;
+  width: 48px;
+  height: 48px;
+  position: absolute;
+}
+.perfil-veterinrio-component38 {
+  top: 818px;
+  left: 0px;
+  width: 1440px;
+  height: 413px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+.perfil-veterinrio-rectangle19 {
+  top: 0px;
+  left: 0px;
+  width: 1440px;
+  height: 413px;
+  position: absolute;
+}
+.perfil-veterinrio-line1 {
+  top: 337px;
+  left: 183px;
+  width: 1075px;
+  height: 1px;
+  position: absolute;
+}
+.perfil-veterinrio-text54 {
+  top: 67px;
+  left: 183px;
+  color: rgba(0, 0, 0, 1);
+  width: 173px;
+  height: auto;
+  position: absolute;
+  font-size: 32px;
+  font-style: Bold;
+  text-align: center;
+  font-family: Zilla Slab;
+  font-weight: 700;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.perfil-veterinrio-text56 {
+  top: 67px;
+  left: 860px;
+  color: rgba(0, 0, 0, 1);
+  width: 382px;
+  height: auto;
+  position: absolute;
+  font-size: 32px;
+  font-style: Bold;
+  text-align: center;
+  font-family: Zilla Slab;
+  font-weight: 700;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.perfil-veterinrio-text58 {
+  top: 154px;
+  left: 860px;
+  color: rgba(0, 0, 0, 1);
+  width: 382px;
+  height: auto;
+  position: absolute;
+  font-size: 20px;
+  font-style: Regular;
+  text-align: left;
+  font-family: Zilla Slab;
+  font-weight: 400;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.perfil-veterinrio-text65 {
+  top: 137px;
+  left: 236px;
+  color: rgba(0, 0, 0, 1);
+  width: 382px;
+  height: auto;
+  position: absolute;
+  font-size: 20px;
+  font-style: Regular;
+  text-align: left;
+  font-family: Zilla Slab;
+  font-weight: 400;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.perfil-veterinrio-text70 {
+  top: 346px;
+  left: 711px;
+  color: rgba(0, 0, 0, 0.47999998927116394);
+  width: 521px;
+  height: auto;
+  position: absolute;
+  font-size: 20px;
+  font-style: Regular;
+  text-align: left;
+  font-family: Zilla Slab;
+  font-weight: 400;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.perfil-veterinrio-text72 {
+  top: 202px;
+  left: 236px;
+  color: rgba(0, 0, 0, 1);
+  width: 382px;
+  height: auto;
+  position: absolute;
+  font-size: 20px;
+  font-style: Regular;
+  text-align: left;
+  font-family: Zilla Slab;
+  font-weight: 400;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: underline;
+}
+.perfil-veterinrio-text74 {
+  top: 267px;
+  left: 236px;
+  color: rgba(0, 0, 0, 1);
+  width: 382px;
+  height: auto;
+  position: absolute;
+  font-size: 20px;
+  font-style: Regular;
+  text-align: left;
+  font-family: Zilla Slab;
+  font-weight: 400;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.perfil-veterinrio-telephone {
+  top: 149px;
+  left: 194px;
+  width: 29px;
+  height: 29px;
+  display: flex;
+  overflow: hidden;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+.perfil-veterinrio-group {
+  top: -0.000719003495760262px;
+  left: -0.0011478837113827467px;
+  width: 29.00090789794922px;
+  height: 29.00071144104004px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 1;
+}
+.perfil-veterinrio-vector {
+  top: 0px;
+  left: 0px;
+  width: 29px;
+  height: 29px;
+  position: absolute;
+}
+.perfil-veterinrio-mailoutline {
+  top: 210px;
+  left: 191px;
+  width: 35px;
+  height: 35px;
+  position: absolute;
+}
+.perfil-veterinrio-location {
+  top: 276px;
+  left: 191px;
+  width: 35px;
+  height: 35px;
+  position: absolute;
+}
+.perfil-veterinrio-facebook {
+  top: 263px;
+  left: 967px;
+  width: 29px;
+  height: 29px;
+  display: flex;
+  overflow: hidden;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+.perfil-veterinrio-group1 {
+  top: -0.0018749999580904841px;
+  left: -0.0037499999161809683px;
+  width: 29.00362777709961px;
+  height: 29.003623962402344px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 1;
+}
+.perfil-veterinrio-vector1 {
+  top: 0px;
+  left: 0px;
+  width: 29px;
+  height: 29px;
+  position: absolute;
+}
+.perfil-veterinrio-ellipse124 {
+  top: 271px;
+  left: 1018px;
+  width: 11px;
+  height: 11px;
+  position: absolute;
+}
+.perfil-veterinrio-ellipse125 {
+  top: 271px;
+  left: 1103px;
+  width: 11px;
+  height: 11px;
+  position: absolute;
+}
+.perfil-veterinrio-twitter {
+  top: 263px;
+  left: 1051px;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  overflow: hidden;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+.perfil-veterinrio-group2 {
+  top: 3.7487006187438965px;
+  left: 4.163336342344337e-16px;
+  width: 30px;
+  height: 24.376298904418945px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 1;
+}
+.perfil-veterinrio-vector2 {
+  top: 0px;
+  left: 0px;
+  width: 30px;
+  height: 24px;
+  position: absolute;
+}
+.perfil-veterinrio-instagram {
+  top: 264px;
+  left: 1136px;
+  width: 29px;
+  height: 29px;
+  display: flex;
+  overflow: hidden;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+.perfil-veterinrio-group3 {
+  top: 0px;
+  left: 0px;
+  width: 29px;
+  height: 29px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 1;
+}
+.perfil-veterinrio-vector3 {
+  top: 0px;
+  left: 0px;
+  width: 29px;
+  height: 29px;
+  position: absolute;
+}
+.perfil-veterinrio-pngwing1 {
+  top: 91px;
+  left: 1440px;
+  width: 229px;
+  height: 322px;
+  position: absolute;
+}
+.perfil-veterinrio-rectangle14 {
+  top: 430px;
+  left: 393px;
+  width: 894px;
+  height: 43px;
+  position: absolute;
+  border-color: rgba(69, 69, 69, 0.5);
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 5px;
+}
+.perfil-veterinrio-searchalt {
+  top: 436px;
+  left: 1242px;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+}
+.perfil-veterinrio-text79 {
+  top: 432px;
+  left: 408px;
+  color: rgba(69, 69, 69, 0.6200000047683716);
+  height: auto;
+  position: absolute;
+  font-size: 20px;
+  font-style: Regular;
+  text-align: left;
+  font-family: Inter;
+  font-weight: 400;
+  line-height: 190.02273082733154%;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.perfil-veterinrio-component11 {
+  top: 0px;
+  left: 0px;
+  width: 1440px;
+  height: 274px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+.perfil-veterinrio-rectangle11 {
+  top: 0px;
+  left: 0px;
+  width: 1440px;
+  height: 274px;
+  position: absolute;
+}
+.perfil-veterinrio-component1 {
+  top: 0px;
+  left: 0px;
+  width: 1440px;
+  height: 44px;
+  display: flex;
+  position: absolute;
+  box-sizing: content-box;
+  align-items: flex-start;
+  flex-shrink: 0;
+  border-color: rgba(9, 9, 9, 0);
+  border-style: solid;
+  border-width: 2px;
+}
+.perfil-veterinrio-rectangle1 {
+  top: 0px;
+  left: 0px;
+  width: 1440px;
+  height: 44px;
+  position: absolute;
+}
+.perfil-veterinrio-text81 {
+  top: 13px;
+  left: 95px;
+  color: rgba(201, 239, 199, 1);
+  height: auto;
+  position: absolute;
+  font-size: 16px;
+  font-style: Regular;
+  text-align: center;
+  font-family: Zilla Slab;
+  font-weight: 400;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.perfil-veterinrio-text83 {
+  top: 13px;
+  left: 305px;
+  color: rgba(201, 239, 199, 1);
+  height: auto;
+  position: absolute;
+  font-size: 16px;
+  font-style: Regular;
+  text-align: center;
+  font-family: Zilla Slab;
+  font-weight: 400;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.perfil-veterinrio-text85 {
+  top: 13px;
+  left: 1300px;
+  color: rgba(201, 239, 199, 1);
+  height: auto;
+  position: absolute;
+  font-size: 16px;
+  font-style: Regular;
+  text-align: center;
+  font-family: Zilla Slab;
+  font-weight: 400;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.perfil-veterinrio-pin {
+  top: 12px;
+  left: 69px;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+.perfil-veterinrio-subtract {
+  top: 4px;
+  left: 5px;
+  width: 14px;
+  height: 16px;
+  position: absolute;
+}
+.perfil-veterinrio-usercicrle {
+  top: 101px;
+  left: 1319px;
+  width: 45px;
+  height: 45px;
+  position: absolute;
+}
+.perfil-veterinrio-searchalt1 {
+  top: 101px;
+  left: 88px;
+  width: 43px;
+  height: 43px;
+  position: absolute;
+}
+.perfil-veterinrio-line11 {
+  top: 200px;
+  left: 0px;
+  width: 1440px;
+  height: 10px;
+  position: absolute;
+}
+.perfil-veterinrio-line3 {
+  top: 274px;
+  left: 0px;
+  width: 1440px;
+  height: 1px;
+  position: absolute;
+}
+.perfil-veterinrio-line21 {
+  top: 253px;
+  left: 472px;
+  width: 57px;
+  height: 1px;
+  position: absolute;
+}
+.perfil-veterinrio-text87 {
+  top: 219px;
+  left: 470px;
+  color: rgba(0, 0, 0, 1);
+  height: auto;
+  position: absolute;
+  font-size: 24px;
+  font-style: Regular;
+  text-align: center;
+  font-family: Zilla Slab;
+  font-weight: 400;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.perfil-veterinrio-text89 {
+  top: 219px;
+  left: 595px;
+  color: rgba(0, 0, 0, 1);
+  height: auto;
+  position: absolute;
+  font-size: 24px;
+  font-style: Regular;
+  text-align: center;
+  font-family: Zilla Slab;
+  font-weight: 400;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.perfil-veterinrio-text91 {
+  top: 219px;
+  left: 727px;
+  color: rgba(0, 0, 0, 1);
+  height: auto;
+  position: absolute;
+  font-size: 24px;
+  font-style: Regular;
+  text-align: center;
+  font-family: Zilla Slab;
+  font-weight: 400;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.perfil-veterinrio-text93 {
+  top: 219px;
+  left: 888px;
+  color: rgba(0, 0, 0, 1);
+  height: auto;
+  position: absolute;
+  font-size: 24px;
+  font-style: Regular;
+  text-align: center;
+  font-family: Zilla Slab;
+  font-weight: 400;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.perfil-veterinrio-expanddown {
+  top: 224px;
+  left: 664px;
+  width: 24px;
+  height: 24px;
+  position: absolute;
+}
+.perfil-veterinrio-expanddown1 {
+  top: 224px;
+  left: 814px;
+  width: 24px;
+  height: 24px;
+  position: absolute;
+}
+.perfil-veterinrio-logonobackground1 {
+  top: 58px;
+  left: 586px;
+  width: 268px;
+  height: 123px;
+  position: absolute;
+}
+.perfil-veterinrio-truck {
+  top: 16px;
+  left: 273px;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  overflow: hidden;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+.perfil-veterinrio-group4 {
+  top: 0px;
+  left: 1px;
+  width: 22px;
+  height: 15.304356575012207px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 1;
+}
+.perfil-veterinrio-ellipse122 {
+  top: 11.478267669677734px;
+  left: 2.8695669174194336px;
+  width: 4px;
+  height: 4px;
+  position: absolute;
+  border-color: rgba(201, 239, 199, 1);
+  border-style: solid;
+  border-width: 1px;
+}
+.perfil-veterinrio-ellipse123 {
+  top: 11.478267669677734px;
+  left: 15.113040924072266px;
+  width: 4px;
+  height: 4px;
+  position: absolute;
+  border-color: rgba(201, 239, 199, 1);
+  border-style: solid;
+  border-width: 1px;
+}
+.perfil-veterinrio-vector22 {
+  top: 0px;
+  left: 0px;
+  width: 22px;
+  height: 13px;
+  position: absolute;
+}
+.perfil-veterinrio-inner-plugin-iframe1 {
+  top: 16px;
+  left: 1280px;
+  width: 16px;
+  height: 16px;
+  position: absolute;
+}
+.perfil-veterinrio-text95 {
+  top: 13px;
+  left: 1300px;
+  color: rgba(201, 239, 199, 1);
+  height: auto;
+  position: absolute;
+  font-size: 16px;
+  font-style: Regular;
+  text-align: center;
+  font-family: Zilla Slab;
+  font-weight: 400;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.perfil-veterinrio-inner-plugin-iframe2 {
+  top: 16px;
+  left: 1280px;
+  width: 16px;
+  height: 16px;
+  position: absolute;
+}
