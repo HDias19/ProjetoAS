@@ -7,56 +7,111 @@
     <title>NutriVet - Faça login ou registe-se</title>
     <!-- CSS Bootstrap local-->
     <link href="../css/bootstrap.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/login.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="icon" href="../img/logo/logo-white.png">
 </head>
 
 <body>
-    <section class="page-section">
+    <!-- Header -->
+    <header class="custom-header">
+        <!-- Header TOP -->
+        <div class="row align-items-center custom-header-top">
+            <div class="col-md-6 header-itens-esquerda d-flex justify-content-start">
+                <img src="../img/icons/Pin.svg" alt="Ícone de localização" class="location-icon">
+                <span>Encontra uma Loja</span>
+                <img src="../img/icons/Group.svg" alt="Ícone de carro" class="car-icon">
+                <span>Rastrear Encomenda</span>
+            </div>
+            <div class="col-md-6 header-itens-direita d-flex justify-content-end">
+                <img src="../img/icons/InnerPluginIframe.svg" alt="Ícone de telefone" class="phone-icon">
+                <span>+351 213 456 789</span>
+            </div>
+        </div>
+        <!-- Header CENTER-->
+        <div class="row align-items-center new-row custom-header-center">
+            <div class="col-md-4 d-flex justify-content-start">
+                <img src="../img/icons/Search_alt.svg" alt="Ícone de Busca" class="search-icon">
+            </div>
+            <div class="col-md-4 d-flex justify-content-center">
+                <img src="../img/logo/logo-no-background.png" alt="Logo" class="logo">
+            </div>
+            <div class="col-md-4 d-flex justify-content-end">
+                <img src="../img/icons/User_cicrle.svg" alt="Ícone de Perfil" class="profile-icon">
+            </div>
+        </div>
+        <hr class="separator">
+        <!-- Header BOTTOM-->
+        <div class="row align-items-center new-row d-flex custom-header-bottom">
+            <ul class="list-inline d-flex justify-content-center">
+                <li><a href="" class="active-text">Home</a></li>
+                <li><a href="">Planos</a></li>
+                <li><a href="">Serviços</a></li>
+                <li><a href="">Sobre</a></li>
+            </ul>
+        </div>
+        <hr class="separator">
+    </header>
+    <!-- Fim do Header -->
+
+    <!-- Main -->
+    <section class="page-section custom-main">
+        <!-- Título -->
         <div class="container-fluid mt-3 mb-5">
             <div class="row justify-content-start">
                 <div class="col-12">
                     <img alt="" src="../img/icons/Inner Plugin Iframe.png" class="float-start" style="width: 48px;
                     height: 48px;">
-                    <h1 class="">Minha Conta</h1>
+                    <h1 class="custom-main-title">Minha Conta</h1>
                 </div>
             </div>
-            
         </div>
-        <div class="container">
-            <div class="row justify-content-evenly row-cols-2">
-                <div class="col">
-                    <div class="card"
-                        style="width: 628px;background: rgba(201, 239, 199, 0.2);mix-blend-mode: darken;border: 2px solid rgba(69, 69, 69, 0.5);border-radius: 10px;">
-                        <div class="card-body">
-                            <h4 class="card-title mb-4">Login</h4>
-                            <label class="form-label">Nome de Utilizador ou Endereço de E-mail*:</label>
-                            <input type="email" class="form-control" placeholder="name@example.com">
-                            <label class="form-label mt-3">Palavra-Passe*:</label>
-                            <input type="password" class="form-control" placeholder="Password">
-                            <div class="d-grid gap-2 col-3 my-3">
-                                <button class="btn btn-primary" type="button">Login</button>
-                            </div>
-                            <a href="perfil_index.html" class="card-link" style="color: #418536;">Esqueceu-se da sua palavra-passe?</a>
+        <!-- Conteúdo -->
+        <div class="row justify-content-evenly row-cols-2">
+            <!-- Login -->
+            <div class="col" style="padding-left: 80px;">
+                <div class="card"
+                    style="width: 628px;background: rgba(201, 239, 199, 0.3);mix-blend-mode: darken;border: 2px solid rgba(69, 69, 69, 0.5);border-radius: 10px; padding: 20px 20px 20px 20px;">
+                    <div class="card-body">
+                        <h4 class="card-title mb-4" style="font-weight: bold; font-size: 30px;">Login</h4>
+                        <label class="form-label">Nome de Utilizador ou Endereço de E-mail*:</label>
+                        <input type="email" class="form-control" style="background-color: #c9efc7cc;"
+                            placeholder="name@example.com">
+                        <label class="form-label mt-3">Palavra-Passe*:</label>
+                        <input type="password" class="form-control" style="background-color: #c9efc7cc;"
+                            placeholder="Password">
+                        <div class="d-grid gap-2 col-3 my-3">
+                            <button class="btn btn-primary" type="button"
+                                style="font-weight: bold; font-size: 20px; background-color: #418536; margin-left: -15px; margin-top: 20px;">Login</button>
                         </div>
+                        <a href="perfil_index.html" class="card-link"
+                            style="color: #418536; font-weight: bold; margin-left: 5px;">Esqueceu-se da sua
+                            palavra-passe?</a>
                     </div>
                 </div>
-                <div class="col">
-                    <div class="card"
-                        style="width: 628px;background: rgba(201, 239, 199, 0.2);mix-blend-mode: darken;border: 2px solid rgba(69, 69, 69, 0.5);border-radius: 10px;">
-                        <div class="card-body">
-                            <h4 class="card-title mb-4">Registar</h4>
-                            <label class="form-label">Nome de Utilizador*:</label>
-                            <input type="email" class="form-control" placeholder="Nome de utilizador">
-                            <label class="form-label mt-3">Endereço de E-mail*:</label>
-                            <input type="email" class="form-control" placeholder="name@example.com">
-                            <label class="form-label mt-3">Palavra-Passe*:</label>
-                            <input type="password" class="form-control" placeholder="Password">
-                            <small class="card-text text-muted ">A sua informação pessoal será usada para dar suporte à
-                                sua experiência em todo este website, gerir o acesso à sua conta e para outros fins
-                                descritos na nossa
-                                Política de Privacidade.</small>
-                            <div class="d-grid gap-2 col-3 my-3">
-                                <button class="btn btn-primary" type="button">Registar</button>
-                            </div>
+            </div>
+            <!-- Registar -->
+            <div class="col" style="padding-right: 70px; justify-content: right; display: flex; align-items: end;">
+                <div class="card"
+                    style="width: 628px;background: rgba(201, 239, 199, 0.3);mix-blend-mode: darken;border: 2px solid rgba(69, 69, 69, 0.5);border-radius: 10px; padding: 20px 20px 20px 20px;">
+                    <div class="card-body">
+                        <h4 class="card-title mb-4" style="font-weight: bold; font-size: 30px;">Registar</h4>
+                        <label class="form-label">Nome de Utilizador*:</label>
+                        <input type="email" class="form-control" style="background-color: #c9efc7cc;"
+                            placeholder="Nome de utilizador">
+                        <label class="form-label mt-3">Endereço de E-mail*:</label>
+                        <input type="email" class="form-control" style="background-color: #c9efc7cc;"
+                            placeholder="name@example.com">
+                        <label class="form-label mt-3">Palavra-Passe*:</label>
+                        <input type="password" class="form-control"
+                            style="background-color: #c9efc7cc; margin-bottom: 20px;" placeholder="Password">
+                        <small class="card-text text-muted">A sua informação pessoal será usada para dar suporte à
+                            sua experiência em todo este website, gerir o acesso à sua conta e para outros fins
+                            descritos na nossa</small>
+                        <small class="card-text text-muted" style="font-weight: bold;"> Política de Privacidade.</small>
+                        <div class="d-grid gap-2 col-3 my-3">
+                            <button class="btn btn-primary" type="button"
+                                style="font-weight: bold; font-size: 20px; background-color: #418536; margin-left: -15px; margin-top: 20px;">Registar</button>
                         </div>
                     </div>
                 </div>
@@ -64,6 +119,61 @@
         </div>
 
     </section>
+    <!-- Fim do Main -->
+
+
+    <!-- Footer -->
+    <footer class="custom-footer">
+        <div class="row">
+            <div class="col-md-6 d-flex justify-content-start">
+                <div class="footer-column">
+                    <ul class="contact-list">
+                        <h4>Contactos</h4>
+                        <li><img src="../img/icons/telephone.png" alt="Ícone telefone" class="icon-footer-phone"> +351
+                            213 456 789
+                        </li>
+                        <li><img src="" alt=""> +351 213 874 315</li>
+                        <span class="footer-space"><img src=""></span>
+                        <li><img src="../img/icons/mail-outline.png" alt="Ícone email" class="icon-footer-mail"> <span
+                                class="footer-email">geral@nutrivet.pt</span>
+                        </li>
+                        <span class="footer-space"><img src=""></span>
+                        <li><img src="../img/icons/location.png" alt="Ícone localização" class="icon-footer-location">
+                            168/170,
+                            Avenida 01, Ilhavo
+                        <li><img src="" alt="">Aveiro,
+                            Portugal</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-6 d-flex justify-content-end">
+                <div class="footer-column">
+                    <ul class="opening-hours">
+                        <h4>Horário de Funcionamento</h4>
+                        <li>Seg - Sex: 9.00 - 18.00</li>
+                        <li>Sábado: 9.00 - 18.00</li>
+                        <li>Domingo: Fechados</li>
+                    </ul>
+                    <div class="social-icons">
+                        <a href=""><img src="../img/icons/facebook.png" alt="Ícone facebook"
+                                class="icon-footer-facebook"></a>
+                        <span class="icon-separator"></span>
+                        <a href=""><img src="../img/icons/twitter.png" alt="Ícone twitter"
+                                class="icon-footer-twitter"></a>
+                        <span class="icon-separator"></span>
+                        <a href=""><img src="../img/icons/instagram.png" alt="Ícone instagram"
+                                class="icon-footer-instagram"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr class="separator-v2">
+        <div class="footer-text">
+            <span>Política de Privacidade</span> <span>Termos e Condições</span> <span>Ajuda</span>
+        </div>
+        <img src="../img/imagens/pngwing1.png" alt="Imagem de um cão" class="dog-image">
+    </footer>
+    <!-- Fim do Footer -->
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
