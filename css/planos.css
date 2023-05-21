@@ -6,12 +6,13 @@
 }
 
 @font-face {
-    font-family: 'Zilla Slab Bold';
-    src: url('../fonts/ZillaSlab-Bold.ttf') format('truetype');
+    font-family: 'Inter Bold';
+    src: url('../fonts/Inter-Bold.ttf') format('truetype');
 }
 
-.custom-main {
-    font-family: "Inter", serif;
+@font-face {
+    font-family: 'Zilla Slab Bold';
+    src: url('../fonts/ZillaSlab-Bold.ttf') format('truetype');
 }
 
 .custom-main {
@@ -23,6 +24,7 @@
 }
 
 .custom-main-title {
+    font-family: "Inter Bold", serif;
     font-size: 40px;
     font-weight: bold;
     color: #454545;

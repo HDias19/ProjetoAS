@@ -1,1 +1,91 @@
 /* Main */
+@font-face {
+    font-family: 'Zilla Slab Bold';
+    src: url('../fonts/ZillaSlab-Bold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Zilla Slab';
+    src: url('../fonts/ZillaSlab-Regular.ttf') format('truetype');
+}
+
+.custom-main {
+    font-family: "Zilla Slab", serif;
+    padding-top: 80px;
+}
+
+.imagem-cao {
+    margin-left: -80px;
+    z-index: -1;
+}
+
+.custom-home-title {
+    font-size: 50px;
+    font-family: "Zilla Slab Bold", serif;
+    line-height: 1.2;
+}
+
+
+p {
+    font-size: 27px;
+    line-height: 1;
+    padding-right: 40px;
+    margin-top: 50px;
+    margin-bottom: 55px;
+}
+
+.retangulo-verde-home {
+    background-color: #418536;
+    color: #fff;
+    padding: 10px 0px 8px 0px;
+    width: 300px;
+    display: flex;
+    align-items: center;
+    font-size: 28px;
+    justify-content: center;
+    margin-left: 80px;
+    position: relative;
+}
+
+.icon-marcar-consulta {
+    width: 25px;
+    margin-left: -250px;
+}
+
+.marcar-consulta-line {
+    border-left: 3px solid #fff;
+    padding-left: 18px;
+    left: 16%;
+    height: 47px;
+    position: absolute;
+}
+
+.retangulo-verde-claro {
+    background-color: rgba(201, 239, 199, 0.5);
+    padding: 20px;
+    color: #000000;
+    font-size: 18px;
+    height: 85%;
+    width: 130%;
+    justify-content: center;
+    align-items: center;
+}
+
+.retangulo-verde-claro p {
+    height: 30%;
+    width: 100%;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+.imagem-gato {
+    position: relative;
+    height: 85%;
+    margin-left: 26%;
+}
+
+.custom-main-second {
+    font-family: "Zilla Slab", serif;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
