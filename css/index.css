@@ -27,11 +27,13 @@
 
 
 p {
+    font-family: "Zilla Slab", serif;
     font-size: 27px;
     line-height: 1;
     padding-right: 40px;
     margin-top: 50px;
     margin-bottom: 55px;
+    line-height: 1.2;
 }
 
 .retangulo-verde-home {

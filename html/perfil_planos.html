@@ -34,55 +34,71 @@
                 <img src="../img/icons/Search_alt.svg" alt="Ícone de Busca" class="search-icon">
             </div>
             <div class="col-md-4 d-flex justify-content-center">
-                <img src="../img/logo/logo-no-background.png" alt="Logo" class="logo">
+                <a href="index.html">
+                    <img src="../img/logo/logo-no-background.png" alt="Logo" class="logo">
+                </a>
             </div>
             <div class="col-md-4 d-flex justify-content-end">
-                <a href="login.html"><img src="../img/icons/User_cicrle.svg" alt="Ícone de Perfil"
-                        class="profile-icon"></button>
+                <a href="login.html">
+                    <img src="../img/icons/User_cicrle.svg" alt="Ícone de Perfil" class="profile-icon">
+                </a>
             </div>
         </div>
         <hr class="separator">
         <!-- Header BOTTOM-->
         <div class="row align-items-center new-row d-flex custom-header-bottom">
             <ul class="list-inline d-flex justify-content-center">
-                <li><a href="" class="active-text text-decoration-none">Home</a></li>
-                <li><a href="" class="text-decoration-none">Planos</a></li>
-                <li><a href="" class="text-decoration-none">Serviços</a></li>
-                <li><a href="" class="text-decoration-none">Sobre</a></li>
+                <li><a href="index.html" class="text-decoration-none">Home</a></li>
+                <li><a href="planos.html" class="text-decoration-none">Planos</a></li>
+                <li><a href="serviços.html" class="text-decoration-none">Serviços</a></li>
+                <li><a href="sobre.html" class="text-decoration-none">Sobre</a></li>
             </ul>
         </div>
         <hr class="separator">
     </header>
     <!-- Fim do Header -->
 
+    <!-- Main -->
     <section class="page-section custom-main">
-        <div class="container-fluid mt-3 mb-4 px-5">
+        <!-- Título -->
+        <div class="container-fluid mt-3 mb-5">
             <div class="row justify-content-start">
-                <div class="col-2">
+                <div class="col-12">
                     <img alt="" src="../img/icons/Inner Plugin Iframe.png" class="float-start" style="width: 48px;
                     height: 48px;">
                     <h1 class="custom-main-title">Minha Conta</h1>
                 </div>
+                <div class="col-5 d-grid gap-3 col-sm-2 px-4 mx-4"> </div>
                 <div class="col">
-                    <h2 class="mt-2 px-2">Gerir planos</h2>
+                    <h2 class="mt-2" style="font-weight: bold;">Gerir planos</h2>
                 </div>
-                <div class="col-2 mt-2">
+                <div class="col">
                     <a href="planos.html" class="text-black">
-                        <h5>Aderir a um plano</h5>
+                        <h5 style="justify-content: end; display: flex;">Aderir a um plano</h5>
                     </a>
                 </div>
+                <div class="col-2"></div>
             </div>
         </div>
+
+        <!-- Conteúdo -->
         <div class="container-fluid">
             <div class="row">
+                <!-- Opções laterais -->
                 <div class="d-grid gap-3 col-sm-2 px-4 mx-4 align-self-start">
-                    <a href="perfil_index.html" role="button" class="btn btn-primary">Sumário</a>
-                    <a href="perfil_animais.html" role="button" class="btn btn-primary">Os meus animais</a>
+                    <a href="perfil_index.html" role="button" class="btn btn-primary"
+                        style=" font-weight: bold;">Sumário</a>
+                    <a href="perfil_animais.html" role="button" class="btn btn-primary" style="font-weight: bold;">Os
+                        meus animais</a>
                     <a href="perfil_planos.html" role="button" class="btn btn-primary"
-                        style="background: rgba(65, 133, 54, 0.56);">Gerir planos</a>
-                    <a href="perfil_consultas.html" role="button" class="btn btn-primary">Consultas</a>
-                    <a href="contactar.html" role="button" class="btn btn-primary">Contactar veterinário</a>
+                        style="font-weight: bold; background: rgba(65, 133, 54, 0.56);">Gerir
+                        planos</a>
+                    <a href="perfil_consultas.html" role="button" class="btn btn-primary"
+                        style="font-weight: bold;">Consultas</a>
+                    <a href="contactar.html" role="button" class="btn btn-primary" style="font-weight: bold;">Contactar
+                        veterinário</a>
                 </div>
+                <!-- Informações -->
                 <div class="col">
                     <h4>Os meus planos</h4>
                     <p>Consulte as informações dos seus planos ativos.</p>
@@ -95,25 +111,20 @@
                             <div class="card-body">
                                 <h4 class="card-title fw-bold my-2">Plano Standard</h4>
                                 <h5 class="card-subtitle text-muted fw-bold my-2">Associado a Niko</h5>
-                                <img src="../img/imagens/niko.webp" class="card-img-top rounded rounded-3 w-50 h-50" alt="...">
+                                <img src="../img/imagens/niko.webp" class="card-img-top rounded rounded-3 w-50 h-50"
+                                    alt="...">
                                 <p class="card-text text-start my-2">Aderiu em ...<br>Próxima fatura em ...</p>
                                 <a href="animal.html" class="btn btn-dark w-75">Cancelar plano</a>
                             </div>
-
-
                         </div>
-
                     </div>
-
-
                 </div>
                 <div class="col-2"></div>
-
             </div>
-
         </div>
         <br><br><br><br><br><br>
     </section>
+    <!-- Fim do Main -->
 
     <!-- Footer -->
     <footer class="custom-footer">

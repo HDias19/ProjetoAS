@@ -34,21 +34,24 @@
                 <img src="../img/icons/Search_alt.svg" alt="Ícone de Busca" class="search-icon">
             </div>
             <div class="col-md-4 d-flex justify-content-center">
-                <img src="../img/logo/logo-no-background.png" alt="Logo" class="logo">
+                <a href="index.html">
+                    <img src="../img/logo/logo-no-background.png" alt="Logo" class="logo">
+                </a>
             </div>
             <div class="col-md-4 d-flex justify-content-end">
-                <a href="login.html"><img src="../img/icons/User_cicrle.svg" alt="Ícone de Perfil"
-                        class="profile-icon"></button>
+                <a href="login.html">
+                    <img src="../img/icons/User_cicrle.svg" alt="Ícone de Perfil" class="profile-icon">
+                </a>
             </div>
         </div>
         <hr class="separator">
         <!-- Header BOTTOM-->
         <div class="row align-items-center new-row d-flex custom-header-bottom">
             <ul class="list-inline d-flex justify-content-center">
-                <li><a href="index.html" class=" text-decoration-none">Home</a></li>
+                <li><a href="index.html" class="text-decoration-none">Home</a></li>
                 <li><a href="planos.html" class="text-decoration-none">Planos</a></li>
-                <li><a href="" class="text-decoration-none">Serviços</a></li>
-                <li><a href="" class="text-decoration-none">Sobre</a></li>
+                <li><a href="serviços.html" class="text-decoration-none">Serviços</a></li>
+                <li><a href="sobre.html" class="text-decoration-none">Sobre</a></li>
             </ul>
         </div>
         <hr class="separator">
@@ -70,17 +73,17 @@
         <!-- Conteúdo -->
         <div class="row justify-content-evenly row-cols-2">
             <!-- Login -->
-            <div class="col" style="padding-left: 80px;">
+            <div class="col" style="justify-content: right; display: flex; padding-right: 3%;">
                 <div class="card"
                     style="width: 628px;background: rgba(201, 239, 199, 0.3);mix-blend-mode: darken;border: 2px solid rgba(69, 69, 69, 0.5);border-radius: 10px; padding: 20px 20px 20px 20px;">
                     <div class="card-body">
                         <h4 class="card-title mb-4" style="font-weight: bold; font-size: 30px;">Login</h4>
                         <label class="form-label">Nome de Utilizador ou Endereço de E-mail*:</label>
                         <input type="email" class="form-control" style="background-color: #c9efc7cc;"
-                            placeholder="name@example.com">
+                            placeholder="name@example.com" name="email">
                         <label class="form-label mt-3">Palavra-Passe*:</label>
                         <input type="password" class="form-control" style="background-color: #c9efc7cc;"
-                            placeholder="Password">
+                            placeholder="Password" name="password">
                         <div class="d-grid gap-2 col-3 my-3">
                             <a href="perfil_index.html" class="btn btn-primary" role="button"
                                 style="font-weight: bold; font-size: 20px;">Login</a>
@@ -92,20 +95,21 @@
                 </div>
             </div>
             <!-- Registar -->
-            <div class="col" style="padding-right: 70px; justify-content: right; display: flex; align-items: end;">
+            <div class="col" style="justify-content: left; display: flex; padding-left: 3%;">
                 <div class="card"
                     style="width: 628px;background: rgba(201, 239, 199, 0.3);mix-blend-mode: darken;border: 2px solid rgba(69, 69, 69, 0.5);border-radius: 10px; padding: 20px 20px 20px 20px;">
                     <div class="card-body">
                         <h4 class="card-title mb-4" style="font-weight: bold; font-size: 30px;">Registar</h4>
                         <label class="form-label">Nome de Utilizador*:</label>
                         <input type="email" class="form-control" style="background-color: #c9efc7cc;"
-                            placeholder="Nome de utilizador">
+                            placeholder="Nome de utilizador" name="name">
                         <label class="form-label mt-3">Endereço de E-mail*:</label>
                         <input type="email" class="form-control" style="background-color: #c9efc7cc;"
-                            placeholder="name@example.com">
+                            placeholder="name@example.com" name="email">
                         <label class="form-label mt-3">Palavra-Passe*:</label>
                         <input type="password" class="form-control"
-                            style="background-color: #c9efc7cc; margin-bottom: 20px;" placeholder="Password">
+                            style="background-color: #c9efc7cc; margin-bottom: 20px;" placeholder="Password"
+                            name="password">
                         <small class="card-text text-muted">A sua informação pessoal será usada para dar suporte à
                             sua experiência em todo este website, gerir o acesso à sua conta e para outros fins
                             descritos na nossa</small>
