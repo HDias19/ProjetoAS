@@ -6,10 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>NutriVet</title>
   <!-- CSS Bootstrap local-->
-  <link href="../css/bootstrap.css" rel="stylesheet" />
-  <link rel="stylesheet" href="../css/index.css">
-  <link rel="stylesheet" href="../css/header_footer.css">
-  <link rel="icon" href="../img/logo/logo-white.png">
+  <link href="../static/css/bootstrap.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../static/css/index.css">
+  <link rel="stylesheet" href="../static/css/header_footer.css">
+  <link rel="icon" href="../static/img/logo/logo-white.png">
 </head>
 
 <body>
@@ -18,29 +18,29 @@
     <!-- Header TOP -->
     <div class="row align-items-center custom-header-top">
       <div class="col-md-6 header-itens-esquerda d-flex justify-content-start">
-        <img src="../img/icons/Pin.svg" alt="Ícone de localização" class="location-icon">
+        <img src="../static/img/icons/Pin.svg" alt="Ícone de localização" class="location-icon">
         <span>Encontra uma Loja</span>
-        <img src="../img/icons/Group.svg" alt="Ícone de carro" class="car-icon">
+        <img src="../static/img/icons/Group.svg" alt="Ícone de carro" class="car-icon">
         <span>Rastrear Encomenda</span>
       </div>
       <div class="col-md-6 header-itens-direita d-flex justify-content-end">
-        <img src="../img/icons/InnerPluginIframe.svg" alt="Ícone de telefone" class="phone-icon">
+        <img src="../static/img/icons/InnerPluginIframe.svg" alt="Ícone de telefone" class="phone-icon">
         <span>+351 213 456 789</span>
       </div>
     </div>
     <!-- Header CENTER-->
     <div class="row align-items-center new-row custom-header-center">
       <div class="col-md-4 d-flex justify-content-start">
-        <img src="../img/icons/Search_alt.svg" alt="Ícone de Busca" class="search-icon">
+        <img src="../static/img/icons/Search_alt.svg" alt="Ícone de Busca" class="search-icon">
       </div>
       <div class="col-md-4 d-flex justify-content-center">
-        <a href="index.html">
-          <img src="../img/logo/logo-no-background.png" alt="Logo" class="logo">
+        <a href="{{ url_for('index') }}">
+          <img src="../static/img/logo/logo-no-background.png" alt="Logo" class="logo">
         </a>
       </div>
       <div class="col-md-4 d-flex justify-content-end">
-        <a href="login.html">
-          <img src="../img/icons/User_cicrle.svg" alt="Ícone de Perfil" class="profile-icon">
+        <a href="{{ url_for('perfil') }}">
+          <img src="../static/img/icons/User_cicrle.svg" alt="Ícone de Perfil" class="profile-icon">
         </a>
       </div>
     </div>
@@ -48,10 +48,10 @@
     <!-- Header BOTTOM-->
     <div class="row align-items-center new-row d-flex custom-header-bottom">
       <ul class="list-inline d-flex justify-content-center">
-        <li><a href="index.html" class="active-text text-decoration-none">Home</a></li>
-        <li><a href="planos.html" class="text-decoration-none">Planos</a></li>
-        <li><a href="serviços.html" class="text-decoration-none">Serviços</a></li>
-        <li><a href="sobre.html" class="text-decoration-none">Sobre</a></li>
+        <li><a href="{{ url_for('index') }}" class="active-text text-decoration-none">Home</a></li>
+        <li><a href="{{ url_for('planos') }}" class="text-decoration-none">Planos</a></li>
+        <li><a href="{{ url_for('servicos') }}" class="text-decoration-none">Serviços</a></li>
+        <li><a href="{{ url_for('sobre') }}" class="text-decoration-none">Sobre</a></li>
       </ul>
     </div>
     <hr class="separator">
@@ -62,14 +62,15 @@
   <div class="container custom-main">
     <div class="row">
       <div class="col-md-6">
-        <img src="../img/imagens/image 2.png" alt="Imagem do cão" class="imagem-cao">
+        <img src="../static/img/imagens/image 2.png" alt="Imagem do cão" class="imagem-cao">
       </div>
       <div class="col-md-6">
         <span class="custom-home-title">Nutrição e cuidados veterinários para o seu</span>
         <span class="custom-home-title" style="color: #3BA629;">melhor amigo</span>
         <p>Nutrição personalizada, Consultas ao domicílio, Acompanhamento dos animais, Serviço de urgência 24 horas</p>
         <div class="retangulo-verde-home">
-          <img src="../img/icons/medical doctorsoffice.png" alt="Ícone de marcar consulta" class="icon-marcar-consulta">
+          <img src="../static/img/icons/medical doctorsoffice.png" alt="Ícone de marcar consulta"
+            class="icon-marcar-consulta">
           <span class="marcar-consulta-line">Marcar Consulta</span>
         </div>
       </div>
@@ -87,7 +88,7 @@
       </div>
     </div>
     <div class="col-md-6">
-      <img src="../img/imagens/image 12.png" alt="Imagem do gato" class="imagem-gato">
+      <img src="../static/img/imagens/image 12.png" alt="Imagem do gato" class="imagem-gato">
     </div>
   </div>
 
@@ -101,15 +102,17 @@
         <div class="footer-column">
           <ul class="contact-list">
             <h4>Contactos</h4>
-            <li><img src="../img/icons/telephone.png" alt="Ícone telefone" class="icon-footer-phone"> +351 213 456 789
+            <li><img src="../static/img/icons/telephone.png" alt="Ícone telefone" class="icon-footer-phone"> +351 213
+              456 789
             </li>
             <li><img src="" alt=""> +351 213 874 315</li>
             <span class="footer-space"><img src=""></span>
-            <li><img src="../img/icons/mail-outline.png" alt="Ícone email" class="icon-footer-mail"> <span
+            <li><img src="../static/img/icons/mail-outline.png" alt="Ícone email" class="icon-footer-mail"> <span
                 class="footer-email">geral@nutrivet.pt</span>
             </li>
             <span class="footer-space"><img src=""></span>
-            <li><img src="../img/icons/location.png" alt="Ícone localização" class="icon-footer-location"> 168/170,
+            <li><img src="../static/img/icons/location.png" alt="Ícone localização" class="icon-footer-location">
+              168/170,
               Avenida 01, Ilhavo
             <li><img src="" alt="">Aveiro,
               Portugal</li>
@@ -125,11 +128,13 @@
             <li>Domingo: Fechados</li>
           </ul>
           <div class="social-icons">
-            <a href=""><img src="../img/icons/facebook.png" alt="Ícone facebook" class="icon-footer-facebook"></a>
+            <a href=""><img src="../static/img/icons/facebook.png" alt="Ícone facebook"
+                class="icon-footer-facebook"></a>
             <span class="icon-separator"></span>
-            <a href=""><img src="../img/icons/twitter.png" alt="Ícone twitter" class="icon-footer-twitter"></a>
+            <a href=""><img src="../static/img/icons/twitter.png" alt="Ícone twitter" class="icon-footer-twitter"></a>
             <span class="icon-separator"></span>
-            <a href=""><img src="../img/icons/instagram.png" alt="Ícone instagram" class="icon-footer-instagram"></a>
+            <a href=""><img src="../static/img/icons/instagram.png" alt="Ícone instagram"
+                class="icon-footer-instagram"></a>
           </div>
         </div>
       </div>
@@ -138,7 +143,7 @@
     <div class="footer-text">
       <span>Política de Privacidade</span> <span>Termos e Condições</span> <span>Ajuda</span>
     </div>
-    <img src="../img/imagens/pngwing1.png" alt="Imagem de um cão" class="dog-image">
+    <img src="../static/img/imagens/pngwing1.png" alt="Imagem de um cão" class="dog-image">
   </footer>
   <!-- Fim do Footer -->
 

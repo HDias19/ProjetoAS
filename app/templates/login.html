@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>NutriVet - Faça login ou registe-se</title>
     <!-- CSS Bootstrap local-->
-    <link href="../css/bootstrap.css" rel="stylesheet" />
-    <link rel="stylesheet" href="../css/login.css">
-    <link rel="stylesheet" href="../css/header_footer.css">
-    <link rel="icon" href="../img/logo/logo-white.png">
+    <link href="../static/css/bootstrap.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../static/css/login.css">
+    <link rel="stylesheet" href="../static/css/header_footer.css">
+    <link rel="icon" href="../static/img/logo/logo-white.png">
 </head>
 
 <body>
@@ -18,29 +18,29 @@
         <!-- Header TOP -->
         <div class="row align-items-center custom-header-top">
             <div class="col-md-6 header-itens-esquerda d-flex justify-content-start">
-                <img src="../img/icons/Pin.svg" alt="Ícone de localização" class="location-icon">
+                <img src="../static/img/icons/Pin.svg" alt="Ícone de localização" class="location-icon">
                 <span>Encontra uma Loja</span>
-                <img src="../img/icons/Group.svg" alt="Ícone de carro" class="car-icon">
+                <img src="../static/img/icons/Group.svg" alt="Ícone de carro" class="car-icon">
                 <span>Rastrear Encomenda</span>
             </div>
             <div class="col-md-6 header-itens-direita d-flex justify-content-end">
-                <img src="../img/icons/InnerPluginIframe.svg" alt="Ícone de telefone" class="phone-icon">
+                <img src="../static/img/icons/InnerPluginIframe.svg" alt="Ícone de telefone" class="phone-icon">
                 <span>+351 213 456 789</span>
             </div>
         </div>
         <!-- Header CENTER-->
         <div class="row align-items-center new-row custom-header-center">
             <div class="col-md-4 d-flex justify-content-start">
-                <img src="../img/icons/Search_alt.svg" alt="Ícone de Busca" class="search-icon">
+                <img src="../static/img/icons/Search_alt.svg" alt="Ícone de Busca" class="search-icon">
             </div>
             <div class="col-md-4 d-flex justify-content-center">
                 <a href="index.html">
-                    <img src="../img/logo/logo-no-background.png" alt="Logo" class="logo">
+                    <img src="../static/img/logo/logo-no-background.png" alt="Logo" class="logo">
                 </a>
             </div>
             <div class="col-md-4 d-flex justify-content-end">
                 <a href="login.html">
-                    <img src="../img/icons/User_cicrle.svg" alt="Ícone de Perfil" class="profile-icon">
+                    <img src="../static/img/icons/User_cicrle.svg" alt="Ícone de Perfil" class="profile-icon">
                 </a>
             </div>
         </div>
@@ -64,7 +64,7 @@
         <div class="container-fluid mt-3 mb-5">
             <div class="row justify-content-start">
                 <div class="col-12">
-                    <img alt="" src="../img/icons/Inner Plugin Iframe.png" class="float-start" style="width: 48px;
+                    <img alt="" src="../static/img/icons/Inner Plugin Iframe.png" class="float-start" style="width: 48px;
                     height: 48px;">
                     <h1 class="custom-main-title">Login</h1>
                 </div>
@@ -78,16 +78,18 @@
                     style="width: 628px;background: rgba(201, 239, 199, 0.3);mix-blend-mode: darken;border: 2px solid rgba(69, 69, 69, 0.5);border-radius: 10px; padding: 20px 20px 20px 20px;">
                     <div class="card-body">
                         <h4 class="card-title mb-4" style="font-weight: bold; font-size: 30px;">Login</h4>
-                        <label class="form-label">Nome de Utilizador ou Endereço de E-mail*:</label>
-                        <input type="email" class="form-control" style="background-color: #c9efc7cc;"
-                            placeholder="name@example.com" name="email">
-                        <label class="form-label mt-3">Palavra-Passe*:</label>
-                        <input type="password" class="form-control" style="background-color: #c9efc7cc;"
-                            placeholder="Password" name="password">
-                        <div class="d-grid gap-2 col-3 my-3">
-                            <a href="perfil_index.html" class="btn btn-primary" role="button"
-                                style="font-weight: bold; font-size: 20px;">Login</a>
-                        </div>
+                        <form action="/login" method="POST">
+                            <label class="form-label">Endereço de E-mail*:</label>
+                            <input type="email" class="form-control" style="background-color: #c9efc7cc;"
+                                placeholder="name@example.com" name="email">
+                            <label class="form-label mt-3">Palavra-Passe*:</label>
+                            <input type="password" class="form-control" style="background-color: #c9efc7cc;"
+                                placeholder="Password" name="password">
+                            <div class="d-grid gap-2 col-3 my-3">
+                                <button type="submit" class="btn btn-primary"
+                                    style="font-weight: bold; font-size: 20px;">Login</button>
+                            </div>
+                        </form>
                         <a href="" class="card-link"
                             style="color: #418536; font-weight: bold; margin-left: 5px;">Esqueceu-se da sua
                             palavra-passe?</a>
@@ -100,25 +102,27 @@
                     style="width: 628px;background: rgba(201, 239, 199, 0.3);mix-blend-mode: darken;border: 2px solid rgba(69, 69, 69, 0.5);border-radius: 10px; padding: 20px 20px 20px 20px;">
                     <div class="card-body">
                         <h4 class="card-title mb-4" style="font-weight: bold; font-size: 30px;">Registar</h4>
-                        <label class="form-label">Nome de Utilizador*:</label>
-                        <input type="email" class="form-control" style="background-color: #c9efc7cc;"
-                            placeholder="Nome de utilizador" name="name">
-                        <label class="form-label mt-3">Endereço de E-mail*:</label>
-                        <input type="email" class="form-control" style="background-color: #c9efc7cc;"
-                            placeholder="name@example.com" name="email">
-                        <label class="form-label mt-3">Palavra-Passe*:</label>
-                        <input type="password" class="form-control"
-                            style="background-color: #c9efc7cc; margin-bottom: 20px;" placeholder="Password"
-                            name="password">
-                        <small class="card-text text-muted">A sua informação pessoal será usada para dar suporte à
-                            sua experiência em todo este website, gerir o acesso à sua conta e para outros fins
-                            descritos na nossa</small>
-                        <small class="card-text text-muted" style="font-weight: bold;"> Política de
-                            Privacidade.</small>
-                        <div class="d-grid gap-2 col-3 my-3">
-                            <button class="btn btn-primary" type="button"
-                                style="font-weight: bold; font-size: 20px;">Registar</button>
-                        </div>
+                        <form action="/register" method="POST">
+                            <label class="form-label">Nome de Utilizador*:</label>
+                            <input type="text" class="form-control" style="background-color: #c9efc7cc;"
+                                placeholder="Nome de utilizador" name="name">
+                            <label class="form-label mt-3">Endereço de E-mail*:</label>
+                            <input type="email" class="form-control" style="background-color: #c9efc7cc;"
+                                placeholder="name@example.com" name="email">
+                            <label class="form-label mt-3">Palavra-Passe*:</label>
+                            <input type="password" class="form-control"
+                                style="background-color: #c9efc7cc; margin-bottom: 20px;" placeholder="Password"
+                                name="password">
+                            <small class="card-text text-muted">A sua informação pessoal será usada para dar suporte à
+                                sua experiência em todo este website, gerir o acesso à sua conta e para outros fins
+                                descritos na nossa</small>
+                            <small class="card-text text-muted" style="font-weight: bold;"> Política de
+                                Privacidade.</small>
+                            <div class="d-grid gap-2 col-3 my-3">
+                                <button class="btn btn-primary" type="submit"
+                                    style="font-weight: bold; font-size: 20px;">Registar</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -134,16 +138,18 @@
                 <div class="footer-column">
                     <ul class="contact-list">
                         <h4>Contactos</h4>
-                        <li><img src="../img/icons/telephone.png" alt="Ícone telefone" class="icon-footer-phone"> +351
+                        <li><img src="../static/img/icons/telephone.png" alt="Ícone telefone" class="icon-footer-phone">
+                            +351
                             213 456 789
                         </li>
                         <li><img src="" alt=""> +351 213 874 315</li>
                         <span class="footer-space"><img src=""></span>
-                        <li><img src="../img/icons/mail-outline.png" alt="Ícone email" class="icon-footer-mail"> <span
-                                class="footer-email">geral@nutrivet.pt</span>
+                        <li><img src="../static/img/icons/mail-outline.png" alt="Ícone email" class="icon-footer-mail">
+                            <span class="footer-email">geral@nutrivet.pt</span>
                         </li>
                         <span class="footer-space"><img src=""></span>
-                        <li><img src="../img/icons/location.png" alt="Ícone localização" class="icon-footer-location">
+                        <li><img src="../static/img/icons/location.png" alt="Ícone localização"
+                                class="icon-footer-location">
                             168/170,
                             Avenida 01, Ilhavo
                         <li><img src="" alt="">Aveiro,
@@ -160,13 +166,13 @@
                         <li>Domingo: Fechados</li>
                     </ul>
                     <div class="social-icons">
-                        <a href=""><img src="../img/icons/facebook.png" alt="Ícone facebook"
+                        <a href=""><img src="../static/img/icons/facebook.png" alt="Ícone facebook"
                                 class="icon-footer-facebook"></a>
                         <span class="icon-separator"></span>
-                        <a href=""><img src="../img/icons/twitter.png" alt="Ícone twitter"
+                        <a href=""><img src="../static/img/icons/twitter.png" alt="Ícone twitter"
                                 class="icon-footer-twitter"></a>
                         <span class="icon-separator"></span>
-                        <a href=""><img src="../img/icons/instagram.png" alt="Ícone instagram"
+                        <a href=""><img src="../static/img/icons/instagram.png" alt="Ícone instagram"
                                 class="icon-footer-instagram"></a>
                     </div>
                 </div>
@@ -176,7 +182,7 @@
         <div class="footer-text">
             <span>Política de Privacidade</span> <span>Termos e Condições</span> <span>Ajuda</span>
         </div>
-        <img src="../img/imagens/pngwing1.png" alt="Imagem de um cão" class="dog-image">
+        <img src="../static/img/imagens/pngwing1.png" alt="Imagem de um cão" class="dog-image">
     </footer>
     <!-- Fim do Footer -->
 
