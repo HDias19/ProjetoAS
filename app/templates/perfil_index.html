@@ -2,12 +2,11 @@
 <html lang="pt-PT">
 
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NutriVet - Perfil</title>
     <!-- CSS Bootstrap local-->
     <link href="../static/css/bootstrap.css" rel="stylesheet" />
-    <link rel="stylesheet" href="../static/css/login.css">
     <link rel="stylesheet" href="../static/css/header_footer.css">
     <link rel="icon" href="../static/img/logo/logo-white.png">
 </head>
@@ -48,7 +47,7 @@
         <!-- Header BOTTOM-->
         <div class="row align-items-center new-row d-flex custom-header-bottom">
             <ul class="list-inline d-flex justify-content-center">
-                <li><a href="{{ url_for('index') }}" class="active-text text-decoration-none">Home</a></li>
+                <li><a href="{{ url_for('index') }}" class="text-decoration-none">Home</a></li>
                 <li><a href="{{ url_for('planos') }}" class="text-decoration-none">Planos</a></li>
                 <li><a href="{{ url_for('servicos') }}" class="text-decoration-none">Serviços</a></li>
                 <li><a href="{{ url_for('sobre') }}" class="text-decoration-none">Sobre</a></li>
@@ -73,9 +72,10 @@
                     <h2 class="mt-2" style="font-weight: bold;">Seja bem-vindo!</h2>
                 </div>
                 <div class="col">
-                    <a href="" class="text-black">
-                        <h5 style="justify-content: end; display: flex;">Editar</h5>
-                    </a>
+                    <!-- Botão para terminar sessão -->
+                    <form action="/logout" style="justify-content: end; display: flex;" class="text-black">
+                        <button type="submit">Terminar Sessão</button>
+                    </form>
                 </div>
                 <div class="col-2"></div>
             </div>
@@ -86,16 +86,13 @@
             <div class="row">
                 <!-- Opções laterais -->
                 <div class="d-grid gap-3 col-sm-2 px-4 mx-4 align-self-start">
-                    <a href="{{ url_for('perfil_index') }}" role="button" class="btn btn-primary"
+                    <a href="{{ url_for('perfil') }}" role="button" class="btn btn-primary"
                         style="background: rgba(65, 133, 54, 0.56); font-weight: bold;">Sumário</a>
-                    <a href="{{ url_for('perfil_animais') }}" role="button" class="btn btn-primary"
-                        style="font-weight: bold;">Os
+                    <a href="" role="button" class="btn btn-primary" style="font-weight: bold;">Os
                         meus animais</a>
-                    <a href="{{ url_for('perfil_planos') }}" role="button" class="btn btn-primary"
-                        style="font-weight: bold;">Gerir
+                    <a href="" role="button" class="btn btn-primary" style="font-weight: bold;">Gerir
                         planos</a>
-                    <a href="{{ url_for('perfil_consultas') }}" role="button" class="btn btn-primary"
-                        style="font-weight: bold;">Consultas</a>
+                    <a href="" role="button" class="btn btn-primary" style="font-weight: bold;">Consultas</a>
                     <a href="{{ url_for('contactar') }}" role="button" class="btn btn-primary"
                         style="font-weight: bold;">Contactar
                         veterinário</a>

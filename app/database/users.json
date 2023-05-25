@@ -2,7 +2,19 @@
     {
         "name": "marco",
         "email": "marco@gmail.com",
-        "password": "12345",
+        "password": "1",
+        "user_type": "cliente"
+    },
+    {
+        "name": "pedro",
+        "email": "pedro@gmail.com",
+        "password": "1",
+        "user_type": "veterinario"
+    },
+    {
+        "name": "marta",
+        "email": "marta@gmail.com",
+        "password": "1",
         "user_type": "cliente"
     }
 ]

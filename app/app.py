@@ -99,17 +99,32 @@ def servicos():
 def sobre():
     return render_template('sobre.html')
 
-# Rota para exibir a página de perfil
+# Rota para lidar com a requisição de contactar urgencia
+
+
+@app.route('/contactar')
+def contactar():
+    return render_template('urgencia.html')
 
 
 # Rota para exibir a página de perfil
-@app.route('/perfil_index', methods=['GET', 'POST'])
+@app.route('/perfil', methods=['GET', 'POST'])
 def perfil():
     if 'user' in session:
-        user = session['user']
-        return render_template('perfil_index.html', user=user)
-    else:
-        return render_template('login.html')
+        if session['user']['user_type'] == 'cliente':
+            return render_template('perfil_index.html')
+        elif session['user']['user_type'] == 'veterinario':
+            return render_template('vet_index.html')
+    return render_template('login.html')
+
+
+# Rota para terminar a sessão do usuário
+
+
+@app.route('/logout')
+def logout():
+    session.pop('user', None)
+    return redirect(url_for('index'))
 
 
 if __name__ == '__main__':
