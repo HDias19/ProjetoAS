@@ -10,6 +10,15 @@
     <link rel="stylesheet" href="../static/css/login.css">
     <link rel="stylesheet" href="../static/css/header_footer.css">
     <link rel="icon" href="../static/img/logo/logo-white.png">
+
+    <!-- CSS -->
+    <style>
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+    </style>
 </head>
 
 <body>
@@ -104,24 +113,27 @@
                 <div class="col">
                     <p>Aqui tem uma visão geral dos seus animais.</p>
                     <hr>
-                    <div class="col-sm-3">
-                        <div class="card h-100 text-center" style="background: rgba(201, 239, 199, 0.2);
-                        mix-blend-mode: darken;
-                        border: 2px solid rgba(69, 69, 69, 0.5);
-                        border-radius: 10px;">
-                            <img src="../static/img/imagens/niko.webp" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title"><strong>Niko</strong></h5>
-                                <ul>
-                                    <li class="card-text text-start">Raça</li>
-                                    <li class="card-text text-start">Género</li>
-                                    <li class="card-text text-start">Idade</li>
-                                    <li class="card-text text-start">Peso</li>
-                                </ul>
-                                <a href="animal.html" class="btn btn-primary w-75" style="font-weight: bold;">Ver
-                                    mais</a>
+                    <!-- Animal -->
+                    <div class="row">
+                        {% for animal in animais %}
+                        <div class="col-sm-3">
+                            <div class="card h-100 text-center"
+                                style="background: rgba(201, 239, 199, 0.2); mix-blend-mode: darken; border: 2px solid rgba(69, 69, 69, 0.5);border-radius: 10px;">
+                                <img src="../static/img/imagens/niko.webp" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title"><strong>{{ animal.name }}</strong></h5>
+                                    <ul>
+                                        <li class="card-text text-start">Raça: {{ animal.raca }}</li>
+                                        <li class="card-text text-start">Género: {{ animal.genero }}</li>
+                                        <li class="card-text text-start">Idade: {{ animal.idade }}</li>
+                                        <li class="card-text text-start">Peso: {{ animal.peso }}</li>
+                                    </ul>
+                                    <a href="animal.html" class="btn btn-primary w-75" style="font-weight: bold;">Ver
+                                        mais</a>
+                                </div>
                             </div>
                         </div>
+                        {% endfor %}
                     </div>
                 </div>
                 <div class="col-2"></div>

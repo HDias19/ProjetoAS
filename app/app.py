@@ -149,7 +149,18 @@ def logout():
 # Rota para lidar com a requisição de os meus animais
 @app.route('/perfil_animais')
 def perfil_animais():
-    return render_template('perfil_animais.html')
+    if 'user' in session:
+        user = session['user']
+        email = user['email']
+        file_path = f'app/database/{email}.json'
+
+        with open(file_path, 'r') as file:
+            data = json.load(file)
+            animais = data['animais']
+
+        return render_template('perfil_animais.html', animais=animais)
+
+    return render_template('login.html')
 
 
 # Rota para lidar com a requisição de os meus planos
@@ -208,7 +219,7 @@ def adicionar_animal_form():
                 with open(file_path, 'w') as file:
                     json.dump(data, file)
 
-    return render_template('perfil_animais.html')
+    return redirect(url_for('perfil_animais'))
 
 
 @app.route('/cancelar_plano')
