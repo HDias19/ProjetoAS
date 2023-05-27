@@ -1,7 +1,9 @@
 from flask import Flask, render_template, request, jsonify, redirect, url_for, session
+from datetime import datetime
 import json
 import os
 import secrets
+
 
 # Verificar se o arquivo JSON já existe senão cria um novo
 file_path = 'app/database/users.json'
@@ -36,6 +38,49 @@ app = Flask(__name__)
 
 app.secret_key = secrets.token_hex(16)
 app.config['SESSION_TYPE'] = 'filesystem'
+
+
+# Função para obter os animais do usuário
+
+
+def get_user_animals():
+    if 'user' in session:
+        email = session['user']['email']
+        file_path = f'app/database/{email}.json'
+
+        with open(file_path, 'r') as file:
+            data = json.load(file)
+            return data['animais']
+    return []
+
+
+# Função para salvar o plano na base de dados
+def save_plan_to_database(animal_name, plan_type):
+    user = session['user']
+    email = user['email']
+    file_path = f'app/database/{email}.json'
+
+    with open(file_path, 'r+') as file:
+        data = json.load(file)
+
+        animal = next(
+            (animal for animal in data['animais'] if animal['name'] == animal_name), None)
+        if animal:
+            # Obter a data atual em formato dia/mês/ano
+            adhesion_date = datetime.now().strftime('%d/%m/%Y')
+            data['planos'].append({
+                'animal': animal_name,
+                'plan_type': plan_type,
+                'data': adhesion_date
+            })
+
+            file.seek(0)  # Mover o cursor para o início do arquivo
+            json.dump(data, file, indent=4)
+            file.truncate()  # Reduzir o tamanho do arquivo, se necessário
+
+            return True
+
+    return False
 
 
 # Rota para exibir o formulário de registro
@@ -85,6 +130,39 @@ def register():
 
     return jsonify({'success': True, 'message': 'Registro concluído com sucesso'})
 
+# Rota para lidar com a requisição de mostrar os animais do usuário na pagina de planos
+
+
+@app.route('/planos')
+def planos():
+    if 'user' in session:
+        user_type = session['user']['user_type']
+        if user_type == 'cliente':
+            user_animals = get_user_animals()
+            return render_template('planos.html', user_animals=user_animals)
+    return redirect(url_for('planos_basica'))
+
+
+# Rota para lidar com a requisição de adicionar um plano na base de dados
+
+
+@app.route('/adicionar_plano', methods=['POST'])
+def adicionar_plano():
+    plan_type = request.form.get('plan_type')
+
+    if plan_type == 'standard':
+        # Obtenha o campo com o sufixo "_standard"
+        animal_name = request.form.get('animal_standard')
+    elif plan_type == 'premium':
+        # Obtenha o campo com o sufixo "_premium"
+        animal_name = request.form.get('animal_premium')
+    else:
+        return jsonify({'success': False, 'message': 'Tipo de plano inválido'})
+
+    save_plan_to_database(animal_name, plan_type)
+
+    return redirect(url_for('perfil_planos'))
+
 
 # Rota para lidar com a requisição de login
 @app.route('/login', methods=['POST'])
@@ -107,11 +185,6 @@ def login():
 
 
 # Rotas para páginas estáticas
-@app.route('/planos')
-def planos():
-    return render_template('planos.html')
-
-
 @app.route('/servicos')
 def servicos():
     return render_template('servicos.html')
@@ -120,6 +193,16 @@ def servicos():
 @app.route('/sobre')
 def sobre():
     return render_template('sobre.html')
+
+
+@app.route('/pagamento')
+def pagamento():
+    return render_template('pagamento.html')
+
+
+@app.route('/planos_basica')
+def planos_basica():
+    return render_template('planos_basica.html')
 
 
 @app.route('/contactar')
@@ -166,7 +249,44 @@ def perfil_animais():
 # Rota para lidar com a requisição de os meus planos
 @app.route('/perfil_planos')
 def perfil_planos():
-    return render_template('perfil_planos.html')
+    if 'user' in session:
+        user = session['user']
+        email = user['email']
+        file_path = f'app/database/{email}.json'
+
+        with open(file_path, 'r') as file:
+            data = json.load(file)
+            planos = data['planos']
+
+        return render_template('perfil_planos.html', planos=planos)
+
+    return render_template('login.html')
+
+# Rota para lidar com a requisição de cancelar um plano
+
+
+@app.route('/cancelar_plano/<animal>/<plan_type>')
+def cancelar_plano(animal, plan_type):
+    if 'user' in session:
+        email = session['user']['email']
+        file_path = f'app/database/{email}.json'
+
+        with open(file_path, 'r+') as file:
+            data = json.load(file)
+
+            animal_plans = data['planos']
+            for plan in animal_plans:
+                if plan['animal'] == animal and plan['plan_type'] == plan_type:
+                    animal_plans.remove(plan)
+                    break
+
+            file.seek(0)  # Mover o cursor para o início do arquivo
+            json.dump(data, file, indent=4)
+            file.truncate()  # Reduzir o tamanho do arquivo, se necessário
+
+            return redirect(url_for('perfil_planos'))
+
+    return redirect(url_for('login'))
 
 
 # Rota para lidar com a requisição de as minhas consultas
@@ -208,6 +328,13 @@ def adicionar_animal_form():
                 file_path = f'app/database/{user["email"]}.json'
                 with open(file_path, 'r') as file:
                     data = json.load(file)
+
+                    # Verificar se o animal já existe
+                    for animal in data['animais']:
+                        if animal['name'] == name:
+                            return jsonify({'success': False, 'message': 'Você já tem um animal com esse nome'})
+
+                    # Adicionar o novo animal
                     data['animais'].append({
                         'name': name,
                         'idade': idade,
@@ -216,15 +343,11 @@ def adicionar_animal_form():
                         'peso': peso,
                         'historico': []
                     })
+
                 with open(file_path, 'w') as file:
                     json.dump(data, file)
 
     return redirect(url_for('perfil_animais'))
-
-
-@app.route('/cancelar_plano')
-def cancelar_plano():
-    return render_template('planos.html')
 
 
 if __name__ == '__main__':

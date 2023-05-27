@@ -7,8 +7,30 @@
             "genero": "3",
             "peso": "5",
             "historico": []
+        },
+        {
+            "name": "2",
+            "idade": "1",
+            "raca": "1",
+            "genero": "1",
+            "peso": "1",
+            "historico": []
+        },
+        {
+            "name": "3",
+            "idade": "3",
+            "raca": "3",
+            "genero": "3",
+            "peso": "3",
+            "historico": []
         }
     ],
-    "planos": [],
+    "planos": [
+        {
+            "animal": "1",
+            "plan_type": "standard",
+            "data": "27/05/2023"
+        }
+    ],
     "consultas": []
 }

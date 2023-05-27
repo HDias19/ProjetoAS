@@ -111,10 +111,15 @@
                         <hr class="separator-text-planos">
                         <p>Serviços de urgência limitados ao horário de funcionamento</p>
                     </ul>
-                    <div class="text-center">
-                        <button class="btn btn-primary" type=" button"
-                            style="font-weight: bold; font-size: 25px; padding: 5px 30px 5px 30px; margin-top: 30px;">Aderir</button>
-                    </div>
+                    <form action="{{ url_for('adicionar_plano') }}" method="POST">
+                        <select name="animal_standard">
+                            {% for animal in user_animals %}
+                            <option value="{{ animal.name }}">{{ animal.name }}</option>
+                            {% endfor %}
+                        </select>
+                        <input type="hidden" name="plan_type" value="standard">
+                        <button class="btn btn-primary" type="submit">Confirmar</button>
+                    </form>
                 </div>
                 <div class="col-md-5"
                     style="color: #ffffff; background-color: #2C4B27; padding: 20px; padding-bottom: 50px; margin-top: 40px; margin-left: 10px; border-radius: 10px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);">
@@ -134,10 +139,15 @@
                         <hr class="separator-text-planos2">
                         <p>Serviço de urgência disponível 24 horas</p>
                     </ul>
-                    <div class="text-center">
-                        <button class="btn btn-primary" type=" button"
-                            style="font-weight: bold; font-size: 25px; padding: 5px 30px 5px 30px; margin-top: 30px;">Aderir</button>
-                    </div>
+                    <form action="{{ url_for('adicionar_plano') }}" method="POST">
+                        <select name="animal_premium">
+                            {% for animal in user_animals %}
+                            <option value="{{ animal.name }}">{{ animal.name }}</option>
+                            {% endfor %}
+                        </select>
+                        <input type="hidden" name="plan_type" value="premium">
+                        <button class="btn btn-primary" type="submit">Confirmar</button>
+                    </form>
                 </div>
             </div>
         </div>
