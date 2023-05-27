@@ -7,13 +7,32 @@ import secrets
 file_path = 'app/database/users.json'
 if not os.path.isfile(file_path):
     initial_data = []
-
     with open(file_path, 'w') as file:
         json.dump(initial_data, file)
 
+# Verificar se o arquivo JSON para cada usuário já existe senão cria um novo
+with open('app/database/users.json', 'r') as file:
+    users = json.load(file)
+    for user in users:
+        user_type = user['user_type']
+        email = user['email']
+        file_path = f'app/database/{email}.json'
+
+        if not os.path.isfile(file_path):
+            initial_data = {
+                'animais': [],
+                'planos': [],
+                'consultas': []
+            }
+
+            if user_type == 'veterinario':
+                initial_data['consultas'] = []
+
+            with open(file_path, 'w') as file:
+                json.dump(initial_data, file)
+
 # Inicializar o Flask
 app = Flask(__name__)
-
 
 app.secret_key = secrets.token_hex(16)
 app.config['SESSION_TYPE'] = 'filesystem'
@@ -54,6 +73,16 @@ def register():
         users.append(new_user)
         json.dump(users, file)
 
+    # Cria o arquivo JSON com o email do cliente
+    file_path = f'app/database/{email}.json'
+    initial_data = {
+        'animais': [],
+        'planos': [],
+        'consultas': []
+    }
+    with open(file_path, 'w') as file:
+        json.dump(initial_data, file)
+
     return jsonify({'success': True, 'message': 'Registro concluído com sucesso'})
 
 
@@ -77,29 +106,20 @@ def login():
     return jsonify({'success': False, 'message': 'Credenciais inválidas'})
 
 
-# Rota para lidar com a requisição de login
-
-
+# Rotas para páginas estáticas
 @app.route('/planos')
 def planos():
     return render_template('planos.html')
-
-
-# Rota para lidar com a requisição de serviços
 
 
 @app.route('/servicos')
 def servicos():
     return render_template('servicos.html')
 
-# Rota para lidar com a requisição de sobre
-
 
 @app.route('/sobre')
 def sobre():
     return render_template('sobre.html')
-
-# Rota para lidar com a requisição de contactar urgencia
 
 
 @app.route('/contactar')
@@ -111,20 +131,89 @@ def contactar():
 @app.route('/perfil', methods=['GET', 'POST'])
 def perfil():
     if 'user' in session:
-        if session['user']['user_type'] == 'cliente':
+        user_type = session['user']['user_type']
+        if user_type == 'cliente':
             return render_template('perfil_index.html')
-        elif session['user']['user_type'] == 'veterinario':
+        elif user_type == 'veterinario':
             return render_template('vet_index.html')
     return render_template('login.html')
 
 
 # Rota para terminar a sessão do usuário
-
-
 @app.route('/logout')
 def logout():
     session.pop('user', None)
     return redirect(url_for('index'))
+
+
+# Rota para lidar com a requisição de os meus animais
+@app.route('/perfil_animais')
+def perfil_animais():
+    return render_template('perfil_animais.html')
+
+
+# Rota para lidar com a requisição de os meus planos
+@app.route('/perfil_planos')
+def perfil_planos():
+    return render_template('perfil_planos.html')
+
+
+# Rota para lidar com a requisição de as minhas consultas
+@app.route('/perfil_consultas')
+def perfil_consultas():
+    return render_template('perfil_consultas.html')
+
+
+# Rota para lidar com a requisição das consultas do veterinário
+@app.route('/vet_consultas')
+def vet_consultas():
+    return render_template('vet_consultas.html')
+
+
+# Rota para lidar com a requisição para adicionar animal
+@app.route('/adicionar_animal')
+def adicionar_animal():
+    return render_template('adicionar_animal.html')
+
+
+# Rota para lidar com a requisição para adicionar animal form
+@app.route('/adicionar_animal_form', methods=['POST'])
+def adicionar_animal_form():
+    # Lê os dados do formulário de adicionar animal: name, idade, raca, genero e peso
+    # Coloca esses dados no arquivo JSON do cliente logado
+    # Nesse arquivo, cada pessoa pode ter vários animais e os animais ainda têm uma lista de histórico
+
+    name = request.form['name']
+    idade = request.form['idade']
+    raca = request.form['raca']
+    genero = request.form['genero']
+    peso = request.form['peso']
+
+    # Verificar se o usuário já existe no arquivo JSON
+    with open('app/database/users.json', 'r') as file:
+        users = json.load(file)
+        for user in users:
+            if user['email'] == session['user']['email']:
+                file_path = f'app/database/{user["email"]}.json'
+                with open(file_path, 'r') as file:
+                    data = json.load(file)
+                    data['animais'].append({
+                        'name': name,
+                        'idade': idade,
+                        'raca': raca,
+                        'genero': genero,
+                        'peso': peso,
+                        'historico': []
+                    })
+                with open(file_path, 'w') as file:
+                    json.dump(data, file)
+
+    return render_template('perfil_animais.html')
+
+
+@app.route('/cancelar_plano')
+def cancelar_plano():
+    return render_template('planos.html')
 
 
 if __name__ == '__main__':

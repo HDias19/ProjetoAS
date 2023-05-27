@@ -1,0 +1,30 @@
+{
+    "animais": [
+        {
+            "name": "1",
+            "idade": "2",
+            "raca": "4",
+            "genero": "3",
+            "peso": "5",
+            "historico": []
+        },
+        {
+            "name": "9",
+            "idade": "8",
+            "raca": "6",
+            "genero": "7",
+            "peso": "5",
+            "historico": []
+        },
+        {
+            "name": "1",
+            "idade": "1",
+            "raca": "1",
+            "genero": "1",
+            "peso": "1",
+            "historico": []
+        }
+    ],
+    "planos": [],
+    "consultas": []
+}

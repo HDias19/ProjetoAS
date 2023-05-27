@@ -1,13 +1,12 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-PT">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NutriVet - Perfil</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Adicionar Animal</title>
     <!-- CSS Bootstrap local-->
     <link href="../static/css/bootstrap.css" rel="stylesheet" />
-    <link rel="stylesheet" href="../static/css/login.css">
     <link rel="stylesheet" href="../static/css/header_footer.css">
     <link rel="icon" href="../static/img/logo/logo-white.png">
 </head>
@@ -59,76 +58,35 @@
     <!-- Fim do Header -->
 
     <!-- Main -->
-    <section class="page-section custom-main">
-        <!-- Título -->
-        <div class="container-fluid mt-3 mb-5">
-            <div class="row justify-content-start">
-                <div class="col-12">
-                    <img alt="" src="../static/img/icons/Inner Plugin Iframe.png" class="float-start" style="width: 48px;
-                    height: 48px;">
-                    <h1 class="custom-main-title">Minha Conta</h1>
-                </div>
-                <div class="col-5 d-grid gap-3 col-sm-2 px-4 mx-4"> </div>
-                <div class="col">
-                    <h2 class="mt-2" style="font-weight: bold;">Os meus animais</h2>
-                </div>
-                <div class="col">
-                    <a href="{{ url_for('adicionar_animal') }}" class="text-black">
-                        <h5 style="justify-content: end; display: flex;">Adicionar animal</h5>
-                    </a>
-                </div>
-                <div class="col-2"></div>
-            </div>
-        </div>
-
-        <!-- Conteúdo -->
-        <div class="container-fluid">
-            <div class="row">
-                <!-- Opções laterais -->
-                <div class="d-grid gap-3 col-sm-2 px-4 mx-4 align-self-start">
-                    <a href="{{ url_for('perfil') }}" role="button" class="btn btn-primary"
-                        style="font-weight: bold;">Sumário</a>
-                    <a href="{{ url_for('perfil_animais') }}" role="button" class="btn btn-primary"
-                        style=" background: rgba(65, 133, 54, 0.56); font-weight: bold;">Os
-                        meus animais</a>
-                    <a href="{{ url_for('perfil_planos') }}" role="button" class="btn btn-primary"
-                        style="font-weight: bold;">Gerir
-                        planos</a>
-                    <a href="{{ url_for('perfil_consultas') }}" role="button" class="btn btn-primary"
-                        style="font-weight: bold;">Consultas</a>
-                    <a href="{{ url_for('contactar') }}" role="button" class="btn btn-primary"
-                        style="font-weight: bold;">Contactar
-                        veterinário</a>
-                </div>
-                <!-- Informações -->
-                <div class="col">
-                    <p>Aqui tem uma visão geral dos seus animais.</p>
-                    <hr>
-                    <div class="col-sm-3">
-                        <div class="card h-100 text-center" style="background: rgba(201, 239, 199, 0.2);
-                        mix-blend-mode: darken;
-                        border: 2px solid rgba(69, 69, 69, 0.5);
-                        border-radius: 10px;">
-                            <img src="../static/img/imagens/niko.webp" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title"><strong>Niko</strong></h5>
-                                <ul>
-                                    <li class="card-text text-start">Raça</li>
-                                    <li class="card-text text-start">Género</li>
-                                    <li class="card-text text-start">Idade</li>
-                                    <li class="card-text text-start">Peso</li>
-                                </ul>
-                                <a href="animal.html" class="btn btn-primary w-75" style="font-weight: bold;">Ver
-                                    mais</a>
-                            </div>
+    <div class="container custom-main">
+        <!-- Adicionar animal -->
+        <div class="col" style="justify-content: left; display: flex; padding-left: 3%;">
+            <div class="card"
+                style="width: 628px;background: rgba(201, 239, 199, 0.3);mix-blend-mode: darken;border: 2px solid rgba(69, 69, 69, 0.5);border-radius: 10px; padding: 20px 20px 20px 20px;">
+                <div class="card-body">
+                    <h4 class="card-title mb-4" style="font-weight: bold; font-size: 30px;">Adicionar animal</h4>
+                    <form action="/adicionar_animal_form" method="POST">
+                        <label class="form-label">Nome do animal</label>
+                        <input type="text" class="form-control" style="background-color: #c9efc7cc;" name="name">
+                        <label class="form-label">Idade</label>
+                        <input type="text" class="form-control" style="background-color: #c9efc7cc;" name="idade">
+                        <label class="form-label">Género</label>
+                        <input type="text" class="form-control" style="background-color: #c9efc7cc;" name="genero">
+                        <label class="form-label">Raça</label>
+                        <input type="text" class="form-control" style="background-color: #c9efc7cc;" name="raca">
+                        <label class="form-label">Peso</label>
+                        <input type="text" class="form-control" style="background-color: #c9efc7cc;" name="peso">
+                        <div class="d-grid gap-2 col-3 my-3">
+                            <button class="btn btn-primary" type="submit"
+                                style="font-weight: bold; font-size: 20px;">Adicionar</button>
                         </div>
-                    </div>
+                    </form>
                 </div>
-                <div class="col-2"></div>
             </div>
         </div>
-        <br><br><br><br><br><br>
-    </section>
+    </div>
+
+    <hr class="separator">
     <!-- Fim do Main -->
 
     <!-- Footer -->
@@ -139,8 +97,8 @@
                     <ul class="contact-list">
                         <h4>Contactos</h4>
                         <li><img src="../static/img/icons/telephone.png" alt="Ícone telefone" class="icon-footer-phone">
-                            +351
-                            213 456 789
+                            +351 213
+                            456 789
                         </li>
                         <li><img src="" alt=""> +351 213 874 315</li>
                         <span class="footer-space"><img src=""></span>
