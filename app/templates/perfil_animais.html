@@ -129,8 +129,8 @@
                                         <li class="card-text text-start">Idade: {{ animal.idade }}</li>
                                         <li class="card-text text-start">Peso: {{ animal.peso }}</li>
                                     </ul>
-                                    <a href="animal.html" class="btn btn-primary w-75" style="font-weight: bold;">Ver
-                                        mais</a>
+                                    <a href="{{ url_for('animal', nome_animal=animal.name) }}"
+                                        class="btn btn-primary w-75" style="font-weight: bold;">Ver mais</a>
                                 </div>
                             </div>
                         </div>

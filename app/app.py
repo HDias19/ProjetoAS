@@ -82,6 +82,34 @@ def save_plan_to_database(animal_name, plan_type):
 
     return False
 
+# Função para salvar a consulta na base de dados
+
+
+def save_consulta_to_database(animal, local, data_consulta, hora, descricao):
+    if 'user' in session:
+        email = session['user']['email']
+        file_path = f'app/database/{email}.json'
+
+        with open(file_path, 'r+') as file:
+            user_data = json.load(file)
+
+            consultas = user_data['consultas']
+            consultas.append({
+                'animal': animal,
+                'local': local,
+                'data': data_consulta,
+                'hora': hora,
+                'descricao': descricao
+            })
+
+            file.seek(0)
+            json.dump(user_data, file, indent=4)
+            file.truncate()
+
+        return True
+
+    return False
+
 
 # Rota para exibir o formulário de registro
 @app.route('/')
@@ -103,7 +131,7 @@ def register():
         users = json.load(file)
         for user in users:
             if user['email'] == email:
-                return jsonify({'success': False, 'message': 'Email já registrado'})
+                return render_template('popup.html', message='BAD: Email já registrado')
 
     # Criar um novo usuário
     new_user = {
@@ -128,7 +156,7 @@ def register():
     with open(file_path, 'w') as file:
         json.dump(initial_data, file)
 
-    return jsonify({'success': True, 'message': 'Registro concluído com sucesso'})
+    return render_template('popup.html', message='GOOD: Registro concluído com sucesso')
 
 # Rota para lidar com a requisição de mostrar os animais do usuário na pagina de planos
 
@@ -157,7 +185,7 @@ def adicionar_plano():
         # Obtenha o campo com o sufixo "_premium"
         animal_name = request.form.get('animal_premium')
     else:
-        return jsonify({'success': False, 'message': 'Tipo de plano inválido'})
+        return render_template('popup.html', message='BAD: Tipo de plano inválido')
 
     save_plan_to_database(animal_name, plan_type)
 
@@ -181,7 +209,7 @@ def login():
                 return redirect(url_for('perfil'))
 
     # Usuário não encontrado ou senha incorreta
-    return jsonify({'success': False, 'message': 'Credenciais inválidas'})
+    return render_template('popup.html', message='BAD: Credenciais inválidas')
 
 
 # Rotas para páginas estáticas
@@ -210,15 +238,105 @@ def contactar():
     return render_template('urgencia.html')
 
 
+@app.route('/perfil_consultas')
+def perfil_consultas():
+    return render_template('perfil_consultas.html')
+
+
+@app.route('/vet_consultas')
+def vet_consultas():
+    return render_template('vet_consultas.html')
+
+
+@app.route('/adicionar_animal')
+def adicionar_animal():
+    return render_template('adicionar_animal.html')
+
+
+# Rota para exibir a página de perfil de agendamento
+
+
+@app.route('/perfil_agendar')
+def perfil_agendar():
+    if 'user' in session:
+        user = session['user']
+        email = user['email']
+        file_path = f'app/database/{email}.json'
+
+        with open(file_path, 'r') as file:
+            data = json.load(file)
+            animais = data['animais']
+
+        return render_template('perfil_agendar.html', animais=animais)
+
+    return render_template('login.html')
+
+
+# Rota para agendar consulta
+
+
+@app.route('/agendar', methods=['POST'])
+def agendar():
+    animal = request.form.get('animal')
+    local = request.form.get('local')
+    data = request.form.get('data')
+    hora = request.form.get('hora')
+    descricao = request.form.get('descricao')
+    # Verificar se nenhum campo está vazio
+    if not animal or not local or not data or not hora or not descricao:
+        return render_template('popup.html', message='BAD: Preencha todos os campos')
+    else:
+        if save_consulta_to_database(animal, local, data, hora, descricao):
+            return render_template('popup.html', message='GOOD: Consulta agendada com sucesso')
+        else:
+            return render_template('popup.html', message='BAD: Usuário não logado')
+
+
+# Rota para a ficha do animal
+
+
+@app.route('/animal/<nome_animal>')
+def animal(nome_animal):
+    if 'user' in session:
+        email = session['user']['email']
+        file_path = f'app/database/{email}.json'
+
+        with open(file_path, 'r') as file:
+            user_data = json.load(file)
+            animais = user_data['animais']
+            consultas = user_data['consultas']
+
+            animal = next(
+                (animal for animal in animais if animal['name'] == nome_animal), None)
+
+        if animal:
+            consultas_animal = [
+                consulta for consulta in consultas if consulta['animal'] == nome_animal
+            ]
+            return render_template('animal.html', animal=animal, consultas=consultas_animal)
+
+    return redirect(url_for('login'))
+
+
 # Rota para exibir a página de perfil
+
+
 @app.route('/perfil', methods=['GET', 'POST'])
 def perfil():
     if 'user' in session:
         user_type = session['user']['user_type']
+        email = session['user']['email']
+        file_path = f'app/database/{email}.json'
+
+        with open(file_path, 'r') as file:
+            user_data = json.load(file)
+            consultas = user_data['consultas']
+
         if user_type == 'cliente':
-            return render_template('perfil_index.html')
+            return render_template('perfil_index.html', consultas=consultas)
         elif user_type == 'veterinario':
             return render_template('vet_index.html')
+
     return render_template('login.html')
 
 
@@ -289,24 +407,6 @@ def cancelar_plano(animal, plan_type):
     return redirect(url_for('login'))
 
 
-# Rota para lidar com a requisição de as minhas consultas
-@app.route('/perfil_consultas')
-def perfil_consultas():
-    return render_template('perfil_consultas.html')
-
-
-# Rota para lidar com a requisição das consultas do veterinário
-@app.route('/vet_consultas')
-def vet_consultas():
-    return render_template('vet_consultas.html')
-
-
-# Rota para lidar com a requisição para adicionar animal
-@app.route('/adicionar_animal')
-def adicionar_animal():
-    return render_template('adicionar_animal.html')
-
-
 # Rota para lidar com a requisição para adicionar animal form
 @app.route('/adicionar_animal_form', methods=['POST'])
 def adicionar_animal_form():
@@ -332,7 +432,7 @@ def adicionar_animal_form():
                     # Verificar se o animal já existe
                     for animal in data['animais']:
                         if animal['name'] == name:
-                            return jsonify({'success': False, 'message': 'Você já tem um animal com esse nome'})
+                            return render_template('popup.html', message='BAD: Você já tem um animal com esse nome')
 
                     # Adicionar o novo animal
                     data['animais'].append({
