@@ -1,0 +1,56 @@
+{
+    "animais": [
+        {
+            "name": "Max",
+            "idade": "5 anos",
+            "raca": "Labrador",
+            "genero": "Macho",
+            "peso": "30 Kg",
+            "historico": []
+        },
+        {
+            "name": "Charlie",
+            "idade": "2 ano",
+            "raca": "Persa",
+            "genero": "Macho",
+            "peso": "4 Kg",
+            "historico": []
+        },
+        {
+            "name": "Luna",
+            "idade": "3 anos",
+            "raca": "Pastor Alem\u00e3o",
+            "genero": "F\u00eamea",
+            "peso": "25 Kg",
+            "historico": []
+        }
+    ],
+    "planos": [
+        {
+            "animal": "Max",
+            "plan_type": "standard",
+            "data": "27/05/2023"
+        },
+        {
+            "animal": "Charlie",
+            "plan_type": "premium",
+            "data": "27/05/2023"
+        }
+    ],
+    "consultas": [
+        {
+            "animal": "Max",
+            "local": "Clinica",
+            "data": "10/06/2023",
+            "hora": "14:30",
+            "descricao": "Consulta de rotina"
+        },
+        {
+            "animal": "Charlie",
+            "local": "Casa",
+            "data": "15/06/2023",
+            "hora": "11:00",
+            "descricao": "Corte de unhas"
+        }
+    ]
+}

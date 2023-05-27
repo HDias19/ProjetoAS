@@ -4,12 +4,26 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>NutriVet - Faça login ou registe-se</title>
+    <title>NutriVet</title>
     <!-- CSS Bootstrap local-->
     <link href="../static/css/bootstrap.css" rel="stylesheet" />
-    <link rel="stylesheet" href="../static/css/login.css">
+    <link rel="stylesheet" href="../static/css/index.css">
     <link rel="stylesheet" href="../static/css/header_footer.css">
     <link rel="icon" href="../static/img/logo/logo-white.png">
+
+    <style>
+        .message-container {
+            text-align: center;
+            margin-top: 100px;
+        }
+
+        .message-container h3 {
+            font-size: 24px;
+            color: #333;
+        }
+    </style>
+
+
 </head>
 
 <body>
@@ -58,78 +72,13 @@
     </header>
     <!-- Fim do Header -->
 
-    <!-- Main -->
-    <section class="page-section custom-main">
-        <!-- Título -->
-        <div class="container-fluid mt-3 mb-5">
-            <div class="row justify-content-start">
-                <div class="col-12">
-                    <img alt="" src="../static/img/icons/Inner Plugin Iframe.png" class="float-start" style="width: 48px;
-                    height: 48px;">
-                    <h1 class="custom-main-title">Login</h1>
-                </div>
-            </div>
-        </div>
-        <!-- Conteúdo -->
-        <div class="row justify-content-evenly row-cols-2">
-            <!-- Login -->
-            <div class="col" style="justify-content: right; display: flex; padding-right: 3%;">
-                <div class="card"
-                    style="width: 628px;background: rgba(201, 239, 199, 0.3);mix-blend-mode: darken;border: 2px solid rgba(69, 69, 69, 0.5);border-radius: 10px; padding: 20px 20px 20px 20px;">
-                    <div class="card-body">
-                        <h4 class="card-title mb-4" style="font-weight: bold; font-size: 30px;">Login</h4>
-                        <form action="/login" method="POST">
-                            <label class="form-label">Endereço de E-mail*:</label>
-                            <input type="email" class="form-control" style="background-color: #c9efc7cc;"
-                                placeholder="name@example.com" name="email">
-                            <label class="form-label mt-3">Palavra-Passe*:</label>
-                            <input type="password" class="form-control" style="background-color: #c9efc7cc;"
-                                placeholder="Password" name="password">
-                            <div class="d-grid gap-2 col-3 my-3">
-                                <button type="submit" class="btn btn-primary"
-                                    style="font-weight: bold; font-size: 20px;">Login</button>
-                            </div>
-                        </form>
-                        <a href="" class="card-link"
-                            style="color: #418536; font-weight: bold; margin-left: 5px;">Esqueceu-se da sua
-                            palavra-passe?</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Registar -->
-            <div class="col" style="justify-content: left; display: flex; padding-left: 3%;">
-                <div class="card"
-                    style="width: 628px;background: rgba(201, 239, 199, 0.3);mix-blend-mode: darken;border: 2px solid rgba(69, 69, 69, 0.5);border-radius: 10px; padding: 20px 20px 20px 20px;">
-                    <div class="card-body">
-                        <h4 class="card-title mb-4" style="font-weight: bold; font-size: 30px;">Registar</h4>
-                        <form action="/register" method="POST">
-                            <label class="form-label">Nome de Utilizador*:</label>
-                            <input type="text" class="form-control" style="background-color: #c9efc7cc;"
-                                placeholder="Nome de utilizador" name="name">
-                            <label class="form-label mt-3">Endereço de E-mail*:</label>
-                            <input type="email" class="form-control" style="background-color: #c9efc7cc;"
-                                placeholder="name@example.com" name="email">
-                            <label class="form-label mt-3">Palavra-Passe*:</label>
-                            <input type="password" class="form-control"
-                                style="background-color: #c9efc7cc; margin-bottom: 20px;" placeholder="Password"
-                                name="password">
-                            <small class="card-text text-muted">A sua informação pessoal será usada para dar suporte à
-                                sua experiência em todo este website, gerir o acesso à sua conta e para outros fins
-                                descritos na nossa</small>
-                            <small class="card-text text-muted" style="font-weight: bold;"> Política de
-                                Privacidade.</small>
-                            <div class="d-grid gap-2 col-3 my-3">
-                                <button class="btn btn-primary" type="submit"
-                                    style="font-weight: bold; font-size: 20px;">Registar</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Fim do Main -->
 
+    <!-- Mensagem -->
+    <div class="message-container">
+        <h3>{{ message }}</h3>
+    </div>
+
+    <br><br><br><br><br><br>
 
     <!-- Footer -->
     <footer class="custom-footer">
@@ -139,8 +88,8 @@
                     <ul class="contact-list">
                         <h4>Contactos</h4>
                         <li><img src="../static/img/icons/telephone.png" alt="Ícone telefone" class="icon-footer-phone">
-                            +351
-                            213 456 789
+                            +351 213
+                            456 789
                         </li>
                         <li><img src="" alt=""> +351 213 874 315</li>
                         <span class="footer-space"><img src=""></span>

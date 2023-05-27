@@ -1,13 +1,13 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-PT">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>NutriVet - Faça login ou registe-se</title>
+    <title>NutriVet - Planos</title>
     <!-- CSS Bootstrap local-->
     <link href="../static/css/bootstrap.css" rel="stylesheet" />
-    <link rel="stylesheet" href="../static/css/login.css">
+    <link rel="stylesheet" href="../static/css/planos.css">
     <link rel="stylesheet" href="../static/css/header_footer.css">
     <link rel="icon" href="../static/img/logo/logo-white.png">
 </head>
@@ -48,8 +48,8 @@
         <!-- Header BOTTOM-->
         <div class="row align-items-center new-row d-flex custom-header-bottom">
             <ul class="list-inline d-flex justify-content-center">
-                <li><a href="{{ url_for('index') }}" class="active-text text-decoration-none">Home</a></li>
-                <li><a href="{{ url_for('planos') }}" class="text-decoration-none">Planos</a></li>
+                <li><a href="{{ url_for('index') }}" class="text-decoration-none">Home</a></li>
+                <li><a href="{{ url_for('planos') }}" class="active-text text-decoration-none">Planos</a></li>
                 <li><a href="{{ url_for('servicos') }}" class="text-decoration-none">Serviços</a></li>
                 <li><a href="{{ url_for('sobre') }}" class="text-decoration-none">Sobre</a></li>
             </ul>
@@ -66,66 +66,81 @@
                 <div class="col-12">
                     <img alt="" src="../static/img/icons/Inner Plugin Iframe.png" class="float-start" style="width: 48px;
                     height: 48px;">
-                    <h1 class="custom-main-title">Login</h1>
+                    <h1 class="custom-main-title">Planos</h1>
                 </div>
             </div>
         </div>
         <!-- Conteúdo -->
-        <div class="row justify-content-evenly row-cols-2">
-            <!-- Login -->
-            <div class="col" style="justify-content: right; display: flex; padding-right: 3%;">
-                <div class="card"
-                    style="width: 628px;background: rgba(201, 239, 199, 0.3);mix-blend-mode: darken;border: 2px solid rgba(69, 69, 69, 0.5);border-radius: 10px; padding: 20px 20px 20px 20px;">
-                    <div class="card-body">
-                        <h4 class="card-title mb-4" style="font-weight: bold; font-size: 30px;">Login</h4>
-                        <form action="/login" method="POST">
-                            <label class="form-label">Endereço de E-mail*:</label>
-                            <input type="email" class="form-control" style="background-color: #c9efc7cc;"
-                                placeholder="name@example.com" name="email">
-                            <label class="form-label mt-3">Palavra-Passe*:</label>
-                            <input type="password" class="form-control" style="background-color: #c9efc7cc;"
-                                placeholder="Password" name="password">
-                            <div class="d-grid gap-2 col-3 my-3">
-                                <button type="submit" class="btn btn-primary"
-                                    style="font-weight: bold; font-size: 20px;">Login</button>
-                            </div>
-                        </form>
-                        <a href="" class="card-link"
-                            style="color: #418536; font-weight: bold; margin-left: 5px;">Esqueceu-se da sua
-                            palavra-passe?</a>
+        <div class="container">
+            <!-- Texto de introdução -->
+            <div class="row" style="justify-content: center;">
+                <h2 class="text-center planos-titulo">
+                    <span style="color: rgb(0, 0, 0);">Escolhe o teu</span>
+                    <span style="color: #3BA629;">plano preferido</span>
+                </h2>
+                <div class="col-md-7 texto-planos">
+                    <p>A NutriVet tem à sua disposição dois planos de nutrição personalizada distintos que incluem
+                        também diversas vantagens no atendimento e serviço veterinários. Desta forma a saúde dos seus
+                        animais é assegurada de uma forma simples e mais barata, sem dores de cabeça adicionais.</p>
+                </div>
+                <div class="col-md-5">
+                    <img src="../static/img/imagens/image 3.png" alt="Imagem do plano" class="imagem-cao" />
+                </div>
+                <div class="col-md-12 text-center" style="padding-top: 80px;">
+                    <img src="../static/img/icons/Component 18.png" alt="Ícone de preço" class="preço-icon">
+                    <span style="font-size: 30px; font-weight: bold; color: #3BA629;">Preços dos planos</span>
+                </div>
+            </div>
+            <!-- Planos -->
+            <div class="row" style="justify-content: center;">
+                <div class="col-md-5"
+                    style="background-color: #C9EFC7; padding: 20px; padding-bottom: 50px; margin-top: 40px; margin-right: 120px; border-radius: 10px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);">
+                    <h4 class="text-center"
+                        style="color: #000000; font-weight: bold; font-size: 35px; margin-top: 20px;">Plano Standard
+                    </h4>
+                    <ul class="list-inline d-flex justify-content-center align-items-end">
+                        <span style="font-size: 90px; font-weight: bold; color: #000000; ">25€</span>
+                        <span
+                            style="font-size: 20px; font-weight: bold; color: #418536; margin-bottom: 28px; margin-left: 8px;">Por
+                            mês</span>
+                    </ul>
+                    <ul style="font-size: 25px; text-align: left; margin-right: 30px;">
+                        <p>Nutrição personalizada para apenas um animal</p>
+                        <hr class="separator-text-planos">
+                        <p>Consultas e intervenções não de carácter não urgente</p>
+                        <hr class="separator-text-planos">
+                        <p>Serviços de urgência limitados ao horário de funcionamento</p>
+                    </ul>
+                    <div class="text-center">
+                        <a href="{{ url_for('perfil') }}" class="btn btn-primary"
+                            style="font-weight: bold; font-size: 25px; padding: 5px 30px 5px 30px; margin-top: 30px;">Aderir</a>
+                    </div>
+                </div>
+                <div class="col-md-5"
+                    style="color: #ffffff; background-color: #2C4B27; padding: 20px; padding-bottom: 50px; margin-top: 40px; margin-left: 10px; border-radius: 10px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);">
+                    <h4 class="text-center"
+                        style="color: #ffffff; font-weight: bold; font-size: 35px; margin-top: 20px;">Plano Premium
+                    </h4>
+                    <ul class="list-inline d-flex justify-content-center align-items-end">
+                        <span style="font-size: 90px; font-weight: bold; color: #ffffff;">50€</span>
+                        <span
+                            style="font-size: 20px; font-weight: bold; color: #C9EFC7; margin-bottom: 28px; margin-left: 8px;">Por
+                            mês</span>
+                    </ul>
+                    <ul style="font-size: 25px; text-align: left; margin-right: 30px;">
+                        <p>Nutrição personalizada para mais que um animal</p>
+                        <hr class="separator-text-planos2">
+                        <p>Consultas e intervenções de todos os tipos</p>
+                        <hr class="separator-text-planos2">
+                        <p>Serviço de urgência disponível 24 horas</p>
+                    </ul>
+                    <div class="text-center">
+                        <a href="{{ url_for('perfil') }}" class="btn btn-primary"
+                            style="font-weight: bold; font-size: 25px; padding: 5px 30px 5px 30px; margin-top: 30px;">Aderir</a>
                     </div>
                 </div>
             </div>
-            <!-- Registar -->
-            <div class="col" style="justify-content: left; display: flex; padding-left: 3%;">
-                <div class="card"
-                    style="width: 628px;background: rgba(201, 239, 199, 0.3);mix-blend-mode: darken;border: 2px solid rgba(69, 69, 69, 0.5);border-radius: 10px; padding: 20px 20px 20px 20px;">
-                    <div class="card-body">
-                        <h4 class="card-title mb-4" style="font-weight: bold; font-size: 30px;">Registar</h4>
-                        <form action="/register" method="POST">
-                            <label class="form-label">Nome de Utilizador*:</label>
-                            <input type="text" class="form-control" style="background-color: #c9efc7cc;"
-                                placeholder="Nome de utilizador" name="name">
-                            <label class="form-label mt-3">Endereço de E-mail*:</label>
-                            <input type="email" class="form-control" style="background-color: #c9efc7cc;"
-                                placeholder="name@example.com" name="email">
-                            <label class="form-label mt-3">Palavra-Passe*:</label>
-                            <input type="password" class="form-control"
-                                style="background-color: #c9efc7cc; margin-bottom: 20px;" placeholder="Password"
-                                name="password">
-                            <small class="card-text text-muted">A sua informação pessoal será usada para dar suporte à
-                                sua experiência em todo este website, gerir o acesso à sua conta e para outros fins
-                                descritos na nossa</small>
-                            <small class="card-text text-muted" style="font-weight: bold;"> Política de
-                                Privacidade.</small>
-                            <div class="d-grid gap-2 col-3 my-3">
-                                <button class="btn btn-primary" type="submit"
-                                    style="font-weight: bold; font-size: 20px;">Registar</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
+        </div>
         </div>
     </section>
     <!-- Fim do Main -->

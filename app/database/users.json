@@ -1,20 +1,20 @@
 [
     {
-        "name": "marco",
+        "name": "Marco",
         "email": "marco@gmail.com",
-        "password": "1",
+        "password": "marco1234",
         "user_type": "cliente"
     },
     {
-        "name": "pedro",
-        "email": "pedro@gmail.com",
-        "password": "1",
+        "name": "Carlos",
+        "email": "carlos@gmail.com",
+        "password": "carlos1234",
         "user_type": "veterinario"
     },
     {
-        "name": "marta",
-        "email": "marta@gmail.com",
-        "password": "1",
+        "name": "Nelson",
+        "email": "nelson@gmail.com",
+        "password": "nelson1234",
         "user_type": "cliente"
     }
 ]

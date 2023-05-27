@@ -74,7 +74,7 @@
                 <div class="col">
                     <!-- Botão para terminar sessão -->
                     <form action="/logout" style="justify-content: end; display: flex;" class="text-black">
-                        <button type="submit">Terminar Sessão</button>
+                        <button type="submit" class="btn btn-primary">Terminar Sessão</button>
                     </form>
                 </div>
                 <div class="col-2"></div>
@@ -88,11 +88,14 @@
                 <div class="d-grid gap-3 col-sm-2 px-4 mx-4 align-self-start">
                     <a href="{{ url_for('perfil') }}" role="button" class="btn btn-primary"
                         style="background: rgba(65, 133, 54, 0.56); font-weight: bold;">Sumário</a>
-                    <a href="" role="button" class="btn btn-primary" style="font-weight: bold;">Os
+                    <a href="{{ url_for('perfil_animais') }}" role="button" class="btn btn-primary"
+                        style="font-weight: bold;">Os
                         meus animais</a>
-                    <a href="" role="button" class="btn btn-primary" style="font-weight: bold;">Gerir
+                    <a href="{{ url_for('perfil_planos') }}" role="button" class="btn btn-primary"
+                        style="font-weight: bold;">Gerir
                         planos</a>
-                    <a href="" role="button" class="btn btn-primary" style="font-weight: bold;">Consultas</a>
+                    <a href="{{ url_for('perfil_consultas') }}" role="button" class="btn btn-primary"
+                        style="font-weight: bold;">Consultas</a>
                     <a href="{{ url_for('contactar') }}" role="button" class="btn btn-primary"
                         style="font-weight: bold;">Contactar
                         veterinário</a>
@@ -105,8 +108,10 @@
                         atualizar as suas informações.</p>
                     <hr>
                     <h4 style="font-weight: bold; margin-bottom: 25px;">Histórico na clínica</h4>
+                    <!-- Informações -->
                     <table class="table table-sm table-bordered rounded rounded-3"
                         style="background: rgba(201, 239, 199, 0.2);mix-blend-mode: darken;border: 2px solid rgba(69, 69, 69, 0.5);border-radius: 10px;">
+                        <!-- Cabeçalho -->
                         <thead>
                             <tr>
                                 <th style="width: 120px;">Data</th>
@@ -114,13 +119,16 @@
                                 <th style="width: auto;border-right: 0px;">Descrição</th>
                             </tr>
                         </thead>
+                        <!-- Consultas -->
                         <tbody>
+                            {% for consulta in consultas %}
                             <tr>
-                                <td>dd/mm/aaaa</td>
-                                <td>hh:mm</td>
-                                <td style="border-right: 0px;">Descritivo...</td>
+                                <td>{{ consulta.data }}</td>
+                                <td>{{ consulta.hora }}</td>
+                                <td style="border-right: 0px;">{{ consulta.descricao }}</td>
                                 <td class="text-end" style="width: 20px;border-left: 0px;">Detalhes</td>
                             </tr>
+                            {% endfor %}
                         </tbody>
                     </table>
                 </div>

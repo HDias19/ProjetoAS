@@ -73,7 +73,7 @@
                     <h2 class="mt-2" style="font-weight: bold;">Gerir planos</h2>
                 </div>
                 <div class="col">
-                    <a href="planos.html" class="text-black">
+                    <a href="{{ url_for('planos') }}" class="text-black">
                         <h5 style="justify-content: end; display: flex;">Aderir a um plano</h5>
                     </a>
                 </div>
@@ -86,16 +86,18 @@
             <div class="row">
                 <!-- Opções laterais -->
                 <div class="d-grid gap-3 col-sm-2 px-4 mx-4 align-self-start">
-                    <a href="perfil_index.html" role="button" class="btn btn-primary"
-                        style=" font-weight: bold;">Sumário</a>
-                    <a href="perfil_animais.html" role="button" class="btn btn-primary" style="font-weight: bold;">Os
+                    <a href="{{ url_for('perfil') }}" role="button" class="btn btn-primary"
+                        style="font-weight: bold;">Sumário</a>
+                    <a href="{{ url_for('perfil_animais') }}" role="button" class="btn btn-primary"
+                        style="font-weight: bold;">Os
                         meus animais</a>
-                    <a href="perfil_planos.html" role="button" class="btn btn-primary"
-                        style="font-weight: bold; background: rgba(65, 133, 54, 0.56);">Gerir
+                    <a href="{{ url_for('perfil_planos') }}" role="button" class="btn btn-primary"
+                        style=" background: rgba(65, 133, 54, 0.56); font-weight: bold;">Gerir
                         planos</a>
-                    <a href="perfil_consultas.html" role="button" class="btn btn-primary"
+                    <a href="{{ url_for('perfil_consultas') }}" role="button" class="btn btn-primary"
                         style="font-weight: bold;">Consultas</a>
-                    <a href="contactar.html" role="button" class="btn btn-primary" style="font-weight: bold;">Contactar
+                    <a href="{{ url_for('contactar') }}" role="button" class="btn btn-primary"
+                        style="font-weight: bold;">Contactar
                         veterinário</a>
                 </div>
                 <!-- Informações -->
@@ -103,23 +105,36 @@
                     <h4>Os meus planos</h4>
                     <p>Consulte as informações dos seus planos ativos.</p>
                     <hr>
-                    <div class="col-2">
-                        <div class="card h-100 text-center" style="background: rgba(201, 239, 199, 0.2);
-                        mix-blend-mode: darken;
-                        border: 2px solid rgba(69, 69, 69, 0.5);
-                        border-radius: 10px;width: 250px;">
-                            <div class="card-body">
-                                <h4 class="card-title fw-bold my-2">Plano Standard</h4>
-                                <h5 class="card-subtitle text-muted fw-bold my-2">Associado a Niko</h5>
-                                <img src="../static/img/imagens/niko.webp"
-                                    class="card-img-top rounded rounded-3 w-50 h-50" alt="...">
-                                <p class="card-text text-start my-2">Aderiu em ...<br>Próxima fatura em ...</p>
-                                <a href="animal.html" class="btn btn-dark w-75">Cancelar plano</a>
+                    <!-- Plano -->
+                    <div class="row">
+                        {% for plano in planos %}
+                        <div class="col-sm-4">
+                            <div class="card text-center"
+                                style="background: rgba(201, 239, 199, 0.2); mix-blend-mode: darken; border: 2px solid rgba(69, 69, 69, 0.5); border-radius: 10px; width: 250px;">
+                                <div class="card-body">
+                                    <h4 class="card-title fw-bold my-2">
+                                        {% if plano.plan_type == 'standard' %}
+                                        Plano Standard
+                                        {% elif plano.plan_type == 'premium' %}
+                                        Plano Premium
+                                        {% endif %}
+                                    </h4>
+                                    <h5 class="card-subtitle text-muted fw-bold my-2">Associado a {{ plano.animal }}
+                                    </h5>
+                                    <img src="../static/img/imagens/niko.webp"
+                                        class="card-img-top rounded rounded-3 w-50 h-50" alt="...">
+                                    <p class="card-text text-start my-2">Aderiu em {{ plano.data }}</p>
+                                    <a href="{{ url_for('cancelar_plano', animal=plano.animal, plan_type=plano.plan_type) }}"
+                                        class="btn btn-dark w-75">Cancelar plano</a>
+                                </div>
                             </div>
                         </div>
+                        {% endfor %}
                     </div>
                 </div>
                 <div class="col-2"></div>
+
+
             </div>
         </div>
         <br><br><br><br><br><br>

@@ -10,6 +10,16 @@
     <link rel="stylesheet" href="../static/css/login.css">
     <link rel="stylesheet" href="../static/css/header_footer.css">
     <link rel="icon" href="../static/img/logo/logo-white.png">
+
+    <!-- CSS -->
+    <style>
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+            align-items: flex-start;
+        }
+    </style>
 </head>
 
 <body>
@@ -73,7 +83,7 @@
                     <h2 class="mt-2" style="font-weight: bold;">Os meus animais</h2>
                 </div>
                 <div class="col">
-                    <a href="animal.html" class="text-black">
+                    <a href="{{ url_for('adicionar_animal') }}" class="text-black">
                         <h5 style="justify-content: end; display: flex;">Adicionar animal</h5>
                     </a>
                 </div>
@@ -86,40 +96,45 @@
             <div class="row">
                 <!-- Opções laterais -->
                 <div class="d-grid gap-3 col-sm-2 px-4 mx-4 align-self-start">
-                    <a href="perfil_index.html" role="button" class="btn btn-primary"
+                    <a href="{{ url_for('perfil') }}" role="button" class="btn btn-primary"
                         style="font-weight: bold;">Sumário</a>
-                    <a href="perfil_animais.html" role="button" class="btn btn-primary"
-                        style="font-weight: bold; background: rgba(65, 133, 54, 0.56); ">Os
+                    <a href="{{ url_for('perfil_animais') }}" role="button" class="btn btn-primary"
+                        style=" background: rgba(65, 133, 54, 0.56); font-weight: bold;">Os
                         meus animais</a>
-                    <a href="perfil_planos.html" role="button" class="btn btn-primary" style="font-weight: bold;">Gerir
+                    <a href="{{ url_for('perfil_planos') }}" role="button" class="btn btn-primary"
+                        style="font-weight: bold;">Gerir
                         planos</a>
-                    <a href="perfil_consultas.html" role="button" class="btn btn-primary"
+                    <a href="{{ url_for('perfil_consultas') }}" role="button" class="btn btn-primary"
                         style="font-weight: bold;">Consultas</a>
-                    <a href="contactar.html" role="button" class="btn btn-primary" style="font-weight: bold;">Contactar
+                    <a href="{{ url_for('contactar') }}" role="button" class="btn btn-primary"
+                        style="font-weight: bold;">Contactar
                         veterinário</a>
                 </div>
                 <!-- Informações -->
                 <div class="col">
                     <p>Aqui tem uma visão geral dos seus animais.</p>
                     <hr>
-                    <div class="col-sm-3">
-                        <div class="card h-100 text-center" style="background: rgba(201, 239, 199, 0.2);
-                        mix-blend-mode: darken;
-                        border: 2px solid rgba(69, 69, 69, 0.5);
-                        border-radius: 10px;">
-                            <img src="../static/img/imagens/niko.webp" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title"><strong>Niko</strong></h5>
-                                <ul>
-                                    <li class="card-text text-start">Raça</li>
-                                    <li class="card-text text-start">Género</li>
-                                    <li class="card-text text-start">Idade</li>
-                                    <li class="card-text text-start">Peso</li>
-                                </ul>
-                                <a href="animal.html" class="btn btn-primary w-75" style="font-weight: bold;">Ver
-                                    mais</a>
+                    <!-- Animal -->
+                    <div class="row">
+                        {% for animal in animais %}
+                        <div class="col-sm-3">
+                            <div class="card h-100 text-center"
+                                style="background: rgba(201, 239, 199, 0.2); mix-blend-mode: darken; border: 2px solid rgba(69, 69, 69, 0.5);border-radius: 10px;">
+                                <img src="../static/img/imagens/niko.webp" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title"><strong>{{ animal.name }}</strong></h5>
+                                    <ul>
+                                        <li class="card-text text-start">Raça: {{ animal.raca }}</li>
+                                        <li class="card-text text-start">Género: {{ animal.genero }}</li>
+                                        <li class="card-text text-start">Idade: {{ animal.idade }}</li>
+                                        <li class="card-text text-start">Peso: {{ animal.peso }}</li>
+                                    </ul>
+                                    <a href="{{ url_for('animal', nome_animal=animal.name) }}"
+                                        class="btn btn-primary w-75" style="font-weight: bold;">Ver mais</a>
+                                </div>
                             </div>
                         </div>
+                        {% endfor %}
                     </div>
                 </div>
                 <div class="col-2"></div>
