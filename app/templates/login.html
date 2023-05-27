@@ -48,10 +48,10 @@
         <!-- Header BOTTOM-->
         <div class="row align-items-center new-row d-flex custom-header-bottom">
             <ul class="list-inline d-flex justify-content-center">
-                <li><a href="index.html" class="text-decoration-none">Home</a></li>
-                <li><a href="planos.html" class="text-decoration-none">Planos</a></li>
-                <li><a href="serviços.html" class="text-decoration-none">Serviços</a></li>
-                <li><a href="sobre.html" class="text-decoration-none">Sobre</a></li>
+                <li><a href="{{ url_for('index') }}" class="text-decoration-none">Home</a></li>
+                <li><a href="{{ url_for('planos') }}" class="text-decoration-none">Planos</a></li>
+                <li><a href="{{ url_for('servicos') }}" class="text-decoration-none">Serviços</a></li>
+                <li><a href="{{ url_for('sobre') }}" class="text-decoration-none">Sobre</a></li>
             </ul>
         </div>
         <hr class="separator">
