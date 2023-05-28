@@ -6,19 +6,19 @@ import secrets
 
 
 # Verificar se o arquivo JSON já existe senão cria um novo
-file_path = 'app/database/users.json'
+file_path = 'database/users.json'
 if not os.path.isfile(file_path):
     initial_data = []
     with open(file_path, 'w') as file:
         json.dump(initial_data, file)
 
 # Verificar se o arquivo JSON para cada usuário já existe senão cria um novo
-with open('app/database/users.json', 'r') as file:
+with open('database/users.json', 'r') as file:
     users = json.load(file)
     for user in users:
         user_type = user['user_type']
         email = user['email']
-        file_path = f'app/database/{email}.json'
+        file_path = f'database/{email}.json'
 
         if not os.path.isfile(file_path):
             initial_data = {
@@ -46,7 +46,7 @@ app.config['SESSION_TYPE'] = 'filesystem'
 def get_user_animals():
     if 'user' in session:
         email = session['user']['email']
-        file_path = f'app/database/{email}.json'
+        file_path = f'database/{email}.json'
 
         with open(file_path, 'r') as file:
             data = json.load(file)
@@ -58,7 +58,7 @@ def get_user_animals():
 def save_plan_to_database(animal_name, plan_type):
     user = session['user']
     email = user['email']
-    file_path = f'app/database/{email}.json'
+    file_path = f'database/{email}.json'
 
     with open(file_path, 'r+') as file:
         data = json.load(file)
@@ -88,7 +88,7 @@ def save_plan_to_database(animal_name, plan_type):
 def save_consulta_to_database(animal, local, data_consulta, hora, descricao):
     if 'user' in session:
         email = session['user']['email']
-        file_path = f'app/database/{email}.json'
+        file_path = f'database/{email}.json'
 
         with open(file_path, 'r+') as file:
             user_data = json.load(file)
@@ -127,7 +127,7 @@ def register():
     user_type = 'cliente'
 
     # Verificar se o usuário já existe no arquivo JSON
-    with open('app/database/users.json', 'r') as file:
+    with open('database/users.json', 'r') as file:
         users = json.load(file)
         for user in users:
             if user['email'] == email:
@@ -142,12 +142,12 @@ def register():
     }
 
     # Adicionar o novo usuário ao arquivo JSON
-    with open('app/database/users.json', 'w') as file:
+    with open('database/users.json', 'w') as file:
         users.append(new_user)
         json.dump(users, file)
 
     # Cria o arquivo JSON com o email do cliente
-    file_path = f'app/database/{email}.json'
+    file_path = f'database/{email}.json'
     initial_data = {
         'animais': [],
         'planos': [],
@@ -200,7 +200,7 @@ def login():
     password = request.form['password']
 
     # Verificar se o usuário existe no arquivo JSON e se a senha está correta
-    with open('app/database/users.json', 'r') as file:
+    with open('database/users.json', 'r') as file:
         users = json.load(file)
         for user in users:
             if user['email'] == email and user['password'] == password:
@@ -261,7 +261,7 @@ def perfil_agendar():
     if 'user' in session:
         user = session['user']
         email = user['email']
-        file_path = f'app/database/{email}.json'
+        file_path = f'database/{email}.json'
 
         with open(file_path, 'r') as file:
             data = json.load(file)
@@ -299,7 +299,7 @@ def agendar():
 def animal(nome_animal):
     if 'user' in session:
         email = session['user']['email']
-        file_path = f'app/database/{email}.json'
+        file_path = f'database/{email}.json'
 
         with open(file_path, 'r') as file:
             user_data = json.load(file)
@@ -326,7 +326,7 @@ def perfil():
     if 'user' in session:
         user_type = session['user']['user_type']
         email = session['user']['email']
-        file_path = f'app/database/{email}.json'
+        file_path = f'database/{email}.json'
 
         with open(file_path, 'r') as file:
             user_data = json.load(file)
@@ -353,7 +353,7 @@ def perfil_animais():
     if 'user' in session:
         user = session['user']
         email = user['email']
-        file_path = f'app/database/{email}.json'
+        file_path = f'database/{email}.json'
 
         with open(file_path, 'r') as file:
             data = json.load(file)
@@ -370,7 +370,7 @@ def perfil_planos():
     if 'user' in session:
         user = session['user']
         email = user['email']
-        file_path = f'app/database/{email}.json'
+        file_path = f'database/{email}.json'
 
         with open(file_path, 'r') as file:
             data = json.load(file)
@@ -387,7 +387,7 @@ def perfil_planos():
 def cancelar_plano(animal, plan_type):
     if 'user' in session:
         email = session['user']['email']
-        file_path = f'app/database/{email}.json'
+        file_path = f'database/{email}.json'
 
         with open(file_path, 'r+') as file:
             data = json.load(file)
@@ -421,11 +421,11 @@ def adicionar_animal_form():
     peso = request.form['peso']
 
     # Verificar se o usuário já existe no arquivo JSON
-    with open('app/database/users.json', 'r') as file:
+    with open('database/users.json', 'r') as file:
         users = json.load(file)
         for user in users:
             if user['email'] == session['user']['email']:
-                file_path = f'app/database/{user["email"]}.json'
+                file_path = f'database/{user["email"]}.json'
                 with open(file_path, 'r') as file:
                     data = json.load(file)
 
