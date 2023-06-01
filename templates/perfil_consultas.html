@@ -105,6 +105,28 @@
                     <h4 style="font-weight: bold;">Consultas agendadas</h4>
                     <p>Aqui poderá ver as consultas agendadas.</p>
                     <hr>
+                    <table class="table table-sm table-bordered rounded rounded-3 "
+                        style="background: rgba(201, 239, 199, 0.2);mix-blend-mode: darken;border: 2px solid rgba(69, 69, 69, 0.5);border-radius: 10px;">
+                        <!-- Cabeçalho -->
+                        <thead>
+                            <tr>
+                                <th style="width: 120px;"> &lt Junho 2023 > </th>
+                            </tr>
+                        </thead>
+                        <!-- Consultas -->
+                        <tbody>
+                            {% for consulta in consultas %}
+                            <tr>
+                                <td>{{ consulta.data }}</td>
+                                <td>{{ consulta.hora }}</td>
+                                <td style="border-right: 0px;">{{ consulta.descricao }}</td>
+                                <td class="text-end" style="width: 20px;border-left: 0px;">
+                                    <a class="btn btn-primary btn-sm">Detalhes</a>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
                 </div>
                 <div class="col-2"></div>
             </div>
