@@ -121,8 +121,12 @@
                                     </h4>
                                     <h5 class="card-subtitle text-muted fw-bold my-2">Associado a {{ plano.animal }}
                                     </h5>
-                                    <img src="../static/img/imagens/niko.webp"
+                                    {% for animal in animais %}
+                                    {% if animal.name == plano.animal %}
+                                    <img src="{{ url_for('static', filename=animal.imagem) }}"
                                         class="card-img-top rounded rounded-3 w-50 h-50" alt="...">
+                                    {% endif %}
+                                    {% endfor %}
                                     <p class="card-text text-start my-2">Aderiu em {{ plano.data }}</p>
                                     <a href="{{ url_for('cancelar_plano', animal=plano.animal, plan_type=plano.plan_type) }}"
                                         class="btn btn-dark w-75">Cancelar plano</a>
