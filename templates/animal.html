@@ -106,8 +106,7 @@
                     <hr>
                     <div class="row">
                         <div class="col">
-                            <img class="card-image-top rounded rounded-4" src="../static/img/imagens/niko.webp"
-                                alt="..." style="width: 500px;">
+                            <img src="{{ url_for('static', filename=animal.imagem) }}" class="card-img-top" alt="...">
                         </div>
                         <div class="col my-2">
                             <h4 class="fw-bold">{{ animal.name }}</h4>

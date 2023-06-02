@@ -120,7 +120,8 @@
                         <div class="col-sm-3">
                             <div class="card h-100 text-center"
                                 style="background: rgba(201, 239, 199, 0.2); mix-blend-mode: darken; border: 2px solid rgba(69, 69, 69, 0.5);border-radius: 10px;">
-                                <img src="../static/img/imagens/niko.webp" class="card-img-top" alt="...">
+                                <img src="{{ url_for('static', filename=animal.imagem) }}" class="card-img-top"
+                                    alt="...">
                                 <div class="card-body">
                                     <h5 class="card-title"><strong>{{ animal.name }}</strong></h5>
                                     <ul>

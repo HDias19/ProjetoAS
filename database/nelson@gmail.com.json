@@ -1,5 +1,15 @@
 {
-    "animais": [],
+    "animais": [
+        {
+            "name": "asdf",
+            "idade": "asdf",
+            "raca": "asdf",
+            "genero": "asdf",
+            "peso": "asdf",
+            "historico": [],
+            "imagem": "imagens_animais/nelson@gmail.com_asdf.png"
+        }
+    ],
     "planos": [],
     "consultas": []
 }

@@ -3,6 +3,7 @@ from datetime import datetime
 import json
 import os
 import secrets
+from werkzeug.utils import secure_filename
 
 
 # Verificar se o arquivo JSON já existe senão cria um novo
@@ -438,7 +439,7 @@ def perfil_planos():
             data = json.load(file)
             planos = data['planos']
 
-        return render_template('perfil_planos.html', planos=planos)
+        return render_template('perfil_planos.html', planos=planos, animais=data['animais'])
 
     return render_template('login.html')
 
@@ -490,21 +491,36 @@ def remover_animal(animal_name):
             planos = [plano for plano in planos if plano['animal'] != animal_name]
             data['planos'] = planos
 
+            # Salvar as alterações no arquivo JSON
             file.seek(0)
             json.dump(data, file, indent=4)
             file.truncate()
 
-            flash("Animal removido com sucesso")
+        # Remover a imagem do animal
+        image_folder = f'static/imagens_animais/'
+        image_path = os.path.join(image_folder, f'{email}_{animal_name}.png')
+        if os.path.exists(image_path):
+            os.remove(image_path)
+        else:
+            flash("Imagem não encontrada")
             return redirect(url_for('perfil_animais'))
+
+        flash("Animal removido com sucesso")
+        return redirect(url_for('perfil_animais'))
 
     return redirect(url_for('login'))
 
 # Rota para lidar com a requisição para adicionar animal form
 
 
+# Define a pasta de upload e as extensões de arquivo permitidas
+UPLOAD_FOLDER = 'database'
+ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'webp'}
+
+
 @app.route('/adicionar_animal_form', methods=['POST'])
 def adicionar_animal_form():
-    # Lê os dados do formulário de adicionar animal: name, idade, raca, genero e peso
+    # Lê os dados do formulário de adicionar animal: name, idade, raca, genero, peso e imagem
     # Coloca esses dados no arquivo JSON do cliente logado
     # Nesse arquivo, cada pessoa pode ter vários animais e os animais ainda têm uma lista de histórico
 
@@ -513,6 +529,7 @@ def adicionar_animal_form():
     raca = request.form['raca']
     genero = request.form['genero']
     peso = request.form['peso']
+    imagem = request.files['imagem']
 
     # Verificar se algum campo está vazio
     if not name or not idade or not raca or not genero or not peso:
@@ -534,6 +551,23 @@ def adicionar_animal_form():
                             flash("Você já tem um animal com esse nome")
                             return redirect(url_for('adicionar_animal'))
 
+                    # Salvar a imagem
+                    if imagem and imagem.filename:
+                        filename = secure_filename(imagem.filename)
+                        extensao = filename.rsplit('.', 1)[1].lower()
+                        if extensao not in ['png', 'jpg', 'jpeg', 'webp']:
+                            flash(
+                                "Formato de imagem inválido. Por favor, escolha uma imagem com formato PNG, JPG, JPEG ou WEBP.")
+                            return redirect(url_for('adicionar_animal'))
+
+                        # Renomear a imagem para evitar colisão de nomes
+                        imagem_path = f'imagens_animais/{user["email"]}_{name}.{extensao}'
+                        # imagem.save(imagem_path) começa por static
+                        imagem.save(os.path.join('static', imagem_path))
+                    else:
+                        # Usar imagem padrão caso nenhuma tenha sido fornecida
+                        imagem_path = 'imagens_animais/niko.webp'
+
                     # Adicionar o novo animal
                     data['animais'].append({
                         'name': name,
@@ -541,7 +575,8 @@ def adicionar_animal_form():
                         'raca': raca,
                         'genero': genero,
                         'peso': peso,
-                        'historico': []
+                        'historico': [],
+                        'imagem': imagem_path
                     })
 
                 with open(file_path, 'w') as file:
