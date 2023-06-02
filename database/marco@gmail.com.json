@@ -27,14 +27,14 @@
     ],
     "planos": [
         {
-            "animal": "Max",
-            "plan_type": "standard",
-            "data": "27/05/2023"
+            "animal": "Luna",
+            "plan_type": "premium",
+            "data": "02/06/2023"
         },
         {
-            "animal": "Charlie",
-            "plan_type": "premium",
-            "data": "27/05/2023"
+            "animal": "Max",
+            "plan_type": "standard",
+            "data": "02/06/2023"
         }
     ],
     "consultas": [

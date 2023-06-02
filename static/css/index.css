@@ -49,6 +49,24 @@ p {
     position: relative;
 }
 
+.urgencia-line {
+    margin-top: 50px;
+    margin-right: -450px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    font-size: 28px;
+    justify-content: center;
+    margin-left: 80px;
+    position: relative;
+}
+
+.icon-urgencia {
+    width: 45px;
+    margin-left: -390px;
+    margin-top: -6px;
+}
+
 .icon-marcar-consulta {
     width: 25px;
     margin-left: -250px;
@@ -81,9 +99,11 @@ p {
 }
 
 .imagem-gato {
-    position: relative;
-    height: 85%;
-    margin-left: 26%;
+    height: 360px;
+    margin-right: 0px;
+    align-items: end;
+    align-content: end;
+    justify-content: end;
 }
 
 .custom-main-second {

@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, jsonify, redirect, url_for, session
+from flask import Flask, render_template, request, jsonify, redirect, url_for, session, flash
 from datetime import datetime
 import json
 import os
@@ -66,6 +66,10 @@ def save_plan_to_database(animal_name, plan_type):
         animal = next(
             (animal for animal in data['animais'] if animal['name'] == animal_name), None)
         if animal:
+            # Verificar se o animal já possui um plano
+            if any(plan['animal'] == animal_name for plan in data['planos']):
+                return "Animal já possui um plano"
+
             # Obter a data atual em formato dia/mês/ano
             adhesion_date = datetime.now().strftime('%d/%m/%Y')
             data['planos'].append({
@@ -78,9 +82,9 @@ def save_plan_to_database(animal_name, plan_type):
             json.dump(data, file, indent=4)
             file.truncate()  # Reduzir o tamanho do arquivo, se necessário
 
-            return True
+            return True  # Retornar mensagem de sucesso animal adicionado
 
-    return False
+    return "Animal não encontrado"
 
 # Função para salvar a consulta na base de dados
 
@@ -126,12 +130,23 @@ def register():
     password = request.form['password']
     user_type = 'cliente'
 
+    # Verificar se o domínio do email é permitido
+    if email.endswith('@nutrivet.pt'):
+        flash("Contas com esse domínio não podem ser registradas pelo site")
+        return redirect(url_for('perfil'))
+
     # Verificar se o usuário já existe no arquivo JSON
     with open('database/users.json', 'r') as file:
         users = json.load(file)
         for user in users:
             if user['email'] == email:
-                return render_template('popup.html', message='BAD: Email já registrado')
+                flash("Email já existe")
+                return redirect(url_for('perfil'))
+
+    # Verificar a validade da senha
+    if len(password) < 1:
+        flash("Senha inválida (tamanho mínimo: 1 caractere)")
+        return redirect(url_for('perfil'))
 
     # Criar um novo usuário
     new_user = {
@@ -156,7 +171,8 @@ def register():
     with open(file_path, 'w') as file:
         json.dump(initial_data, file)
 
-    return render_template('popup.html', message='GOOD: Registro concluído com sucesso')
+    flash("Registro concluído com sucesso")
+    return redirect(url_for('perfil'))
 
 # Rota para lidar com a requisição de mostrar os animais do usuário na pagina de planos
 
@@ -185,31 +201,48 @@ def adicionar_plano():
         # Obtenha o campo com o sufixo "_premium"
         animal_name = request.form.get('animal_premium')
     else:
-        return render_template('popup.html', message='BAD: Tipo de plano inválido')
+        flash("Tipo de plano inválido")
+        return redirect(url_for('index'))
 
-    save_plan_to_database(animal_name, plan_type)
+    result = save_plan_to_database(animal_name, plan_type)
 
-    return redirect(url_for('perfil_planos'))
+    if result == True:
+        return redirect(url_for('pagamento'))
+    elif result == "Animal já possui um plano":
+        flash("Animal já possui um plano")
+        return redirect(url_for('perfil_planos'))
+    elif result == "Animal não encontrado":
+        flash("Animal não encontrado")
+        return redirect(url_for('perfil_planos'))
+    else:
+        flash("Erro inesperado")
+        return redirect(url_for('perfil_planos'))
 
 
 # Rota para lidar com a requisição de login
 @app.route('/login', methods=['POST'])
 def login():
-    # Ler os dados do formulário de login
+    # Read the login form data
     email = request.form['email']
     password = request.form['password']
 
-    # Verificar se o usuário existe no arquivo JSON e se a senha está correta
+    # Check if the user exists in the JSON file and if the password is correct
     with open('database/users.json', 'r') as file:
         users = json.load(file)
         for user in users:
-            if user['email'] == email and user['password'] == password:
-                # Usuário encontrado e senha correta
-                session['user'] = user
-                return redirect(url_for('perfil'))
+            if user['email'] == email:
+                if user['password'] == password:
+                    # User found and password is correct
+                    session['user'] = user
+                    return redirect(url_for('perfil'))
+                else:
+                    # User found but password is incorrect
+                    flash("Senha incorreta")
+                    return redirect(url_for('perfil'))
 
-    # Usuário não encontrado ou senha incorreta
-    return render_template('popup.html', message='BAD: Credenciais inválidas')
+    # User not found
+    flash("Email não encontrado")
+    return redirect(url_for('perfil'))
 
 
 # Rotas para páginas estáticas
@@ -235,7 +268,28 @@ def planos_basica():
 
 @app.route('/contactar')
 def contactar():
-    return render_template('urgencia.html')
+    if 'user' in session:
+        user_type = session['user']['user_type']
+        if user_type == 'cliente':
+            email = session['user']['email']
+            file_path = f'database/{email}.json'
+
+            with open(file_path, 'r') as file:
+                data = json.load(file)
+                planos = data['planos']
+
+            has_premium_plan = any(
+                plan['plan_type'] == 'premium' for plan in planos)
+            if has_premium_plan:
+                return render_template('urgencia.html')
+
+            # Apenas clientes com plano premium podem entrar em contato de urgência.
+            flash(
+                "Apenas clientes com plano premium podem entrar em contato de urgência.")
+            return redirect(url_for('perfil'))
+
+    # User is not logged in, redirect to login page
+    return render_template('login.html')
 
 
 @app.route('/perfil_consultas')
@@ -260,6 +314,7 @@ def adicionar_animal():
 def perfil_agendar():
     if 'user' in session:
         user = session['user']
+        user_type = user['user_type']
         email = user['email']
         file_path = f'database/{email}.json'
 
@@ -267,7 +322,10 @@ def perfil_agendar():
             data = json.load(file)
             animais = data['animais']
 
-        return render_template('perfil_agendar.html', animais=animais)
+        if user_type == 'cliente':
+            return render_template('perfil_agendar.html', animais=animais)
+        elif user_type == 'veterinario':
+            return redirect('/vet_consultas')
 
     return render_template('login.html')
 
@@ -283,13 +341,17 @@ def agendar():
     hora = request.form.get('hora')
     descricao = request.form.get('descricao')
     # Verificar se nenhum campo está vazio
+
     if not animal or not local or not data or not hora or not descricao:
-        return render_template('popup.html', message='BAD: Preencha todos os campos')
+        flash("Preencha todos os campos")
+        return redirect(url_for('perfil_agendar'))
     else:
         if save_consulta_to_database(animal, local, data, hora, descricao):
-            return render_template('popup.html', message='GOOD: Consulta agendada com sucesso')
+            flash("Consulta agendada com sucesso")
+            return redirect(url_for('perfil'))
         else:
-            return render_template('popup.html', message='BAD: Usuário não logado')
+            flash("Erro inesperado")
+            return redirect(url_for('perfil'))
 
 
 # Rota para a ficha do animal
@@ -407,7 +469,39 @@ def cancelar_plano(animal, plan_type):
     return redirect(url_for('login'))
 
 
+# Rota para lidar com a requisição de remover um animal
+@app.route('/remover_animal/<animal_name>')
+def remover_animal(animal_name):
+    if 'user' in session:
+        email = session['user']['email']
+        file_path = f'database/{email}.json'
+
+        with open(file_path, 'r+') as file:
+            data = json.load(file)
+
+            # Remover o animal da lista de animais do usuário
+            animais = data['animais']
+            animais = [
+                animal for animal in animais if animal['name'] != animal_name]
+            data['animais'] = animais
+
+            # Remover o plano associado ao animal, se existir
+            planos = data['planos']
+            planos = [plano for plano in planos if plano['animal'] != animal_name]
+            data['planos'] = planos
+
+            file.seek(0)
+            json.dump(data, file, indent=4)
+            file.truncate()
+
+            flash("Animal removido com sucesso")
+            return redirect(url_for('perfil_animais'))
+
+    return redirect(url_for('login'))
+
 # Rota para lidar com a requisição para adicionar animal form
+
+
 @app.route('/adicionar_animal_form', methods=['POST'])
 def adicionar_animal_form():
     # Lê os dados do formulário de adicionar animal: name, idade, raca, genero e peso
@@ -419,6 +513,11 @@ def adicionar_animal_form():
     raca = request.form['raca']
     genero = request.form['genero']
     peso = request.form['peso']
+
+    # Verificar se algum campo está vazio
+    if not name or not idade or not raca or not genero or not peso:
+        flash("Por favor, preencha todos os campos")
+        return redirect(url_for('adicionar_animal'))
 
     # Verificar se o usuário já existe no arquivo JSON
     with open('database/users.json', 'r') as file:
@@ -432,7 +531,8 @@ def adicionar_animal_form():
                     # Verificar se o animal já existe
                     for animal in data['animais']:
                         if animal['name'] == name:
-                            return render_template('popup.html', message='BAD: Você já tem um animal com esse nome')
+                            flash("Você já tem um animal com esse nome")
+                            return redirect(url_for('adicionar_animal'))
 
                     # Adicionar o novo animal
                     data['animais'].append({

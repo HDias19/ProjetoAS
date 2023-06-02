@@ -2,19 +2,19 @@
     {
         "name": "Marco",
         "email": "marco@gmail.com",
-        "password": "marco1234",
+        "password": "1",
         "user_type": "cliente"
     },
     {
         "name": "Carlos",
-        "email": "carlos@gmail.com",
+        "email": "carlos@nutrivet.pt",
         "password": "carlos1234",
         "user_type": "veterinario"
     },
     {
         "name": "Nelson",
         "email": "nelson@gmail.com",
-        "password": "nelson1234",
+        "password": "1",
         "user_type": "cliente"
     }
 ]
