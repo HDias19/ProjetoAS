@@ -145,6 +145,9 @@ def register():
             if user['email'] == email:
                 flash("Email já existe")
                 return redirect(url_for('perfil'))
+            if user['name'] == name:
+                flash("Nome de usuário já existe")
+                return redirect(url_for('perfil'))
 
     # Verificar a validade da senha
     if len(password) < 1:
@@ -176,6 +179,7 @@ def register():
 
     flash("Registro concluído com sucesso")
     return redirect(url_for('perfil'))
+
 
 # Rota para lidar com a requisição de mostrar os animais do usuário na pagina de planos
 
@@ -300,11 +304,6 @@ def perfil_consultas():
     return render_template('perfil_consultas.html')
 
 
-@app.route('/vet_consultas')
-def vet_consultas():
-    return render_template('vet_consultas.html')
-
-
 @app.route('/adicionar_animal')
 def adicionar_animal():
     return render_template('adicionar_animal.html')
@@ -400,7 +399,7 @@ def perfil():
         if user_type == 'cliente':
             return render_template('perfil_index.html', consultas=consultas)
         elif user_type == 'veterinario':
-            return render_template('vet_index.html')
+            return redirect(url_for('vet_index'))
 
     return render_template('login.html')
 
@@ -410,6 +409,81 @@ def perfil():
 def logout():
     session.pop('user', None)
     return redirect(url_for('index'))
+
+
+# Rota para mostrar as consultas no vet_index
+
+
+@app.route('/vet_index')
+def vet_index():
+    if 'user' in session:
+        user_type = session['user']['user_type']
+        email = session['user']['email']
+        file_path = f'database/{email}.json'
+
+        with open(file_path, 'r') as file:
+            user_data = json.load(file)
+            consultas = user_data['consultas']
+
+        # Ler os nomes associados aos emails no arquivo users.json
+        with open('database/users.json', 'r') as users_file:
+            users = json.load(users_file)
+            nomes = {user['email']: user['name'] for user in users}
+
+        if user_type == 'veterinario':
+            return render_template('vet_index.html', consultas=consultas, nomes=nomes)
+
+    return render_template('login.html')
+
+
+# Rota para mostrar as consultas no vet_consultas
+
+
+@app.route('/vet_consultas')
+def vet_consultas():
+    if 'user' in session:
+        user_type = session['user']['user_type']
+        email = session['user']['email']
+        file_path = f'database/{email}.json'
+
+        with open(file_path, 'r') as file:
+            user_data = json.load(file)
+            consultas = user_data['consultas']
+
+        if user_type == 'veterinario':
+            return render_template('vet_consultas.html', consultas=consultas)
+
+    return render_template('login.html')
+
+
+# Rota para mostrar o vet_cliente
+
+
+@app.route('/vet_cliente', methods=['GET'])
+def vet_cliente():
+    email_cliente = request.args.get('email_cliente')
+    file_path = f'database/{email_cliente}.json'
+
+    try:
+        # Buscar o cliente no arquivo JSON do cliente
+        with open(file_path, 'r') as file:
+            data = json.load(file)
+            cliente = data
+
+        # Buscar o nome do cliente no arquivo JSON de usuários
+        with open('database/users.json', 'r') as users_file:
+            users = json.load(users_file)
+            for user in users:
+                if user['email'] == email_cliente:
+                    nome_cliente = user['name']
+                    break
+            else:
+                nome_cliente = ""
+
+        return render_template('vet_cliente.html', cliente=cliente, nome_cliente=nome_cliente, email_cliente=email_cliente)
+    except FileNotFoundError:
+        flash("Cliente não encontrado")
+        return redirect(url_for('vet_index'))
 
 
 # Rota para lidar com a requisição de os meus animais

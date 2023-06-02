@@ -70,10 +70,11 @@
                 </div>
                 <div class="col-5 d-grid gap-3 col-sm-2 px-4 mx-4"> </div>
                 <div class="col">
-                    <h2 class="mt-2" style="font-weight: bold;">Cliente NºXXXXXX</h2>
+                    <h2 class="mt-2" style="font-weight: bold;">Cliente: {{ nome_cliente }} ({{ email_cliente }})</h2>
                 </div>
+
                 <div class="col">
-                    <a href="../static/html/vet_index.html" class="text-black">
+                    <a href="{{ url_for('perfil') }}" class="text-black">
                         <h5 style="justify-content: end; display: flex;">Voltar</h5>
                     </a>
                 </div>
@@ -98,17 +99,19 @@
                         <thead>
                             <tr>
                                 <th style="width: 120px;">Nome</th>
-                                <th style="width: 50px;">Tipo</th>
-                                <th style="width: auto;border-right: 0px;">Plano</th>
+                                <th style="width: 50px;">Raça</th>
+                                <th style="width: auto;border-right: 0px;">Género</th>
                             </tr>
                         </thead>
                         <tbody>
+                            {% for animal in cliente.animais %}
                             <tr>
-                                <td>nome</td>
-                                <td>tipo</td>
-                                <td style="border-right: 0px;">plano</td>
+                                <td>{{ animal.name }}</td>
+                                <td>{{ animal.raca }}</td>
+                                <td style="border-right: 0px;">{{ animal.genero }}</td>
                                 <td class="text-end" style="width: 20%;border-left: 0px;">Ver ficha</td>
                             </tr>
+                            {% endfor %}
                         </tbody>
                     </table>
                     <hr>
@@ -124,13 +127,15 @@
                             </tr>
                         </thead>
                         <tbody>
+                            {% for plano in cliente.planos %}
                             <tr>
-                                <td>plano</td>
-                                <td>dd/mm/aaaa</td>
-                                <td>dd/mm/aaaa</td>
-                                <td style="border-right: 0px;">animal</td>
+                                <td>{{ plano.plan_type }}</td>
+                                <td>{{ plano.data }}</td>
+                                <td>{{ plano.data }}</td>
+                                <td style="border-right: 0px;">{{ plano.animal }}</td>
                                 <td class="text-end" style="width: 20%;border-left: 0px;">Detalhes</td>
                             </tr>
+                            {% endfor %}
                         </tbody>
                     </table>
 
@@ -147,17 +152,23 @@
                             </tr>
                         </thead>
                         <tbody>
+                            {% for consulta in cliente.consultas %}
                             <tr>
-                                <td>dd/mm/aaaa</td>
-                                <td>hh:mm</td>
-                                <td>animal</td>
+                                <td>{{ consulta.data }}</td>
+                                <td>{{ consulta.hora }}</td>
+                                <td>{{ consulta.animal }}</td>
                                 <td style="border-right: 0px;">veterinário</td>
                                 <td class="text-end" style="width: 20%;border-left: 0px;">Detalhes</td>
                             </tr>
+                            {% endfor %}
                         </tbody>
                     </table>
                 </div>
                 <div class="col-2"></div>
+
+
+
+
             </div>
         </div>
         <br><br><br><br><br><br><br><br><br>
