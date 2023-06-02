@@ -299,9 +299,37 @@ def contactar():
     return render_template('login.html')
 
 
+# Rota para exibir a página de consultas do cliente
+
 @app.route('/perfil_consultas')
 def perfil_consultas():
-    return render_template('perfil_consultas.html')
+    if 'user' in session:
+        email = session['user']['email']
+        file_path = f'database/{email}.json'
+
+        with open(file_path, 'r') as file:
+            user_data = json.load(file)
+
+        consultas = user_data['consultas']
+        animais = user_data['animais']
+
+        # Criar um dicionário com os dias das consultas e a imagem do animal associado
+        consultas_dias_imagens = {}
+        for consulta in consultas:
+            data = datetime.strptime(consulta['data'], '%d/%m/%Y')
+            dia = data.day
+            animal_nome = consulta['animal']
+            imagem = next(
+                (animal['imagem'] for animal in animais if animal['name'] == animal_nome), None)
+
+            if dia not in consultas_dias_imagens:
+                consultas_dias_imagens[dia] = []
+
+            consultas_dias_imagens[dia].append(imagem)
+
+        return render_template('perfil_consultas.html', consultas_dias_imagens=consultas_dias_imagens)
+
+    return render_template('login.html')
 
 
 @app.route('/adicionar_animal')
@@ -428,7 +456,8 @@ def vet_index():
         # Ler os nomes associados aos emails no arquivo users.json
         with open('database/users.json', 'r') as users_file:
             users = json.load(users_file)
-            nomes = {user['email']: user['name'] for user in users}
+            nomes = {user['email']: user['name']
+                     for user in users if user['user_type'] == 'cliente'}
 
         if user_type == 'veterinario':
             return render_template('vet_index.html', consultas=consultas, nomes=nomes)
@@ -444,14 +473,42 @@ def vet_consultas():
     if 'user' in session:
         user_type = session['user']['user_type']
         email = session['user']['email']
-        file_path = f'database/{email}.json'
+        file_path_vet = f'database/{email}.json'
 
-        with open(file_path, 'r') as file:
-            user_data = json.load(file)
-            consultas = user_data['consultas']
+        with open(file_path_vet, 'r') as file_vet:
+            vet_data = json.load(file_vet)
+            consultas = vet_data.get('consultas', [])
 
         if user_type == 'veterinario':
-            return render_template('vet_consultas.html', consultas=consultas)
+            # Criar um dicionário com os dias das consultas e a imagem do animal associado
+            consultas_dias_imagens = {}
+            for consulta in consultas:
+                data = datetime.strptime(consulta['data'], '%d/%m/%Y')
+                dia = data.day
+                animal_nome = consulta['animal']
+                # Obtém o email do dono diretamente da consulta
+                owner_email = consulta['email']
+
+                # Abre o arquivo JSON do dono do animal
+                file_path_owner = f'database/{owner_email}.json'
+                with open(file_path_owner, 'r') as file_owner:
+                    owner_data = json.load(file_owner)
+                    animais = owner_data.get('animais', [])
+
+                    # Encontra o animal pelo nome
+                    animal = next(
+                        (animal for animal in animais if animal['name'] == animal_nome), None)
+
+                    if animal:
+                        # Obtém a imagem do animal
+                        imagem = animal.get('imagem')
+
+                        if dia not in consultas_dias_imagens:
+                            consultas_dias_imagens[dia] = []
+
+                        consultas_dias_imagens[dia].append(imagem)
+
+            return render_template('vet_consultas.html', consultas=consultas, consultas_dias_imagens=consultas_dias_imagens)
 
     return render_template('login.html')
 

@@ -111,13 +111,14 @@
                             {% endfor %}
                         </tbody>
                     </table>
-                    <!-- Calendario -->
                     <hr>
-                    <h4 class="fw-bold">Calendário</h4>
+                    <h4 style="font-weight: bold;">Calendário</h4>
+                    <hr>
+                    <!-- Calendario -->
                     <div class="card"
-                        style="background: rgba(201, 239, 199, 0.2);mix-blend-mode: darken;border: 2px solid rgba(69, 69, 69, 0.5);border-radius: 10px;">
+                        style="background: rgba(201, 239, 199, 0.2); mix-blend-mode: darken; border: 2px solid rgba(69, 69, 69, 0.5); border-radius: 10px;">
                         <h5 class="card-title fw-bold text-center my-2">
-                            < Junho 2023>
+                            &lt; Junho 2023 &gt;
                         </h5>
                         <table class="table table-bordered">
                             <!-- Cabeçalho -->
@@ -134,51 +135,64 @@
                             </thead>
                             <!-- Dias -->
                             <tbody>
+                                {% set dias_mes = [
+                                {'dia': '29', 'imagens': consultas_dias_imagens.get(29, [])},
+                                {'dia': '30', 'imagens': consultas_dias_imagens.get(30, [])},
+                                {'dia': '31', 'imagens': consultas_dias_imagens.get(31, [])},
+                                {'dia': '1', 'imagens': consultas_dias_imagens.get(1, [])},
+                                {'dia': '2', 'imagens': consultas_dias_imagens.get(2, [])},
+                                {'dia': '3', 'imagens': consultas_dias_imagens.get(3, [])},
+                                {'dia': '4', 'imagens': consultas_dias_imagens.get(4, [])},
+                                {'dia': '5', 'imagens': consultas_dias_imagens.get(5, [])},
+                                {'dia': '6', 'imagens': consultas_dias_imagens.get(6, [])},
+                                {'dia': '7', 'imagens': consultas_dias_imagens.get(7, [])},
+                                {'dia': '8', 'imagens': consultas_dias_imagens.get(8, [])},
+                                {'dia': '9', 'imagens': consultas_dias_imagens.get(9, [])},
+                                {'dia': '10', 'imagens': consultas_dias_imagens.get(10, [])},
+                                {'dia': '11', 'imagens': consultas_dias_imagens.get(11, [])},
+                                {'dia': '12', 'imagens': consultas_dias_imagens.get(12, [])},
+                                {'dia': '13', 'imagens': consultas_dias_imagens.get(13, [])},
+                                {'dia': '14', 'imagens': consultas_dias_imagens.get(14, [])},
+                                {'dia': '15', 'imagens': consultas_dias_imagens.get(15, [])},
+                                {'dia': '16', 'imagens': consultas_dias_imagens.get(16, [])},
+                                {'dia': '17', 'imagens': consultas_dias_imagens.get(17, [])},
+                                {'dia': '18', 'imagens': consultas_dias_imagens.get(18, [])},
+                                {'dia': '19', 'imagens': consultas_dias_imagens.get(19, [])},
+                                {'dia': '20', 'imagens': consultas_dias_imagens.get(20, [])},
+                                {'dia': '21', 'imagens': consultas_dias_imagens.get(21, [])},
+                                {'dia': '22', 'imagens': consultas_dias_imagens.get(22, [])},
+                                {'dia': '23', 'imagens': consultas_dias_imagens.get(23, [])},
+                                {'dia': '24', 'imagens': consultas_dias_imagens.get(24, [])},
+                                {'dia': '25', 'imagens': consultas_dias_imagens.get(25, [])},
+                                {'dia': '26', 'imagens': consultas_dias_imagens.get(26, [])},
+                                {'dia': '27', 'imagens': consultas_dias_imagens.get(27, [])},
+                                {'dia': '28', 'imagens': consultas_dias_imagens.get(28, [])},
+                                {'dia': '29', 'imagens': consultas_dias_imagens.get(29, [])},
+                                {'dia': '30', 'imagens': consultas_dias_imagens.get(30, [])},
+                                {'dia': '1', 'imagens': consultas_dias_imagens.get(1, [])},
+                                {'dia': '2', 'imagens': consultas_dias_imagens.get(2, [])}
+                                ] %}
+
+                                {% for row in range(5) %}
                                 <tr style="height: 100px;">
-                                    <td class="text-muted fw-light">29</td>
-                                    <td class="text-muted fw-light">30</td>
-                                    <td class="text-muted fw-light">31</td>
-                                    <td><span class="fw-bold">1</span></td>
-                                    <td><span class="fw-bold">2</span></td>
-                                    <td><span class="fw-bold">3</span></td>
-                                    <td><span class="fw-bold">4</span></td>
+                                    {% for col in range(7) %}
+                                    {% set index = row * 7 + col %}
+                                    {% set dia = dias_mes[index] %}
+                                    <td>
+                                        {% if dia %}
+                                        {% set dia_numero = dia['dia'] %}
+                                        <span class="fw-bold">{{ dia_numero }}</span>
+                                        {% for imagem in dia['imagens'] %}
+                                        <img src="{{ url_for('static', filename=imagem) }}" alt="Animal Image"
+                                            class="rounded-circle" style="width: 80px;">
+                                        {% endfor %}
+                                        {% else %}
+                                        &nbsp;
+                                        {% endif %}
+                                    </td>
+                                    {% endfor %}
                                 </tr>
-                                <tr style="height: 100px;">
-                                    <td><span class="fw-bold">5</span></td>
-                                    <td><span class="fw-bold">6</span></td>
-                                    <td><span class="fw-bold">7</span></td>
-                                    <td><span class="fw-bold">8</span></td>
-                                    <td><span class="fw-bold">9</span></td>
-                                    <td><span class="fw-bold">10</span></td>
-                                    <td><span class="fw-bold">11</span></td>
-                                </tr>
-                                <tr style="height: 100px;">
-                                    <td><span class="fw-bold">12</span></td>
-                                    <td><span class="fw-bold">13</span></td>
-                                    <td><span class="fw-bold">14</span></td>
-                                    <td><span class="fw-bold">15</span></td>
-                                    <td><span class="fw-bold">16</span></td>
-                                    <td><span class="fw-bold">17</span></td>
-                                    <td><span class="fw-bold">18</span></td>
-                                </tr>
-                                <tr style="height: 100px;">
-                                    <td><span class="fw-bold">19</span></td>
-                                    <td><span class="fw-bold">20</span></td>
-                                    <td><span class="fw-bold">21</span></td>
-                                    <td><span class="fw-bold">22</span></td>
-                                    <td><span class="fw-bold">23</span></td>
-                                    <td><span class="fw-bold">24</span></td>
-                                    <td><span class="fw-bold">25</span></td>
-                                </tr>
-                                <tr style="height: 100px;">
-                                    <td><span class="fw-bold">26</span></td>
-                                    <td><span class="fw-bold">27</span></td>
-                                    <td><span class="fw-bold">28</span></td>
-                                    <td><span class="fw-bold">29</span></td>
-                                    <td><span class="fw-bold">30</span></td>
-                                    <td class="text-muted fw-light">1</td>
-                                    <td class="text-muted fw-light">2</td>
-                                </tr>
+                                {% endfor %}
                             </tbody>
                         </table>
                     </div>
@@ -187,7 +201,6 @@
                 <div class="col-2"></div>
             </div>
         </div>
-        <br><br><br><br><br><br><br><br><br>
     </section>
 
     <!-- Footer -->
