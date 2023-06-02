@@ -29,7 +29,9 @@ with open('database/users.json', 'r') as file:
             }
 
             if user_type == 'veterinario':
-                initial_data['consultas'] = []
+                initial_data = {
+                    'consultas': []
+                }
 
             with open(file_path, 'w') as file:
                 json.dump(initial_data, file)

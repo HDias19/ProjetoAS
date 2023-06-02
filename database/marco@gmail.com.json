@@ -16,7 +16,7 @@
             "genero": "Macho",
             "peso": "4 Kg",
             "historico": [],
-            "imagem": "imagens_animais/nelson@gmail.com_asdf.png"
+            "imagem": "imagens_animais/marco@gmail.com_Charlie.png"
         },
         {
             "name": "Luna",
@@ -32,11 +32,6 @@
         {
             "animal": "Luna",
             "plan_type": "premium",
-            "data": "02/06/2023"
-        },
-        {
-            "animal": "Max",
-            "plan_type": "standard",
             "data": "02/06/2023"
         },
         {
