@@ -9,6 +9,7 @@
     <link href="../static/css/bootstrap.css" rel="stylesheet" />
     <link rel="stylesheet" href="../static/css/login.css">
     <link rel="stylesheet" href="../static/css/header_footer.css">
+    <link rel="stylesheet" href="../static/css/vet.css">
     <link rel="icon" href="../static/img/logo/logo-white.png">
 </head>
 
@@ -96,16 +97,27 @@
                 <div class="col">
                     <!-- Pesquisar -->
                     <h4 class="fw-bold">Pesquisar Cliente</h4>
-                    <div class="rounded col-5 align-items-center">
+                    <div class="rounded col-12 align-items-center">
                         <form action="/vet_cliente" method="GET" class="d-flex">
-                            <input type="search" name="email_cliente" class="form-control"
-                                placeholder="Pesquisar por email de cliente" aria-label="Search"
-                                aria-describedby="search-addon"
-                                style="background: rgba(201, 239, 199, 0.2); mix-blend-mode: darken; border: 2px solid rgba(69, 69, 69, 0.5); border-radius: 5px;" />
-                            <button type="submit" class="btn btn-primary">Pesquisar</button>
+                            <div class="input-group">
+                                <input type="search" name="email_cliente" id="email_cliente" class="form-control"
+                                    placeholder="Pesquisar por email de cliente (Começe a escrever para aparecer a lista de clientes)"
+                                    aria-label="Search" aria-describedby="search-addon"
+                                    style="background: rgba(201, 239, 199, 0.2); mix-blend-mode: darken; border: 2px solid rgba(69, 69, 69, 0.5); border-radius: 5px;" />
+                                <button type="submit" class="btn btn-primary">Pesquisar</button>
+                            </div>
                         </form>
+                        <div class="search-results-container">
+                            <ul id="search-results">
+                                {% for email, nome in nomes.items() %}
+                                <li data-email="{{ email }}" onclick="selectEmail('{{ email }}');">{{ nome }} - {{ email
+                                    }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
                     </div>
                     <hr>
+
 
                     <!-- Consultas -->
                     <h4 class="fw-bold">Próximas Consultas</h4>
@@ -208,6 +220,7 @@
     {% endwith %}
 
     <script src="../static/js/popup.js"></script>
+    <script src="../static/js/vet.js"></script>
 </body>
 
 </html>
