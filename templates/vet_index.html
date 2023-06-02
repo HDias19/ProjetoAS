@@ -94,15 +94,20 @@
                 </div>
                 <!-- Informações -->
                 <div class="col">
+                    <!-- Pesquisar -->
                     <h4 class="fw-bold">Pesquisar Cliente</h4>
-                    <div class="input-group rounded">
-                        <input type="search" class="form-control" placeholder="Pesquisar por nome ou nº de cliente"
-                            aria-label="Search" aria-describedby="search-addon" style="background: rgba(201, 239, 199, 0.2);
-                        mix-blend-mode: darken;
-                        border: 2px solid rgba(69, 69, 69, 0.5);
-                        border-radius: 5px;" />
+                    <div class="rounded col-5 align-items-center">
+                        <form action="/vet_cliente" method="GET" class="d-flex">
+                            <input type="search" name="email_cliente" class="form-control"
+                                placeholder="Pesquisar por email de cliente" aria-label="Search"
+                                aria-describedby="search-addon"
+                                style="background: rgba(201, 239, 199, 0.2); mix-blend-mode: darken; border: 2px solid rgba(69, 69, 69, 0.5); border-radius: 5px;" />
+                            <button type="submit" class="btn btn-primary">Pesquisar</button>
+                        </form>
                     </div>
                     <hr>
+
+                    <!-- Consultas -->
                     <h4 class="fw-bold">Próximas Consultas</h4>
                     <table class="table table-sm table-bordered rounded rounded-3"
                         style="background: rgba(201, 239, 199, 0.2);mix-blend-mode: darken;border: 2px solid rgba(69, 69, 69, 0.5);border-radius: 10px;">
@@ -114,16 +119,15 @@
                             </tr>
                         </thead>
                         <tbody>
+                            {% for consulta in consultas %}
                             <tr>
-                                <td>dd/mm/aaaa</td>
-                                <td>hh:mm</td>
-                                <td style="border-right: 0px;">Descritivo...</td>
+                                <td>{{ consulta.data }}</td>
+                                <td>{{ consulta.hora }}</td>
+                                <td style="border-right: 0px;">{{ consulta.descricao }}</td>
                                 <td class="text-end" style="width: 20px;border-left: 0px;">Detalhes</td>
-
                             </tr>
+                            {% endfor %}
                         </tbody>
-
-
                     </table>
                 </div>
                 <div class="col-2"></div>

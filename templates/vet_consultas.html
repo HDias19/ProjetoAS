@@ -73,9 +73,6 @@
                     <h2 class="mt-2" style="font-weight: bold;">Consultas</h2>
                 </div>
                 <div class="col">
-                    <a href="" class="text-black">
-                        <h5 style="justify-content: end; display: flex;">Agendar consulta</h5>
-                    </a>
                 </div>
                 <div class="col-2"></div>
             </div>
@@ -92,6 +89,7 @@
                 </div>
                 <!-- Informações -->
                 <div class="col">
+                    <!-- Consultas -->
                     <h4 class="fw-bold">Próximas Consultas</h4>
                     <table class="table table-sm table-bordered rounded rounded-3"
                         style="background: rgba(201, 239, 199, 0.2);mix-blend-mode: darken;border: 2px solid rgba(69, 69, 69, 0.5);border-radius: 10px;">
@@ -103,22 +101,23 @@
                             </tr>
                         </thead>
                         <tbody>
+                            {% for consulta in consultas %}
                             <tr>
-                                <td>dd/mm/aaaa</td>
-                                <td>hh:mm</td>
-                                <td style="border-right: 0px;">Descritivo...</td>
+                                <td>{{ consulta.data }}</td>
+                                <td>{{ consulta.hora }}</td>
+                                <td style="border-right: 0px;">{{ consulta.descricao }}</td>
                                 <td class="text-end" style="width: 20px;border-left: 0px;">Detalhes</td>
-
                             </tr>
+                            {% endfor %}
                         </tbody>
                     </table>
+                    <!-- Calendario -->
                     <hr>
                     <h4 class="fw-bold">Calendário</h4>
-                    <!-- Calendario -->
                     <div class="card"
                         style="background: rgba(201, 239, 199, 0.2);mix-blend-mode: darken;border: 2px solid rgba(69, 69, 69, 0.5);border-radius: 10px;">
                         <h5 class="card-title fw-bold text-center my-2">
-                            < Junho 2023 >
+                            < Junho 2023>
                         </h5>
                         <table class="table table-bordered">
                             <!-- Cabeçalho -->
