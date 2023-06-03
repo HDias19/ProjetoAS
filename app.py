@@ -5,6 +5,7 @@ import os
 import secrets
 from werkzeug.utils import secure_filename
 import random
+import glob
 
 
 # Verificar se o arquivo JSON já existe senão cria um novo
@@ -677,10 +678,13 @@ def remover_animal(animal_name):
             file.truncate()
 
         # Remover a imagem do animal
-        image_folder = f'static/imagens_animais/'
-        image_path = os.path.join(image_folder, f'{email}_{animal_name}.png')
-        if os.path.exists(image_path):
-            os.remove(image_path)
+        image_folder = 'static/imagens_animais/'
+        image_pattern = os.path.join(image_folder, f'{email}_{animal_name}.*')
+        matching_files = glob.glob(image_pattern)
+
+        if len(matching_files) > 0:
+            for file_path in matching_files:
+                os.remove(file_path)
         else:
             flash("Imagem não encontrada")
             return redirect(url_for('perfil_animais'))

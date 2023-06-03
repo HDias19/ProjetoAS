@@ -1,15 +1,5 @@
 {
-    "animais": [
-        {
-            "name": "asdf",
-            "idade": "asdf",
-            "raca": "asdf",
-            "genero": "asdf",
-            "peso": "asdf",
-            "historico": [],
-            "imagem": "imagens_animais/joao@gmail.com_asdf.png"
-        }
-    ],
+    "animais": [],
     "planos": [],
     "consultas": []
 }
