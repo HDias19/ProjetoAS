@@ -10,6 +10,20 @@
     <link rel="stylesheet" href="../static/css/login.css">
     <link rel="stylesheet" href="../static/css/header_footer.css">
     <link rel="icon" href="../static/img/logo/logo-white.png">
+
+
+    <!-- CSS local -->
+    <style>
+        .animal-btn.animal-btn-selected {
+            background-color: #80a67e !important;
+            color: white !important;
+        }
+
+        .local-btn.local-btn-selected {
+            background-color: #80a67e !important;
+            color: white !important;
+        }
+    </style>
 </head>
 
 <body>
@@ -115,10 +129,10 @@
                                             <!-- Animais -->
                                             <h5>Selecione o animal*:</h5>
                                             {% for animal in animais %}
-                                            <input type="radio" name="animal" value="{{ animal.name }}"
-                                                autocomplete="off">
-                                            <label class="btn btn-secondary animal-btn"
-                                                style="border-width: 2px; border-radius: 10px;">
+                                            <input type="radio" id="{{ animal.name }}" name="animal"
+                                                value="{{ animal.name }}" autocomplete="off" style="display: none;">
+                                            <label class="btn btn-secondary animal-btn animal-btn-{{ animal.name }}"
+                                                style="border-width: 2px; border-radius: 10px;" for="{{ animal.name }}">
                                                 <img src="{{ url_for('static', filename=animal.imagem) }}"
                                                     class="rounded-circle" style="height: 100px;width: 150px;">
                                                 <h5 class="fw-bold mt-2">{{ animal.name }}</h5>
@@ -126,19 +140,23 @@
                                             {% endfor %}
                                             <!-- Local -->
                                             <h5 class="mt-5">Selecione o local*:</h5>
-                                            <input type="radio" name="local" value="Casa" autocomplete="off">
-                                            <label class="btn btn-secondary"
-                                                style="border-width: 2px; border-radius: 10px;">
+                                            <input type="radio" name="local" value="Casa" autocomplete="off"
+                                                id="local-casa" style="display: none;">
+                                            <label class="btn btn-secondary local-btn local-btn-casa"
+                                                style="border-width: 2px; border-radius: 10px;" for="local-casa">
                                                 <img src="../static/img/icons/Home_duotone.png">
                                                 <h5 class="fw-bold mt-2">Casa</h5>
                                             </label>
-                                            <input type="radio" name="local" value="Clinica" autocomplete="off">
-                                            <label class="btn btn-secondary"
-                                                style="border-width: 2px; border-radius: 10px;">
+
+                                            <input type="radio" name="local" value="Clinica" autocomplete="off"
+                                                id="local-clinica" style="display: none;">
+                                            <label class="btn btn-secondary local-btn local-btn-clinica"
+                                                style="border-width: 2px; border-radius: 10px;" for="local-clinica">
                                                 <img src="../static/img/icons/medical veterinarian.svg"
                                                     style="width: 55px;height: 55px;">
                                                 <h5 class="fw-bold mt-2">Clínica</h5>
                                             </label>
+
                                         </div>
                                     </div>
                                 </div>
@@ -171,8 +189,10 @@
                                         <textarea class="form-control form-control-lg" name="descricao" rows="5"
                                             placeholder="Escreva algo..."
                                             style="background-color: #f4fcf4;border-radius: 5px;border: 2px solid rgba(69, 69, 69, 0.5);"></textarea>
-                                        <button type="submit" class="btn btn-primary"
-                                            style="font-weight: bold;">Agendar</button>
+                                        <div class="text-end">
+                                            <button type="submit" class="btn btn-primary"
+                                                style="font-weight: bold; margin-top: 20px;">Agendar</button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -258,6 +278,41 @@
     {% endwith %}
 
     <script src="../static/js/popup.js"></script>
+
+    <script>
+        // Obtém todos os botões de animais
+        const animalButtons = document.querySelectorAll('.animal-btn');
+
+        // Adiciona um ouvinte de evento a cada botão de animal
+        animalButtons.forEach((button) => {
+            button.addEventListener('click', () => {
+                // Remove a classe "animal-btn-selected" de todos os botões de animal
+                animalButtons.forEach((btn) => {
+                    btn.classList.remove('animal-btn-selected');
+                });
+
+                // Adiciona a classe "animal-btn-selected" ao botão de animal clicado
+                button.classList.add('animal-btn-selected');
+            });
+        });
+
+        // Obtém todos os botões de locais
+        const localButtons = document.querySelectorAll('.local-btn');
+
+        // Adiciona um ouvinte de evento a cada botão de local
+        localButtons.forEach((button) => {
+            button.addEventListener('click', () => {
+                // Remove a classe "local-btn-selected" de todos os botões de local
+                localButtons.forEach((btn) => {
+                    btn.classList.remove('local-btn-selected');
+                });
+
+                // Adiciona a classe "local-btn-selected" ao botão de local clicado
+                button.classList.add('local-btn-selected');
+            });
+        });
+    </script>
+
 </body>
 
 </html>
