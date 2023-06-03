@@ -86,7 +86,7 @@
                             <input type="password" class="form-control" style="background-color: #c9efc7cc;"
                                 placeholder="Password" name="password">
                             <div class="d-grid gap-2 col-3 my-3">
-                                <button type="submit" class="btn btn-primary"
+                                <button id="submit" type="submit" class="btn btn-primary"
                                     style="font-weight: bold; font-size: 20px;">Login</button>
                             </div>
                         </form>
@@ -105,21 +105,21 @@
                         <form action="/register" method="POST">
                             <label class="form-label">Nome de Utilizador*:</label>
                             <input type="text" class="form-control" style="background-color: #c9efc7cc;"
-                                placeholder="Nome de utilizador" name="name">
+                                placeholder="Nome de utilizador" name="name_registo">
                             <label class="form-label mt-3">Endereço de E-mail*:</label>
                             <input type="email" class="form-control" style="background-color: #c9efc7cc;"
-                                placeholder="name@example.com" name="email">
+                                placeholder="name@example.com" name="email_registo">
                             <label class="form-label mt-3">Palavra-Passe*:</label>
                             <input type="password" class="form-control"
                                 style="background-color: #c9efc7cc; margin-bottom: 20px;" placeholder="Password"
-                                name="password">
+                                name="password_registo">
                             <small class="card-text text-muted">A sua informação pessoal será usada para dar suporte à
                                 sua experiência em todo este website, gerir o acesso à sua conta e para outros fins
                                 descritos na nossa</small>
                             <small class="card-text text-muted" style="font-weight: bold;"> Política de
                                 Privacidade.</small>
                             <div class="d-grid gap-2 col-3 my-3">
-                                <button class="btn btn-primary" type="submit"
+                                <button id="submit_registo" class="btn btn-primary" type="submit"
                                     style="font-weight: bold; font-size: 20px;">Registar</button>
                             </div>
                         </form>
