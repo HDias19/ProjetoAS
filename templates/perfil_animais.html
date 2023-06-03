@@ -59,7 +59,7 @@
         <div class="row align-items-center new-row d-flex custom-header-bottom">
             <ul class="list-inline d-flex justify-content-center">
                 <li><a href="{{ url_for('index') }}" class="text-decoration-none">Home</a></li>
-                <li><a href="{{ url_for('planos') }}" class="text-decoration-none">Planos</a></li>
+                <li><a id="planos" href="{{ url_for('planos') }}" class="text-decoration-none">Planos</a></li>
                 <li><a href="{{ url_for('servicos') }}" class="text-decoration-none">Serviços</a></li>
                 <li><a href="{{ url_for('sobre') }}" class="text-decoration-none">Sobre</a></li>
             </ul>
@@ -82,7 +82,7 @@
                 <div class="col">
                     <h2 class="mt-2" style="font-weight: bold;">Os meus animais</h2>
                 </div>
-                <div class="col">
+                <div id="add_animal" class="col">
                     <a href="{{ url_for('adicionar_animal') }}" class="text-black">
                         <h5 style="justify-content: end; display: flex;">Adicionar animal</h5>
                     </a>
@@ -130,7 +130,7 @@
                                         <li class="card-text text-start">Idade: {{ animal.idade }}</li>
                                         <li class="card-text text-start">Peso: {{ animal.peso }}</li>
                                     </ul>
-                                    <a href="{{ url_for('animal', nome_animal=animal.name) }}"
+                                    <a id="ver_mais" href="{{ url_for('animal', nome_animal=animal.name) }}"
                                         class="btn btn-primary w-75" style="font-weight: bold;">Ver mais</a>
                                 </div>
                             </div>
