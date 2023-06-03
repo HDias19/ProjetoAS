@@ -13,7 +13,13 @@
     },
     {
         "name": "Nelson",
-        "email": "nelson@gmail.com",
+        "email": "nelson@nutrivet.pt",
+        "password": "1",
+        "user_type": "veterinario"
+    },
+    {
+        "name": "joao",
+        "email": "joao@gmail.com",
         "password": "1",
         "user_type": "cliente"
     }

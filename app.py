@@ -4,6 +4,7 @@ import json
 import os
 import secrets
 from werkzeug.utils import secure_filename
+import random
 
 
 # Verificar se o arquivo JSON já existe senão cria um novo
@@ -92,25 +93,52 @@ def save_plan_to_database(animal_name, plan_type):
 # Função para salvar a consulta na base de dados
 
 
-def save_consulta_to_database(animal, local, data_consulta, hora, descricao):
+def save_consulta_to_database(animal, local, data, hora, descricao, veterinario_email):
     if 'user' in session:
         email = session['user']['email']
-        file_path = f'database/{email}.json'
+        cliente_file_path = f'database/{email}.json'
+        veterinario_file_path = f'database/{veterinario_email}.json'
 
-        with open(file_path, 'r+') as file:
-            user_data = json.load(file)
+        # Obter nome do cliente logado a partir do arquivo users.json
+        with open('database/users.json', 'r') as users_file:
+            users_data = json.load(users_file)
+            cliente_name = next(
+                (user['name'] for user in users_data if user['email'] == email), '')
 
-            consultas = user_data['consultas']
+        # Adicionar consulta à base de dados do cliente
+        with open(cliente_file_path, 'r+') as file:
+            cliente_data = json.load(file)
+
+            consultas = cliente_data.get('consultas', [])
             consultas.append({
                 'animal': animal,
                 'local': local,
-                'data': data_consulta,
+                'data': data,
                 'hora': hora,
                 'descricao': descricao
             })
 
             file.seek(0)
-            json.dump(user_data, file, indent=4)
+            json.dump(cliente_data, file, indent=4)
+            file.truncate()
+
+        # Adicionar consulta à base de dados do veterinário
+        with open(veterinario_file_path, 'r+') as file:
+            veterinario_data = json.load(file)
+
+            consultas = veterinario_data.get('consultas', [])
+            consultas.append({
+                'name': cliente_name,
+                'email': email,
+                'animal': animal,
+                'local': local,
+                'data': data,
+                'hora': hora,
+                'descricao': descricao
+            })
+
+            file.seek(0)
+            json.dump(veterinario_data, file, indent=4)
             file.truncate()
 
         return True
@@ -316,8 +344,13 @@ def perfil_consultas():
         # Criar um dicionário com os dias das consultas e a imagem do animal associado
         consultas_dias_imagens = {}
         for consulta in consultas:
-            data = datetime.strptime(consulta['data'], '%d/%m/%Y')
-            dia = data.day
+            try:
+                data = datetime.strptime(consulta['data'], '%d/%m/%Y')
+                dia = data.day
+            except ValueError:
+                # Caso a data não seja um formato válido
+                dia = consulta['data']
+
             animal_nome = consulta['animal']
             imagem = next(
                 (animal['imagem'] for animal in animais if animal['name'] == animal_nome), None)
@@ -370,13 +403,27 @@ def agendar():
     data = request.form.get('data')
     hora = request.form.get('hora')
     descricao = request.form.get('descricao')
-    # Verificar se nenhum campo está vazio
 
+    # Verificar se nenhum campo está vazio
     if not animal or not local or not data or not hora or not descricao:
         flash("Preencha todos os campos")
         return redirect(url_for('perfil_agendar'))
     else:
-        if save_consulta_to_database(animal, local, data, hora, descricao):
+        # Obter todos os veterinários disponíveis
+        with open('database/users.json', 'r') as users_file:
+            users_data = json.load(users_file)
+            veterinarios = [user for user in users_data if user.get(
+                'user_type') == 'veterinario']
+
+        if not veterinarios:
+            flash("Nenhum veterinário disponível no momento")
+            return redirect(url_for('perfil'))
+
+        # Escolher aleatoriamente um veterinário
+        veterinario_escolhido = random.choice(veterinarios)
+        veterinario_email = veterinario_escolhido.get('email')
+
+        if save_consulta_to_database(animal, local, data, hora, descricao, veterinario_email):
             flash("Consulta agendada com sucesso")
             return redirect(url_for('perfil'))
         else:
