@@ -93,6 +93,7 @@
             </div>
             <!-- Planos -->
             <div class="row" style="justify-content: center;">
+                <!-- Standard -->
                 <div class="col-md-5"
                     style="background-color: #C9EFC7; padding: 20px; padding-bottom: 50px; margin-top: 40px; margin-right: 120px; border-radius: 10px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);">
                     <h4 class="text-center"
@@ -111,16 +112,23 @@
                         <hr class="separator-text-planos">
                         <p>Serviços de urgência limitados ao horário de funcionamento</p>
                     </ul>
-                    <form action="{{ url_for('adicionar_plano') }}" method="POST">
-                        <select name="animal_standard">
-                            {% for animal in user_animals %}
-                            <option value="{{ animal.name }}">{{ animal.name }}</option>
-                            {% endfor %}
-                        </select>
+                    <!-- Lista -->
+                    <form action="{{ url_for('adicionar_plano') }}" method="POST" class="text-center mt-5">
+                        <div class="form-group">
+                            <label class="mb-2" for="animal_standard">Selecione o animal:</label>
+                            <select class="form-control" name="animal_standard" id="animal_standard"
+                                style="max-width: 250px; margin: 0 auto;">
+                                {% for animal in user_animals %}
+                                <option value="{{ animal.name }}">{{ animal.name }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
                         <input type="hidden" name="plan_type" value="standard">
-                        <button class="btn btn-primary" type="submit">Confirmar</button>
+                        <button class="btn btn-primary mt-3" type="submit"
+                            style="font-weight: bold; font-size: 25px; padding: 5px 30px 5px 30px; margin-top: 30px;">Aderir</button>
                     </form>
                 </div>
+                <!-- Premium -->
                 <div class="col-md-5"
                     style="color: #ffffff; background-color: #2C4B27; padding: 20px; padding-bottom: 50px; margin-top: 40px; margin-left: 10px; border-radius: 10px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);">
                     <h4 class="text-center"
@@ -139,14 +147,20 @@
                         <hr class="separator-text-planos2">
                         <p>Serviço de urgência disponível 24 horas</p>
                     </ul>
-                    <form action="{{ url_for('adicionar_plano') }}" method="POST">
-                        <select name="animal_premium">
-                            {% for animal in user_animals %}
-                            <option value="{{ animal.name }}">{{ animal.name }}</option>
-                            {% endfor %}
-                        </select>
+                    <!-- Lista -->
+                    <form action="{{ url_for('adicionar_plano') }}" method="POST" class="text-center mt-5">
+                        <div class="form-group">
+                            <label class="mb-2" for="animal_premium">Selecione o animal:</label>
+                            <select class="form-control" name="animal_premium" id="animal_premium"
+                                style="max-width: 250px; margin: 0 auto;">
+                                {% for animal in user_animals %}
+                                <option value="{{ animal.name }}">{{ animal.name }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
                         <input type="hidden" name="plan_type" value="premium">
-                        <button class="btn btn-primary" type="submit">Confirmar</button>
+                        <button class="btn btn-primary mt-3" type="submit"
+                            style="font-weight: bold; font-size: 25px; padding: 5px 30px 5px 30px; margin-top: 30px;">Aderir</button>
                     </form>
                 </div>
             </div>

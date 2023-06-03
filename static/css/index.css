@@ -12,6 +12,7 @@
 .custom-main {
     font-family: "Zilla Slab", serif;
     padding-top: 80px;
+    padding-bottom: 0px !important;
 }
 
 .imagem-cao {
@@ -51,13 +52,12 @@ p {
 
 .urgencia-line {
     margin-top: 50px;
-    margin-right: -450px;
     color: #fff;
     display: flex;
     align-items: center;
     font-size: 28px;
     justify-content: center;
-    margin-left: 80px;
+    margin-left: 600px;
     position: relative;
 }
 
@@ -82,32 +82,36 @@ p {
 
 .retangulo-verde-claro {
     background-color: rgba(201, 239, 199, 0.5);
-    padding: 20px;
+    padding: 20px 20px 20px 20px;
     color: #000000;
     font-size: 18px;
-    height: 85%;
-    width: 130%;
     justify-content: center;
     align-items: center;
+    margin: 0px 0px 0px 0px;
+    height: 100%;
 }
 
 .retangulo-verde-claro p {
-    height: 30%;
     width: 100%;
     margin-left: 40px;
     margin-right: 40px;
 }
 
 .imagem-gato {
-    height: 360px;
-    margin-right: 0px;
-    align-items: end;
-    align-content: end;
-    justify-content: end;
+    margin: 0px 0px 0px 0px;
+    width: 100%;
+    object-fit: cover;
 }
 
 .custom-main-second {
     font-family: "Zilla Slab", serif;
-    padding-top: 0px;
-    padding-bottom: 0px;
+    height: auto;
+}
+
+.custom-main-second .col-md-7 {
+    padding-right: 0;
+}
+
+.custom-main-second .col-md-5 {
+    padding-left: 0;
 }
