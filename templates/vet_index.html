@@ -90,7 +90,7 @@
                 <div class="d-grid gap-3 col-sm-2 px-4 mx-4 align-self-start">
                     <a href="{{ url_for('perfil') }}" role="button" class="btn btn-primary"
                         style="font-weight: bold; background: rgba(65, 133, 54, 0.56);">Sumário</a>
-                    <a href="{{ url_for('vet_consultas') }}" role="button" class="btn btn-primary"
+                    <a id="consultas" href="{{ url_for('vet_consultas') }}" role="button" class="btn btn-primary"
                         style="font-weight: bold;">Consultas</a>
                 </div>
                 <!-- Informações -->
@@ -104,7 +104,7 @@
                                     placeholder="Pesquisar por email de cliente (Começe a escrever para aparecer a lista de clientes)"
                                     aria-label="Search" aria-describedby="search-addon"
                                     style="background: rgba(201, 239, 199, 0.2); mix-blend-mode: darken; border: 2px solid rgba(69, 69, 69, 0.5); border-radius: 5px;" />
-                                <button type="submit" class="btn btn-primary">Pesquisar</button>
+                                <button id="pesquisar" type="submit" class="btn btn-primary">Pesquisar</button>
                             </div>
                         </form>
                         <div class="search-results-container">
