@@ -9,6 +9,7 @@
     <link href="../static/css/bootstrap.css" rel="stylesheet" />
     <link rel="stylesheet" href="../static/css/login.css">
     <link rel="stylesheet" href="../static/css/header_footer.css">
+    <link rel="stylesheet" href="../static/css/vet.css">
     <link rel="icon" href="../static/img/logo/logo-white.png">
 </head>
 
@@ -94,15 +95,31 @@
                 </div>
                 <!-- Informações -->
                 <div class="col">
+                    <!-- Pesquisar -->
                     <h4 class="fw-bold">Pesquisar Cliente</h4>
-                    <div class="input-group rounded">
-                        <input type="search" class="form-control" placeholder="Pesquisar por nome ou nº de cliente"
-                            aria-label="Search" aria-describedby="search-addon" style="background: rgba(201, 239, 199, 0.2);
-                        mix-blend-mode: darken;
-                        border: 2px solid rgba(69, 69, 69, 0.5);
-                        border-radius: 5px;" />
+                    <div class="rounded col-12 align-items-center">
+                        <form action="/vet_cliente" method="GET" class="d-flex">
+                            <div class="input-group">
+                                <input type="search" name="email_cliente" id="email_cliente" class="form-control"
+                                    placeholder="Pesquisar por email de cliente (Começe a escrever para aparecer a lista de clientes)"
+                                    aria-label="Search" aria-describedby="search-addon"
+                                    style="background: rgba(201, 239, 199, 0.2); mix-blend-mode: darken; border: 2px solid rgba(69, 69, 69, 0.5); border-radius: 5px;" />
+                                <button type="submit" class="btn btn-primary">Pesquisar</button>
+                            </div>
+                        </form>
+                        <div class="search-results-container">
+                            <ul id="search-results">
+                                {% for email, nome in nomes.items() %}
+                                <li data-email="{{ email }}" onclick="selectEmail('{{ email }}');">{{ nome }} - {{ email
+                                    }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
                     </div>
                     <hr>
+
+
+                    <!-- Consultas -->
                     <h4 class="fw-bold">Próximas Consultas</h4>
                     <table class="table table-sm table-bordered rounded rounded-3"
                         style="background: rgba(201, 239, 199, 0.2);mix-blend-mode: darken;border: 2px solid rgba(69, 69, 69, 0.5);border-radius: 10px;">
@@ -114,16 +131,15 @@
                             </tr>
                         </thead>
                         <tbody>
+                            {% for consulta in consultas %}
                             <tr>
-                                <td>dd/mm/aaaa</td>
-                                <td>hh:mm</td>
-                                <td style="border-right: 0px;">Descritivo...</td>
+                                <td>{{ consulta.data }}</td>
+                                <td>{{ consulta.hora }}</td>
+                                <td style="border-right: 0px;">{{ consulta.descricao }}</td>
                                 <td class="text-end" style="width: 20px;border-left: 0px;">Detalhes</td>
-
                             </tr>
+                            {% endfor %}
                         </tbody>
-
-
                     </table>
                 </div>
                 <div class="col-2"></div>
@@ -192,6 +208,19 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
         crossorigin="anonymous"></script>
+
+    <!-- POPUP -->
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <div class="popup">
+        <div class="popup-message">{{ messages[0] }}</div>
+        <a href="#" class="popup-button">OK</a>
+    </div>
+    {% endif %}
+    {% endwith %}
+
+    <script src="../static/js/popup.js"></script>
+    <script src="../static/js/vet.js"></script>
 </body>
 
 </html>

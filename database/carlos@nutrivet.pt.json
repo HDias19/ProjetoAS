@@ -1,0 +1,22 @@
+{
+    "consultas": [
+        {
+            "name": "Marco",
+            "email": "marco@gmail.com",
+            "animal": "Max",
+            "local": "Clinica",
+            "data": "10/06/2023",
+            "hora": "14:30",
+            "descricao": "Consulta de rotina"
+        },
+        {
+            "name": "Marco",
+            "email": "marco@gmail.com",
+            "animal": "Charlie",
+            "local": "Casa",
+            "data": "15/06/2023",
+            "hora": "11:00",
+            "descricao": "Corte de unhas"
+        }
+    ]
+}

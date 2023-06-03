@@ -248,3 +248,38 @@
     padding-left: 60px;
     padding-bottom: 25px;
 }
+
+/* POPUP */
+.popup {
+    position: fixed !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    width: fit-content !important;
+    padding: 20px !important;
+    background-color: #C9EFC7 !important;
+    border-radius: 10px !important;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3) !important;
+    z-index: 9999 !important;
+}
+
+.popup-message {
+    text-align: center !important;
+    margin-bottom: 20px !important;
+    font-size: 30px !important;
+    font-family: "Zilla Slab Bold", serif !important;
+}
+
+.popup-button {
+    font-family: "Zilla Slab", serif !important;
+    font-size: 25px !important;
+    display: block !important;
+    width: 100px !important;
+    margin: 0 auto !important;
+    padding: 10px !important;
+    background-color: #418536 !important;
+    color: #fff !important;
+    text-align: center !important;
+    border-radius: 5px !important;
+    text-decoration: none !important;
+}

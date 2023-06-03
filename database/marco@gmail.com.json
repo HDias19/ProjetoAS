@@ -6,7 +6,8 @@
             "raca": "Labrador",
             "genero": "Macho",
             "peso": "30 Kg",
-            "historico": []
+            "historico": [],
+            "imagem": "imagens_animais/niko.webp"
         },
         {
             "name": "Charlie",
@@ -14,7 +15,8 @@
             "raca": "Persa",
             "genero": "Macho",
             "peso": "4 Kg",
-            "historico": []
+            "historico": [],
+            "imagem": "imagens_animais/marco@gmail.com_Charlie.png"
         },
         {
             "name": "Luna",
@@ -22,19 +24,20 @@
             "raca": "Pastor Alem\u00e3o",
             "genero": "F\u00eamea",
             "peso": "25 Kg",
-            "historico": []
+            "historico": [],
+            "imagem": "imagens_animais/niko.webp"
         }
     ],
     "planos": [
         {
-            "animal": "Max",
-            "plan_type": "standard",
-            "data": "27/05/2023"
+            "animal": "Luna",
+            "plan_type": "premium",
+            "data": "02/06/2023"
         },
         {
             "animal": "Charlie",
             "plan_type": "premium",
-            "data": "27/05/2023"
+            "data": "02/06/2023"
         }
     ],
     "consultas": [

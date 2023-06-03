@@ -119,8 +119,8 @@
                                                 autocomplete="off">
                                             <label class="btn btn-secondary animal-btn"
                                                 style="border-width: 2px; border-radius: 10px;">
-                                                <img src="../static/img/imagens/niko.webp" class="rounded-circle"
-                                                    style="height: 100px;width: 150px;">
+                                                <img src="{{ url_for('static', filename=animal.imagem) }}"
+                                                    class="rounded-circle" style="height: 100px;width: 150px;">
                                                 <h5 class="fw-bold mt-2">{{ animal.name }}</h5>
                                             </label>
                                             {% endfor %}
@@ -247,6 +247,17 @@
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
         crossorigin="anonymous"></script>
 
+    <!-- POPUP -->
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <div class="popup">
+        <div class="popup-message">{{ messages[0] }}</div>
+        <a href="#" class="popup-button">OK</a>
+    </div>
+    {% endif %}
+    {% endwith %}
+
+    <script src="../static/js/popup.js"></script>
 </body>
 
 </html>
