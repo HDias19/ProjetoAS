@@ -2,58 +2,58 @@
     "animais": [
         {
             "name": "Max",
-            "idade": "5 anos",
+            "idade": "3 anos",
             "raca": "Labrador",
             "genero": "Macho",
-            "peso": "30 Kg",
+            "peso": "30 kg",
             "historico": [],
-            "imagem": "imagens_animais/niko.webp"
-        },
-        {
-            "name": "Charlie",
-            "idade": "2 ano",
-            "raca": "Persa",
-            "genero": "Macho",
-            "peso": "4 Kg",
-            "historico": [],
-            "imagem": "imagens_animais/marco@gmail.com_Charlie.png"
+            "imagem": "imagens_animais/marco@gmail.com_Max.jpg"
         },
         {
             "name": "Luna",
-            "idade": "3 anos",
-            "raca": "Pastor Alem\u00e3o",
+            "idade": "2 anos",
+            "raca": "Siam\u00eas",
             "genero": "F\u00eamea",
-            "peso": "25 Kg",
+            "peso": "4 kg",
             "historico": [],
-            "imagem": "imagens_animais/niko.webp"
+            "imagem": "imagens_animais/marco@gmail.com_Luna.jpg"
+        },
+        {
+            "name": "Kiwi",
+            "idade": "1 ano",
+            "raca": "Calopsita",
+            "genero": "Macho",
+            "peso": "120 g",
+            "historico": [],
+            "imagem": "imagens_animais/marco@gmail.com_Kiwi.jpg"
         }
     ],
     "planos": [
         {
-            "animal": "Luna",
+            "animal": "Max",
             "plan_type": "premium",
-            "data": "02/06/2023"
+            "data": "05/06/2023"
         },
         {
-            "animal": "Charlie",
-            "plan_type": "premium",
-            "data": "02/06/2023"
+            "animal": "Kiwi",
+            "plan_type": "standard",
+            "data": "05/06/2023"
         }
     ],
     "consultas": [
         {
             "animal": "Max",
             "local": "Clinica",
-            "data": "10/06/2023",
-            "hora": "14:30",
-            "descricao": "Consulta de rotina"
+            "data": "7/06/2023",
+            "hora": "13:00",
+            "descricao": "Vacina\u00e7\u00e3o anual, verificar peso e sa\u00fade geral."
         },
         {
-            "animal": "Charlie",
-            "local": "Casa",
-            "data": "15/06/2023",
-            "hora": "11:00",
-            "descricao": "Corte de unhas"
+            "animal": "Kiwi",
+            "local": "Clinica",
+            "data": "25/06/2023",
+            "hora": "14:30",
+            "descricao": "Exame de asas e unhas."
         }
     ]
 }
