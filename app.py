@@ -46,8 +46,6 @@ app.config['SESSION_TYPE'] = 'filesystem'
 
 
 # Função para obter os animais do usuário
-
-
 def get_user_animals():
     if 'user' in session:
         email = session['user']['email']
@@ -83,17 +81,15 @@ def save_plan_to_database(animal_name, plan_type):
                 'data': adhesion_date
             })
 
-            file.seek(0)  # Mover o cursor para o início do arquivo
+            file.seek(0)
             json.dump(data, file, indent=4)
-            file.truncate()  # Reduzir o tamanho do arquivo, se necessário
+            file.truncate()
 
-            return True  # Retornar mensagem de sucesso animal adicionado
+            return True
 
     return "Animal não encontrado"
 
 # Função para salvar a consulta na base de dados
-
-
 def save_consulta_to_database(animal, local, data, hora, descricao, veterinario_email):
     if 'user' in session:
         email = session['user']['email']
@@ -116,7 +112,8 @@ def save_consulta_to_database(animal, local, data, hora, descricao, veterinario_
                 'local': local,
                 'data': data,
                 'hora': hora,
-                'descricao': descricao
+                'descricao': descricao,
+                'veterinario': veterinario_email
             })
 
             file.seek(0)
@@ -146,11 +143,33 @@ def save_consulta_to_database(animal, local, data, hora, descricao, veterinario_
 
     return False
 
-
-# Rota para exibir o formulário de registro
+# Rotas para páginas estáticas
 @app.route('/')
 def index():
     return render_template('index.html')
+
+@app.route('/servicos')
+def servicos():
+    return render_template('servicos.html')
+
+
+@app.route('/sobre')
+def sobre():
+    return render_template('sobre.html')
+
+
+@app.route('/pagamento')
+def pagamento():
+    return render_template('pagamento.html')
+
+
+@app.route('/planos_basica')
+def planos_basica():
+    return render_template('planos_basica.html')
+
+@app.route('/adicionar_animal')
+def adicionar_animal():
+    return render_template('adicionar_animal.html')
 
 
 # Rota para lidar com a requisição de registro
@@ -211,8 +230,6 @@ def register():
 
 
 # Rota para lidar com a requisição de mostrar os animais do usuário na pagina de planos
-
-
 @app.route('/planos')
 def planos():
     if 'user' in session:
@@ -224,8 +241,6 @@ def planos():
 
 
 # Rota para lidar com a requisição de adicionar um plano na base de dados
-
-
 @app.route('/adicionar_plano', methods=['POST'])
 def adicionar_plano():
     plan_type = request.form.get('plan_type')
@@ -258,50 +273,30 @@ def adicionar_plano():
 # Rota para lidar com a requisição de login
 @app.route('/login', methods=['POST'])
 def login():
-    # Read the login form data
+    # Ler os dados do formulário de login
     email = request.form['email']
     password = request.form['password']
 
-    # Check if the user exists in the JSON file and if the password is correct
+    # Verificar se o usuário existe no arquivo JSON e se a senha está correta
     with open('database/users.json', 'r') as file:
         users = json.load(file)
         for user in users:
             if user['email'] == email:
                 if user['password'] == password:
-                    # User found and password is correct
+                    # Utilizador encontrado e a senha está correta
                     session['user'] = user
                     return redirect(url_for('perfil'))
                 else:
-                    # User found but password is incorrect
+                    # Utilizador encontrado mas a senha está incorreta
                     flash("Senha incorreta")
                     return redirect(url_for('perfil'))
 
-    # User not found
+    # Utilizador não encontrado
     flash("Email não encontrado")
     return redirect(url_for('perfil'))
 
 
-# Rotas para páginas estáticas
-@app.route('/servicos')
-def servicos():
-    return render_template('servicos.html')
-
-
-@app.route('/sobre')
-def sobre():
-    return render_template('sobre.html')
-
-
-@app.route('/pagamento')
-def pagamento():
-    return render_template('pagamento.html')
-
-
-@app.route('/planos_basica')
-def planos_basica():
-    return render_template('planos_basica.html')
-
-
+# Rota para exibir a página de contato
 @app.route('/contactar')
 def contactar():
     if 'user' in session:
@@ -324,12 +319,10 @@ def contactar():
                 "Apenas clientes com plano premium podem entrar em contato de urgência.")
             return redirect(url_for('perfil'))
 
-    # User is not logged in, redirect to login page
     return render_template('login.html')
 
 
 # Rota para exibir a página de consultas do cliente
-
 @app.route('/perfil_consultas')
 def perfil_consultas():
     if 'user' in session:
@@ -366,14 +359,7 @@ def perfil_consultas():
     return render_template('login.html')
 
 
-@app.route('/adicionar_animal')
-def adicionar_animal():
-    return render_template('adicionar_animal.html')
-
-
 # Rota para exibir a página de perfil de agendamento
-
-
 @app.route('/perfil_agendar')
 def perfil_agendar():
     if 'user' in session:
@@ -395,8 +381,6 @@ def perfil_agendar():
 
 
 # Rota para agendar consulta
-
-
 @app.route('/agendar', methods=['POST'])
 def agendar():
     animal = request.form.get('animal')
@@ -409,32 +393,43 @@ def agendar():
     if not animal or not local or not data or not hora or not descricao:
         flash("Preencha todos os campos")
         return redirect(url_for('perfil_agendar'))
+
+    # Verificar o formato e a validade da data
+    try:
+        data_obj = datetime.strptime(data, '%d/%m/%Y')
+        if data_obj.year != 2023 or data_obj.month != 6:
+            raise ValueError
+    except ValueError:
+        flash("Data inválida. Utilize o formato dd/mm/aaaa e escolha um dia em junho de 2023.")
+        return redirect(url_for('perfil_agendar'))
+
+    # Verificar o valor do dia
+    if not 1 <= data_obj.day <= 31:
+        flash("Dia inválido. Escolha um dia entre 1 e 31.")
+        return redirect(url_for('perfil_agendar'))
+
+    # Obter todos os veterinários disponíveis
+    with open('database/users.json', 'r') as users_file:
+        users_data = json.load(users_file)
+        veterinarios = [user for user in users_data if user.get('user_type') == 'veterinario']
+
+    if not veterinarios:
+        flash("Nenhum veterinário disponível no momento")
+        return redirect(url_for('perfil'))
+
+    # Escolher aleatoriamente um veterinário
+    veterinario_escolhido = random.choice(veterinarios)
+    veterinario_email = veterinario_escolhido.get('email')
+
+    if save_consulta_to_database(animal, local, data, hora, descricao, veterinario_email):
+        flash("Consulta agendada com sucesso")
+        return redirect(url_for('perfil'))
     else:
-        # Obter todos os veterinários disponíveis
-        with open('database/users.json', 'r') as users_file:
-            users_data = json.load(users_file)
-            veterinarios = [user for user in users_data if user.get(
-                'user_type') == 'veterinario']
-
-        if not veterinarios:
-            flash("Nenhum veterinário disponível no momento")
-            return redirect(url_for('perfil'))
-
-        # Escolher aleatoriamente um veterinário
-        veterinario_escolhido = random.choice(veterinarios)
-        veterinario_email = veterinario_escolhido.get('email')
-
-        if save_consulta_to_database(animal, local, data, hora, descricao, veterinario_email):
-            flash("Consulta agendada com sucesso")
-            return redirect(url_for('perfil'))
-        else:
-            flash("Erro inesperado")
-            return redirect(url_for('perfil'))
+        flash("Erro inesperado")
+        return redirect(url_for('perfil'))
 
 
 # Rota para a ficha do animal
-
-
 @app.route('/animal/<nome_animal>')
 def animal(nome_animal):
     if 'user' in session:
@@ -459,8 +454,6 @@ def animal(nome_animal):
 
 
 # Rota para exibir a página de perfil
-
-
 @app.route('/perfil', methods=['GET', 'POST'])
 def perfil():
     if 'user' in session:
@@ -488,8 +481,6 @@ def logout():
 
 
 # Rota para mostrar as consultas no vet_index
-
-
 @app.route('/vet_index')
 def vet_index():
     if 'user' in session:
@@ -514,8 +505,6 @@ def vet_index():
 
 
 # Rota para mostrar as consultas no vet_consultas
-
-
 @app.route('/vet_consultas')
 def vet_consultas():
     if 'user' in session:
@@ -562,8 +551,6 @@ def vet_consultas():
 
 
 # Rota para mostrar o vet_cliente
-
-
 @app.route('/vet_cliente', methods=['GET'])
 def vet_cliente():
     email_cliente = request.args.get('email_cliente')
@@ -625,8 +612,6 @@ def perfil_planos():
     return render_template('login.html')
 
 # Rota para lidar com a requisição de cancelar um plano
-
-
 @app.route('/cancelar_plano/<animal>/<plan_type>')
 def cancelar_plano(animal, plan_type):
     if 'user' in session:
@@ -642,9 +627,9 @@ def cancelar_plano(animal, plan_type):
                     animal_plans.remove(plan)
                     break
 
-            file.seek(0)  # Mover o cursor para o início do arquivo
+            file.seek(0)
             json.dump(data, file, indent=4)
-            file.truncate()  # Reduzir o tamanho do arquivo, se necessário
+            file.truncate()
 
             return redirect(url_for('perfil_planos'))
 
@@ -663,8 +648,7 @@ def remover_animal(animal_name):
 
             # Remover o animal da lista de animais do usuário
             animais = data['animais']
-            animais = [
-                animal for animal in animais if animal['name'] != animal_name]
+            animais = [animal for animal in animais if animal['name'] != animal_name]
             data['animais'] = animais
 
             # Remover o plano associado ao animal, se existir
@@ -689,14 +673,52 @@ def remover_animal(animal_name):
             flash("Imagem não encontrada")
             return redirect(url_for('perfil_animais'))
 
+        # Remover as consultas relacionadas ao animal no arquivo JSON do veterinário
+        vet_file_path = None
+
+        # Encontrar o arquivo JSON do veterinário
+        for animal in data['consultas']:
+            if animal['animal'] == animal_name:
+                vet_email = animal['veterinario']
+                vet_file_path = f'database/{vet_email}.json'
+                break
+
+        if vet_file_path is not None and os.path.exists(vet_file_path):
+            with open(vet_file_path, 'r+') as vet_file:
+                vet_data = json.load(vet_file)
+
+                consultas = vet_data['consultas']
+                consultas = [consulta for consulta in consultas if consulta['animal'] != animal_name]
+                vet_data['consultas'] = consultas
+
+                vet_file.seek(0)
+                json.dump(vet_data, vet_file, indent=4)
+                vet_file.truncate()
+        else:
+            flash("Arquivo do veterinário não encontrado")
+
+        # Reabrir o arquivo para remover as consultas relacionadas ao animal no arquivo JSON do cliente
+        email = session['user']['email']
+        file_path = f'database/{email}.json'
+        with open(file_path, 'r+') as file:
+            data = json.load(file)
+
+            consultas = data['consultas']
+            consultas = [consulta for consulta in consultas if consulta['animal'] != animal_name]
+            data['consultas'] = consultas
+
+            # Salvar as alterações no arquivo JSON do cliente
+            file.seek(0)
+            json.dump(data, file, indent=4)
+            file.truncate()
+
+
         flash("Animal removido com sucesso")
         return redirect(url_for('perfil_animais'))
 
     return redirect(url_for('login'))
 
 # Rota para lidar com a requisição para adicionar animal form
-
-
 # Define a pasta de upload e as extensões de arquivo permitidas
 UPLOAD_FOLDER = 'database'
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'webp'}
@@ -704,10 +726,6 @@ ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'webp'}
 
 @app.route('/adicionar_animal_form', methods=['POST'])
 def adicionar_animal_form():
-    # Lê os dados do formulário de adicionar animal: name, idade, raca, genero, peso e imagem
-    # Coloca esses dados no arquivo JSON do cliente logado
-    # Nesse arquivo, cada pessoa pode ter vários animais e os animais ainda têm uma lista de histórico
-
     name = request.form['name']
     idade = request.form['idade']
     raca = request.form['raca']

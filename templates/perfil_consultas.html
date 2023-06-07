@@ -127,9 +127,9 @@
                             <!-- Dias -->
                             <tbody>
                                 {% set dias_mes = [
-                                {'dia': '29', 'imagens': consultas_dias_imagens.get(29, [])},
-                                {'dia': '30', 'imagens': consultas_dias_imagens.get(30, [])},
-                                {'dia': '31', 'imagens': consultas_dias_imagens.get(31, [])},
+                                {'dia': '29', 'imagens': consultas_dias_imagens.get(0, [])},
+                                {'dia': '30', 'imagens': consultas_dias_imagens.get(0, [])},
+                                {'dia': '31', 'imagens': consultas_dias_imagens.get(0, [])},
                                 {'dia': '1', 'imagens': consultas_dias_imagens.get(1, [])},
                                 {'dia': '2', 'imagens': consultas_dias_imagens.get(2, [])},
                                 {'dia': '3', 'imagens': consultas_dias_imagens.get(3, [])},
@@ -160,8 +160,8 @@
                                 {'dia': '28', 'imagens': consultas_dias_imagens.get(28, [])},
                                 {'dia': '29', 'imagens': consultas_dias_imagens.get(29, [])},
                                 {'dia': '30', 'imagens': consultas_dias_imagens.get(30, [])},
-                                {'dia': '1', 'imagens': consultas_dias_imagens.get(1, [])},
-                                {'dia': '2', 'imagens': consultas_dias_imagens.get(2, [])}
+                                {'dia': '1', 'imagens': consultas_dias_imagens.get(0, [])},
+                                {'dia': '2', 'imagens': consultas_dias_imagens.get(0, [])}
                                 ] %}
 
                                 {% for row in range(5) %}

@@ -1,1 +1,14 @@
-[{"name": "Carlos", "email": "carlos@nutrivet.pt", "password": "1", "user_type": "veterinario"}, {"name": "Marco", "email": "marco@gmail.com", "password": "1", "user_type": "cliente"}]
+[
+    {
+        "name": "Carlos",
+        "email": "carlos@nutrivet.pt",
+        "password": "1",
+        "user_type": "veterinario"
+    },
+    {
+        "name": "Marco",
+        "email": "marco@gmail.com",
+        "password": "1",
+        "user_type": "cliente"
+    }
+]

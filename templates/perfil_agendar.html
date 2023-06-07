@@ -131,7 +131,8 @@
                                             {% for animal in animais %}
                                             <input type="radio" id="{{ animal.name }}" name="animal"
                                                 value="{{ animal.name }}" autocomplete="off" style="display: none;">
-                                            <label id="animal_sel" class="btn btn-secondary animal-btn animal-btn-{{ animal.name }}"
+                                            <label id="animal_sel"
+                                                class="btn btn-secondary animal-btn animal-btn-{{ animal.name }}"
                                                 style="border-width: 2px; border-radius: 10px;" for="{{ animal.name }}">
                                                 <img src="{{ url_for('static', filename=animal.imagem) }}"
                                                     class="rounded-circle" style="height: 100px;width: 150px;">
@@ -186,8 +187,8 @@
                                     </div>
                                     <div class="col-sm-12">
                                         <h5 class="mt-4">Diga-nos que tipo de serviço pretende*:</h5>
-                                        <textarea id="descricao" class="form-control form-control-lg" name="descricao" rows="5"
-                                            placeholder="Escreva algo..."
+                                        <textarea id="descricao" class="form-control form-control-lg" name="descricao"
+                                            rows="5" placeholder="Escreva algo..."
                                             style="background-color: #f4fcf4;border-radius: 5px;border: 2px solid rgba(69, 69, 69, 0.5);"></textarea>
                                         <div class="text-end">
                                             <button id="agendar_submit" type="submit" class="btn btn-primary"

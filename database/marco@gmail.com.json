@@ -17,26 +17,12 @@
             "peso": "4 kg",
             "historico": [],
             "imagem": "imagens_animais/marco@gmail.com_Luna.jpg"
-        },
-        {
-            "name": "Kiwi",
-            "idade": "1 ano",
-            "raca": "Calopsita",
-            "genero": "Macho",
-            "peso": "120 g",
-            "historico": [],
-            "imagem": "imagens_animais/marco@gmail.com_Kiwi.jpg"
         }
     ],
     "planos": [
         {
             "animal": "Max",
             "plan_type": "premium",
-            "data": "05/06/2023"
-        },
-        {
-            "animal": "Kiwi",
-            "plan_type": "standard",
             "data": "05/06/2023"
         }
     ],
@@ -46,14 +32,24 @@
             "local": "Clinica",
             "data": "7/06/2023",
             "hora": "13:00",
-            "descricao": "Vacina\u00e7\u00e3o anual, verificar peso e sa\u00fade geral."
+            "descricao": "Vacina\u00e7\u00e3o anual, verificar peso e sa\u00fade geral.",
+            "veterinario": "carlos@nutrivet.pt"
         },
         {
-            "animal": "Kiwi",
+            "animal": "Luna",
             "local": "Clinica",
             "data": "25/06/2023",
-            "hora": "14:30",
-            "descricao": "Exame de asas e unhas."
+            "hora": "asdf",
+            "descricao": "asdf",
+            "veterinario": "carlos@nutrivet.pt"
+        },
+        {
+            "animal": "Luna",
+            "local": "Clinica",
+            "data": "1/6/2023",
+            "hora": "asdf",
+            "descricao": "asdf",
+            "veterinario": "carlos@nutrivet.pt"
         }
     ]
 }
