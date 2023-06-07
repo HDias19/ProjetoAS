@@ -40,7 +40,7 @@ Ponto de vista do visitante:
         - Para obter mais detalhes sobre os serviços, clique na guia "Serviços" no menu superior e o mesmo equivale para a guia "Planos".
 
 2. Registar-se:
-        - Para se registar, clique no icon de perfil no canto superior direita do menu. Depois, terá de preencher um formulário com os seus dados pessoais e escolher um nome de utilizador e uma palavra-passe. Após preencher o formulário, clique em "Registar" e caso não haja nenhum erro, será possivel efetuar o login com os dados que acabou de inserir.
+        - Para se registar, clique no ícone de perfil no canto superior direito do menu. Depois, terá de preencher um formulário com os seus dados pessoais e escolher um nome de utilizador e uma palavra-passe. Após preencher o formulário, clique em "Registar" e caso não haja nenhum erro, será possivel efetuar o login com os dados que acabou de inserir.
 
         Aspetos a ter cuidado ao registar-se:
         - O nome de utilizador tem de ser único, ou seja, não pode haver dois utilizadores com o mesmo nome de utilizador.
@@ -61,7 +61,7 @@ Ponto de vista do cliente:
                 - Os meus animais: Aqui poderá ver os seus animais de estimação, adicionar novos e remover.
                 - Gerir planos: Aqui poderá ver os planos que tem ativos, adicionar novos e remover.
                 - Consultas: Aqui poderá ver as consultas que tem marcadas e adicionar novas.
-                - Contactar veterinário: Aqui poderá ligar para um veterinário de serviço de urgência, mas apenas se tiver um plano privado ativo.
+                - Contactar veterinário: Aqui poderá ligar para um veterinário de serviço de urgência 24h, mas apenas se tiver um plano Premium ativo na sua conta.
 
 3. Os meus animais:
         - Aqui consegue ver os seus animais de estimação, adicionar novos e remover.
@@ -75,7 +75,7 @@ Ponto de vista do cliente:
 4. Gerir planos:
         - Aqui consegue ver os planos que tem ativos, adicionar novos e remover.
         - Para adicionar um novo plano, clique no botão "Aderir a um plano" e preencha o formulário com os dados do plano.
-                - É redirecionado para a página de planos onde poderá selecionar um animal e para aderir a um plano, clique no botão "Aderir" do plano que pretende. A seguir é só selecionar o método de pagamento.
+                - É redirecionado para a página de planos onde poderá selecionar um animal e para aderir a um plano, clique no botão "Aderir" do plano que pretende. A seguir resta-lhe apenas selecionar o método de pagamento.
         - Para remover um plano, clique no botão "Cancelar plano" e o plano será cancelado e será redirecionado para a página "Gerir planos".
 
 5. Consultas:
@@ -87,7 +87,7 @@ Ponto de vista do cliente:
                 - A consulta é atribuída a um veterinário aleatório.
 
 6. Contactar veterinário:
-        - Aqui consegue ligar para um veterinário de serviço de urgência, mas apenas se tiver um plano premium ativo.
+        - Aqui consegue ligar para um veterinário de serviço de urgência, mas apenas se tiver um plano Premium ativo.
 
 7. Terminar sessão:
         - Para terminar a sessão, vá a página de perfil e clique no botão "Terminar sessão" e será redirecionado para a página inicial.
@@ -101,18 +101,18 @@ Ponto de vista do veterinário:
         - Clique no botão "Login" e será redirecionado para a página de perfil.
 
 2. Perfil:
-        - Ao aceder ao perfil na pagina inicial, poderá ver as suas próximas consultas.
+        - Ao aceder ao perfil na página inicial, poderá ver as suas próximas consultas.
         - Pode também pesquisar por um cliente.
-                - Para pesquisar por um cliente, preencha o formulário de "Pesquisar cliente" com o email do cliente e clique no botão "Pesquisar".
-                - Caso não saiba o email do cliente, basta escrever qualquer coisa no campo que será mostrada uma lista de todos os clientes, pode inclusive selecionar um cliente da lista.
-        - Além disso, você terá acesso no lado esquerdo do perfil à aba consultas.
+                - Para pesquisar por um cliente, preencha o formulário de "Pesquisar cliente" com o email exato do cliente e clique no botão "Pesquisar".
+                - Caso não saiba o email do cliente, basta escrever qualquer coisa no campo que será mostrada uma lista de todos os clientes, e pode inclusive selecionar um cliente da lista.
+        - Além disso, você terá acesso no lado esquerdo do perfil à aba das consultas.
 
 3. Perfil do cliente:
-        - Depois de pesquisar por um cliente é direcionado para o perfil do cliente.
+        - Depois de pesquisar por um cliente, é direcionado para o perfil do cliente.
         - Aqui consegue ver os detalhes do cliente, os animais do cliente, planos e as consultas agendadas desse cliente.
 
 4. Consultas:
         - Aqui consegue ver as suas próximas consultas e um calendário com a imagem do animal no dia respetivo da consulta.
 
 5. Terminar sessão:
-        - Para terminar a sessão, vá a página de perfil e clique no botão "Terminar sessão" e será redirecionado para a página inicial.
+        - Para terminar a sessão, vá à página de perfil e clique no botão "Terminar sessão" e será redirecionado para a página inicial.
