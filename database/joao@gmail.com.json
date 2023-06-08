@@ -1,0 +1,44 @@
+{
+    "animais": [
+        {
+            "name": "Luna",
+            "idade": "2 anos",
+            "raca": "Persa",
+            "genero": "F\u00eamea",
+            "peso": "4 kg",
+            "historico": [],
+            "imagem": "imagens_animais/joao@gmail.com_Luna.jpg"
+        },
+        {
+            "name": "Rocky",
+            "idade": "1 ano",
+            "raca": "Mini Lion Head",
+            "genero": "Macho",
+            "peso": "1,5 kg",
+            "historico": [],
+            "imagem": "imagens_animais/joao@gmail.com_Rocky.jpg"
+        }
+    ],
+    "planos": [
+        {
+            "animal": "Luna",
+            "plan_type": "standard",
+            "data": "08/06/2023"
+        },
+        {
+            "animal": "Rocky",
+            "plan_type": "premium",
+            "data": "08/06/2023"
+        }
+    ],
+    "consultas": [
+        {
+            "animal": "Luna",
+            "local": "Casa",
+            "data": "21/06/2023",
+            "hora": "17:30",
+            "descricao": "Vacina\u00e7\u00e3o anual e exame de rotina.",
+            "veterinario": "carlos@nutrivet.pt"
+        }
+    ]
+}

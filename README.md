@@ -14,20 +14,20 @@ Link para o site (hospedado pelos serviços do pythonanywhere): http://nutrivet.
 ## Logins existentes:
 
 ### Cliente
-- Nome Utilizador: Marco Rodrigues
+- Nome Utilizador: Marco
   - Email: marco@gmail.com
   - Palavra-passe: marco1234
 
-- Nome Utilizador: João Almeida
+- Nome Utilizador: João
   - Email: joao@gmail.com
   - Palavra-passe: joao1234
 
 ### Veterinário
-- Nome Utilizador: Carlos Silva
+- Nome Utilizador: Carlos
   - Email: carlos@nutrivet.pt
   - Palavra-passe: carlos1234
 
-- Nome Utilizador: Nelson Costa
+- Nome Utilizador: Nelson
   - Email: nelson@nutrivet.pt
   - Palavra-passe: nelson1234
 
